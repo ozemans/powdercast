@@ -1,20 +1,24 @@
 import { WMO_WEATHER_CODES } from "./types";
 
-export function formatTemp(temp: number): string {
+export function formatTemp(temp: number | null | undefined): string {
+  if (temp == null) return "—";
   return `${Math.round(temp)}°F`;
 }
 
-export function formatSnowfall(inches: number): string {
+export function formatSnowfall(inches: number | null | undefined): string {
+  if (inches == null) return '—';
   if (inches === 0) return '0"';
   if (inches < 1) return `${inches.toFixed(1)}"`;
   return `${Math.round(inches)}"`;
 }
 
-export function formatWind(mph: number): string {
+export function formatWind(mph: number | null | undefined): string {
+  if (mph == null) return "—";
   return `${Math.round(mph)} mph`;
 }
 
-export function formatElevation(ft: number): string {
+export function formatElevation(ft: number | null | undefined): string {
+  if (ft == null) return "—";
   return `${ft.toLocaleString()} ft`;
 }
 

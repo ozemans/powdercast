@@ -399,7 +399,7 @@ export default async function ResortPage({ params }: PageProps) {
               <div className="flex justify-between">
                 <dt className="text-text-secondary">Skiable Acreage</dt>
                 <dd className="font-medium tabular-nums text-text-primary">
-                  {resort.acreage.toLocaleString()} ac
+                  {resort.acreage ? resort.acreage.toLocaleString() : '—'} ac
                 </dd>
               </div>
               <div className="flex justify-between">

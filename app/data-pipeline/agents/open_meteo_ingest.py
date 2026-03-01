@@ -192,9 +192,10 @@ def _ingest_model(
             _insert_forecasts(conn, rid, model_name, hourly, run_time)
             total_ingested += 1
 
-        # Be polite — small delay between batches
+        # Be polite — delay between batches (longer for rate-limited models)
         if batch_idx < len(batches) - 1:
-            time.sleep(0.5)
+            delay = 2.0 if model_name == "icon" else 1.0
+            time.sleep(delay)
 
     conn.commit()
     return total_ingested
@@ -320,7 +321,7 @@ def _build_json_output(conn: sqlite3.Connection, resorts: list[dict], resort_id_
         for model_name in MODELS:
             rows = conn.execute(
                 """
-                SELECT valid_time, temperature_f, snowfall_in, precipitation as precip_liquid_in,
+                SELECT valid_time, temperature_f, snowfall_in, precip_liquid_in,
                        freezing_level_ft, wind_speed_mph, wind_direction,
                        cloud_cover_pct, weather_code
                 FROM forecasts
@@ -501,6 +502,9 @@ def _compute_snowfall_totals(blended_rows: list) -> tuple[float, float, float]:
         vt_str = r["valid_time"]
         try:
             vt = datetime.fromisoformat(vt_str.replace("Z", "+00:00"))
+            # Ensure timezone-aware for comparison
+            if vt.tzinfo is None:
+                vt = vt.replace(tzinfo=timezone.utc)
         except (ValueError, TypeError):
             continue
         snow = r["snowfall_in"] or 0

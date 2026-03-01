@@ -1,19 +1,23 @@
 """
 SNOTEL observation ingest agent.
 
-For each western US resort, queries the Powderlines API to find the 3 closest
+For each western US resort, queries the NRCS AWDB REST API to find the 3 closest
 SNOTEL stations and ingests their observation data into the observations table.
 Also generates per-resort observation JSON files for the frontend.
+
+Uses: https://wcc.sc.egov.usda.gov/awdbRestApi/services/v1
+No authentication required.
 """
 
 from __future__ import annotations
 
 import json
 import logging
+import math
 import os
 import sqlite3
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 import requests
 
@@ -22,65 +26,164 @@ logger = logging.getLogger(__name__)
 # States with SNOTEL coverage (western US)
 SNOTEL_STATES = {"CO", "UT", "CA", "WA", "OR", "MT", "WY", "ID", "NM", "NV", "AZ"}
 
-POWDERLINES_URL = "https://api.powderlin.es/closest_stations"
+AWDB_BASE = "https://wcc.sc.egov.usda.gov/awdbRestApi/services/v1"
+STATIONS_URL = f"{AWDB_BASE}/stations"
+DATA_URL = f"{AWDB_BASE}/data"
+
+# Elements to fetch
+ELEMENTS = "SNWD,WTEQ,TOBS,PREC"
+
+# Max stations to batch in one data request
+DATA_BATCH_SIZE = 20
 
 
-def _fetch_stations(lat: float, lon: float) -> list[dict] | None:
+def _haversine_miles(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
+    """Compute great-circle distance in miles between two points."""
+    R = 3959  # Earth radius in miles
+    dlat = math.radians(lat2 - lat1)
+    dlon = math.radians(lon2 - lon1)
+    a = (math.sin(dlat / 2) ** 2 +
+         math.cos(math.radians(lat1)) * math.cos(math.radians(lat2)) *
+         math.sin(dlon / 2) ** 2)
+    return R * 2 * math.asin(math.sqrt(a))
+
+
+def _fetch_all_snotel_stations() -> list[dict]:
     """
-    Fetch the 3 nearest SNOTEL stations for a given lat/lon.
-    Returns parsed station data or None on failure.
+    Fetch metadata for all active SNOTEL stations nationally.
+    Returns list of station dicts with lat, lon, elevation, triplet, name.
+    """
+    for attempt in range(3):
+        try:
+            resp = requests.get(
+                STATIONS_URL,
+                params={"stationTriplets": "*:*:SNTL", "activeOnly": "true"},
+                timeout=30,
+            )
+            resp.raise_for_status()
+            stations = resp.json()
+            logger.info("Fetched %d SNOTEL stations from NRCS AWDB", len(stations))
+            return stations
+        except requests.RequestException as e:
+            wait = 2 ** attempt
+            logger.warning(
+                "AWDB stations request failed (attempt %d/3): %s — retrying in %ds",
+                attempt + 1, e, wait,
+            )
+            time.sleep(wait)
+
+    logger.error("All retries exhausted fetching SNOTEL station list")
+    return []
+
+
+def _find_nearest_stations(
+    lat: float,
+    lon: float,
+    all_stations: list[dict],
+    count: int = 3,
+    max_miles: float = 50.0,
+) -> list[dict]:
+    """Find the nearest SNOTEL stations to a given lat/lon."""
+    distances = []
+    for s in all_stations:
+        slat = s.get("latitude")
+        slon = s.get("longitude")
+        if slat is None or slon is None:
+            continue
+        d = _haversine_miles(lat, lon, slat, slon)
+        if d <= max_miles:
+            distances.append((d, s))
+
+    distances.sort(key=lambda x: x[0])
+    return [
+        {**s, "_distance_mi": round(d, 1)}
+        for d, s in distances[:count]
+    ]
+
+
+def _fetch_station_data(triplets: list[str], begin_date: str, end_date: str) -> list[dict]:
+    """
+    Fetch daily observation data for a batch of stations.
+    Returns the parsed JSON response (list of station data objects).
     """
     params = {
-        "lat": lat,
-        "lng": lon,
-        "data": "true",
-        "days": 7,
-        "count": 3,
+        "stationTriplets": ",".join(triplets),
+        "elements": ELEMENTS,
+        "duration": "DAILY",
+        "beginDate": begin_date,
+        "endDate": end_date,
     }
 
     for attempt in range(3):
         try:
-            resp = requests.get(POWDERLINES_URL, params=params, timeout=15)
+            resp = requests.get(DATA_URL, params=params, timeout=30)
             resp.raise_for_status()
             return resp.json()
         except requests.RequestException as e:
             wait = 2 ** attempt
             logger.warning(
-                "Powderlines request failed (attempt %d/3): %s — retrying in %ds",
+                "AWDB data request failed (attempt %d/3): %s — retrying in %ds",
                 attempt + 1, e, wait,
             )
             time.sleep(wait)
 
-    logger.error("All retries exhausted for SNOTEL query at %.4f, %.4f", lat, lon)
-    return None
+    logger.error("All retries exhausted fetching SNOTEL data for %d stations", len(triplets))
+    return []
 
 
-def _parse_station_data(station: dict) -> dict | None:
+def _parse_awdb_response(station_data: dict, station_meta: dict) -> dict | None:
     """
-    Parse a single station response from Powderlines into a normalized dict.
-    Station data varies — handle missing fields gracefully.
+    Parse AWDB data response for one station into normalized format.
+    station_data: one entry from the /data response array
+    station_meta: the nearby station metadata (includes _distance_mi)
     """
-    try:
-        triplet = station.get("triplet", "")
-        name = station.get("station_name", station.get("name", "Unknown"))
-        elevation = station.get("elevation", 0)
-        distance = station.get("distance", 0)
-
-        # The 'data' field contains daily observations
-        data_points = station.get("data", [])
-        if not data_points:
-            return None
-
-        return {
-            "name": name,
-            "triplet": triplet,
-            "elevation_ft": int(elevation) if elevation else 0,
-            "distance_mi": round(float(distance), 1) if distance else 0,
-            "data": data_points,
-        }
-    except (TypeError, ValueError) as e:
-        logger.debug("Failed to parse station: %s", e)
+    data_entries = station_data.get("data", [])
+    if not data_entries:
         return None
+
+    triplet = station_data.get("stationTriplet", station_meta.get("stationTriplet", ""))
+    name = station_meta.get("name", "Unknown")
+    elevation = station_meta.get("elevation", 0)
+    distance = station_meta.get("_distance_mi", 0)
+
+    # Build a date-keyed dict of observations from all elements
+    by_date: dict[str, dict] = {}
+    for element_block in data_entries:
+        el_info = element_block.get("stationElement", {})
+        code = el_info.get("elementCode", "")
+        values = element_block.get("values", [])
+
+        for v in values:
+            date = v.get("date", "")
+            val = v.get("value")
+            if not date:
+                continue
+            if date not in by_date:
+                by_date[date] = {}
+            by_date[date][code] = val
+
+    if not by_date:
+        return None
+
+    # Convert to list of observation dicts
+    observations = []
+    for date in sorted(by_date.keys()):
+        obs = by_date[date]
+        observations.append({
+            "date": date,
+            "snow_depth_in": obs.get("SNWD"),
+            "swe_in": obs.get("WTEQ"),
+            "temperature_f": obs.get("TOBS"),
+            "precip_accum_in": obs.get("PREC"),
+        })
+
+    return {
+        "name": name,
+        "triplet": triplet,
+        "elevation_ft": int(elevation) if elevation else 0,
+        "distance_mi": distance,
+        "data": observations,
+    }
 
 
 def _insert_observations(
@@ -88,13 +191,10 @@ def _insert_observations(
     resort_id: int,
     station: dict,
 ) -> int:
-    """
-    Insert observation rows for one station. Returns the number of rows inserted.
-    """
+    """Insert observation rows for one station. Returns the number of rows inserted."""
     rows = []
     for obs in station["data"]:
-        # Powderlines uses 'Date' as the timestamp key
-        timestamp = obs.get("Date", obs.get("date", ""))
+        timestamp = obs.get("date", "")
         if not timestamp:
             continue
 
@@ -104,12 +204,10 @@ def _insert_observations(
             station["triplet"],
             station["elevation_ft"],
             timestamp,
-            _safe_float(obs.get("Snow Depth (in)", obs.get("snow_depth"))),
-            _safe_float(obs.get("Snow Water Equivalent (in)", obs.get("swe"))),
-            _safe_float(obs.get("Observed Air Temperature (degrees farenheit)",
-                        obs.get("air_temperature"))),
-            _safe_float(obs.get("Precipitation Accumulation (in)",
-                        obs.get("precip_accumulation"))),
+            _safe_float(obs.get("snow_depth_in")),
+            _safe_float(obs.get("swe_in")),
+            _safe_float(obs.get("temperature_f")),
+            _safe_float(obs.get("precip_accum_in")),
         ))
 
     if not rows:
@@ -183,7 +281,7 @@ def _build_json_output(
                     "name": r["station_name"],
                     "triplet": triplet,
                     "elevation_ft": r["station_elevation_ft"],
-                    "distance_mi": 0,  # not stored in DB, but available in API response
+                    "distance_mi": 0,
                     "latest": None,
                     "history_7d": [],
                 }
@@ -248,38 +346,86 @@ def run(conn: sqlite3.Connection, resorts: list[dict] | None = None) -> None:
         if row:
             resort_id_map[slug] = row["id"] if isinstance(row, sqlite3.Row) else row[0]
 
+    # Fetch all SNOTEL stations nationally (one API call)
+    all_stations = _fetch_all_snotel_stations()
+    if not all_stations:
+        logger.error("Could not fetch SNOTEL station list — aborting SNOTEL ingest")
+        return
+
+    # Date range: last 7 days
+    end_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    begin_date = (datetime.now(timezone.utc) - timedelta(days=7)).strftime("%Y-%m-%d")
+
+    # For each resort, find nearest stations and collect triplets
+    resort_stations: dict[str, list[dict]] = {}  # slug -> list of station meta
+    all_triplets_needed: set[str] = set()
+
+    for resort in eligible:
+        nearest = _find_nearest_stations(
+            resort["latitude"], resort["longitude"], all_stations, count=3
+        )
+        if nearest:
+            resort_stations[resort["slug"]] = nearest
+            for s in nearest:
+                all_triplets_needed.add(s["stationTriplet"])
+
+    logger.info(
+        "Found %d unique SNOTEL stations for %d resorts",
+        len(all_triplets_needed), len(resort_stations),
+    )
+
+    # Fetch data for all needed stations in batches
+    triplet_list = sorted(all_triplets_needed)
+    station_data_map: dict[str, dict] = {}  # triplet -> raw data response
+
+    for i in range(0, len(triplet_list), DATA_BATCH_SIZE):
+        batch = triplet_list[i : i + DATA_BATCH_SIZE]
+        logger.info(
+            "  Fetching SNOTEL data batch %d/%d (%d stations)",
+            i // DATA_BATCH_SIZE + 1,
+            (len(triplet_list) + DATA_BATCH_SIZE - 1) // DATA_BATCH_SIZE,
+            len(batch),
+        )
+
+        data_resp = _fetch_station_data(batch, begin_date, end_date)
+        for entry in data_resp:
+            triplet = entry.get("stationTriplet", "")
+            if triplet:
+                station_data_map[triplet] = entry
+
+        # Rate limit
+        if i + DATA_BATCH_SIZE < len(triplet_list):
+            time.sleep(0.5)
+
+    logger.info("Fetched data for %d stations", len(station_data_map))
+
     # Clear previous observation data
     conn.execute("DELETE FROM observations")
     conn.commit()
 
+    # Insert observations per resort
     total_obs = 0
-    for i, resort in enumerate(eligible):
+    for resort in eligible:
         slug = resort["slug"]
         rid = resort_id_map.get(slug)
         if rid is None:
             continue
 
-        logger.info(
-            "  [%d/%d] Fetching SNOTEL for %s",
-            i + 1, len(eligible), slug,
-        )
-
-        stations = _fetch_stations(resort["latitude"], resort["longitude"])
-        if stations is None:
-            continue
-
-        for station_raw in stations:
-            station = _parse_station_data(station_raw)
-            if station is None:
+        nearby = resort_stations.get(slug, [])
+        for station_meta in nearby:
+            triplet = station_meta["stationTriplet"]
+            raw_data = station_data_map.get(triplet)
+            if raw_data is None:
                 continue
-            n = _insert_observations(conn, rid, station)
+
+            parsed = _parse_awdb_response(raw_data, station_meta)
+            if parsed is None:
+                continue
+
+            n = _insert_observations(conn, rid, parsed)
             total_obs += n
 
         conn.commit()
-
-        # Rate limit — be respectful to Powderlines API
-        if i < len(eligible) - 1:
-            time.sleep(0.3)
 
     logger.info("Inserted %d total observation rows", total_obs)
 
