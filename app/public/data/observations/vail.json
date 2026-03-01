@@ -1,0 +1,50 @@
+{
+  "slug": "vail",
+  "last_updated": "2026-02-25T06:00:00Z",
+  "snotel_stations": [
+    {
+      "name": "Vail Mountain",
+      "triplet": "802:CO:SNTL",
+      "elevation_ft": 10300,
+      "distance_mi": 1.2,
+      "latest": {
+        "date": "2026-02-25",
+        "snow_depth_in": 58,
+        "swe_in": 22.4,
+        "temp_f": 18,
+        "precip_accum_in": 28.6
+      },
+      "history_7d": [
+        { "date": "2026-02-19", "snow_depth_in": 44, "swe_in": 16.8 },
+        { "date": "2026-02-20", "snow_depth_in": 46, "swe_in": 17.5 },
+        { "date": "2026-02-21", "snow_depth_in": 48, "swe_in": 18.2 },
+        { "date": "2026-02-22", "snow_depth_in": 50, "swe_in": 19.0 },
+        { "date": "2026-02-23", "snow_depth_in": 52, "swe_in": 20.1 },
+        { "date": "2026-02-24", "snow_depth_in": 55, "swe_in": 21.3 },
+        { "date": "2026-02-25", "snow_depth_in": 58, "swe_in": 22.4 }
+      ]
+    },
+    {
+      "name": "Copper Mountain",
+      "triplet": "415:CO:SNTL",
+      "elevation_ft": 11100,
+      "distance_mi": 8.5,
+      "latest": {
+        "date": "2026-02-25",
+        "snow_depth_in": 62,
+        "swe_in": 24.1,
+        "temp_f": 14,
+        "precip_accum_in": 31.2
+      },
+      "history_7d": [
+        { "date": "2026-02-19", "snow_depth_in": 48, "swe_in": 18.2 },
+        { "date": "2026-02-20", "snow_depth_in": 50, "swe_in": 19.0 },
+        { "date": "2026-02-21", "snow_depth_in": 52, "swe_in": 19.8 },
+        { "date": "2026-02-22", "snow_depth_in": 54, "swe_in": 20.6 },
+        { "date": "2026-02-23", "snow_depth_in": 56, "swe_in": 21.5 },
+        { "date": "2026-02-24", "snow_depth_in": 59, "swe_in": 22.8 },
+        { "date": "2026-02-25", "snow_depth_in": 62, "swe_in": 24.1 }
+      ]
+    }
+  ]
+}

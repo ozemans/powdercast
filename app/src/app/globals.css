@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #0F1729;
+  --bg-secondary: #1A2332;
+  --bg-elevated: #243044;
+  --text-primary: #E8EDF5;
+  --text-secondary: #8B9DC3;
+  --accent-blue: #4A9BD9;
+  --accent-orange: #FF6B35;
+  --accent-green: #27AE60;
+  --accent-purple: #9B59B6;
+  --snow-bar: #4A9BD9;
+  --powder-bar: #FF6B35;
+  --border: #2A3A52;
+}
+
+@theme inline {
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-orange: var(--accent-orange);
+  --color-accent-green: var(--accent-green);
+  --color-accent-purple: var(--accent-purple);
+  --color-snow-bar: var(--snow-bar);
+  --color-powder-bar: var(--powder-bar);
+  --color-border: var(--border);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+}
+
+/* Tabular numbers for data displays */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-elevated);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
