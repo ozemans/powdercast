@@ -38,6 +38,9 @@ export default function ForecastTable({ days }: ForecastTableProps) {
               Wind
             </th>
             <th className="hidden px-4 py-3 text-right font-medium lg:table-cell">
+              Snow Quality
+            </th>
+            <th className="hidden px-4 py-3 text-right font-medium lg:table-cell">
               Confidence
             </th>
           </tr>
@@ -97,6 +100,31 @@ export default function ForecastTable({ days }: ForecastTableProps) {
                   <span className="ml-1 text-[11px]">
                     (G {formatWind(day.wind_gust)})
                   </span>
+                </td>
+                <td className="hidden px-4 py-3 text-right lg:table-cell">
+                  {day.snow_quality ? (
+                    <span
+                      className={cn(
+                        "inline-block rounded-full px-2 py-0.5 text-[11px] font-medium",
+                        day.snow_quality === "Fresh Powder" &&
+                          "bg-accent-blue/15 text-accent-blue",
+                        day.snow_quality === "Packed Powder" &&
+                          "bg-accent-green/15 text-accent-green",
+                        day.snow_quality === "Spring Conditions" &&
+                          "bg-accent-orange/15 text-accent-orange",
+                        day.snow_quality === "Wind Affected" &&
+                          "bg-text-secondary/15 text-text-secondary",
+                        day.snow_quality === "Wet/Heavy" &&
+                          "bg-accent-orange/15 text-accent-orange",
+                        !["Fresh Powder", "Packed Powder", "Spring Conditions", "Wind Affected", "Wet/Heavy"].includes(day.snow_quality) &&
+                          "bg-text-secondary/15 text-text-secondary"
+                      )}
+                    >
+                      {day.snow_quality}
+                    </span>
+                  ) : (
+                    <span className="text-[11px] text-text-secondary">—</span>
+                  )}
                 </td>
                 <td className="hidden px-4 py-3 text-right lg:table-cell">
                   <span

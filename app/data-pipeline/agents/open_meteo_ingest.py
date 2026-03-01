@@ -220,26 +220,33 @@ def _compute_blended(conn: sqlite3.Connection, resorts: list[dict], resort_id_ma
         if rid is None:
             continue
 
-        # Get the latest run_time for this resort
-        row = conn.execute(
-            "SELECT MAX(run_time) as latest FROM forecasts WHERE resort_id = ?",
-            (rid,),
-        ).fetchone()
-        if not row or not row["latest"]:
-            continue
-        latest_run = row["latest"]
-
-        # Gather all model data for this run, grouped by valid_time
-        rows = conn.execute(
+        # Get latest run_time per model (each model may have a different fetch timestamp)
+        latest_runs = conn.execute(
             """
-            SELECT valid_time, model_name,
-                   snowfall_in, temperature_f, wind_speed_mph, weather_code
-            FROM forecasts
-            WHERE resort_id = ? AND run_time = ?
-            ORDER BY valid_time
+            SELECT model_name, MAX(run_time) as latest
+            FROM forecasts WHERE resort_id = ?
+            GROUP BY model_name
             """,
-            (rid, latest_run),
+            (rid,),
         ).fetchall()
+        if not latest_runs:
+            continue
+        latest_run = max(r["latest"] for r in latest_runs)
+
+        # Gather all model data from each model's latest run
+        rows = []
+        for lr in latest_runs:
+            model_rows = conn.execute(
+                """
+                SELECT valid_time, model_name,
+                       snowfall_in, temperature_f, wind_speed_mph, weather_code
+                FROM forecasts
+                WHERE resort_id = ? AND model_name = ? AND run_time = ?
+                ORDER BY valid_time
+                """,
+                (rid, lr["model_name"], lr["latest"]),
+            ).fetchall()
+            rows.extend(model_rows)
 
         # Group by valid_time
         by_time: dict[str, list[dict]] = defaultdict(list)
@@ -365,7 +372,8 @@ def _build_json_output(conn: sqlite3.Connection, resorts: list[dict], resort_id_
             """
             SELECT valid_time, snowfall_in, snowfall_low, snowfall_high,
                    temperature_f, wind_speed_mph, wind_gust_mph,
-                   confidence, weather_code
+                   confidence, weather_code,
+                   snow_level_ft, downscaled_temp_f, slr, snow_quality
             FROM processed_forecasts
             WHERE resort_id = ?
             ORDER BY valid_time
@@ -378,21 +386,62 @@ def _build_json_output(conn: sqlite3.Connection, resorts: list[dict], resort_id_
             "snowfall": [],
             "temperature_2m": [],
             "confidence": [],
+            "snow_level": [],
         }
         for r in blended_rows:
             blended_hourly["time"].append(r["valid_time"])
             blended_hourly["snowfall"].append(r["snowfall_in"])
             blended_hourly["temperature_2m"].append(r["temperature_f"])
             blended_hourly["confidence"].append(r["confidence"])
+            blended_hourly["snow_level"].append(r["snow_level_ft"])
 
         # --- Build daily summaries ---
         daily_summary = _compute_daily_summary(blended_rows)
+
+        # --- Generate narrative ---
+        narrative = ""
+        snow_quality_label = ""
+        try:
+            from intelligence.narrative import generate_narrative, predict_snow_quality
+            snow_24h_tmp, snow_48h_tmp, snow_7d_tmp = _compute_snowfall_totals(blended_rows)
+            avg_temp = None
+            avg_wind = None
+            avg_gust = None
+            avg_snow_level = None
+            avg_slr = None
+            if daily_summary:
+                day0 = daily_summary[0]
+                avg_temp = day0.get("temp_high")
+                avg_wind = day0.get("wind_avg")
+                avg_gust = day0.get("wind_gust")
+            # Get average snow level and SLR from first 48h
+            snow_levels = [r["snow_level_ft"] for r in blended_rows[:48] if r["snow_level_ft"] is not None]
+            slr_vals = [r["slr"] for r in blended_rows[:48] if r["slr"] is not None]
+            if snow_levels:
+                avg_snow_level = sum(snow_levels) / len(snow_levels)
+            if slr_vals:
+                avg_slr = sum(slr_vals) / len(slr_vals)
+
+            narrative = generate_narrative(
+                resort["name"], snow_48h_tmp, snow_7d_tmp,
+                avg_temp, daily_summary[0].get("temp_low") if daily_summary else None,
+                avg_wind, avg_gust, avg_snow_level, avg_slr,
+                daily_summary[0].get("confidence", "medium") if daily_summary else "medium",
+            )
+            from datetime import datetime as dt
+            snow_quality_label = predict_snow_quality(
+                snow_48h_tmp, avg_temp, avg_wind, dt.now().month,
+            )
+        except Exception as e:
+            logger.debug("Narrative generation skipped: %s", e)
 
         forecast_obj = {
             "slug": slug,
             "last_updated": now,
             "models": models_data,
             "blended": {
+                "narrative": narrative,
+                "snow_quality": snow_quality_label,
                 "hourly": blended_hourly,
                 "daily_summary": daily_summary,
             },
@@ -472,6 +521,20 @@ def _compute_daily_summary(blended_rows: list) -> list[dict]:
         dominant_code = max(codes) if codes else 0
         conditions = WMO_CONDITIONS.get(dominant_code, "Unknown")
 
+        # Phase 2: snow level and quality
+        snow_levels = [h["snow_level_ft"] for h in hours if h["snow_level_ft"] is not None]
+        avg_snow_level = round(sum(snow_levels) / len(snow_levels)) if snow_levels else None
+        # Compute daily snow quality from daily aggregates
+        day_quality = None
+        try:
+            from intelligence.narrative import predict_snow_quality
+            from datetime import datetime as dt
+            day_temp_high = round(max(temps)) if temps else None
+            day_wind_avg = round(sum(winds) / len(winds)) if winds else None
+            day_quality = predict_snow_quality(daily_snow, day_temp_high, day_wind_avg, dt.now().month)
+        except Exception:
+            pass
+
         summaries.append({
             "date": date_str,
             "snowfall_total": daily_snow,
@@ -483,6 +546,8 @@ def _compute_daily_summary(blended_rows: list) -> list[dict]:
             "wind_gust": round(max(gusts)) if gusts else None,
             "conditions": conditions,
             "confidence": day_conf,
+            "snow_level_ft": avg_snow_level,
+            "snow_quality": day_quality,
         })
 
     return summaries
@@ -529,10 +594,21 @@ def _get_current_conditions(blended_rows: list) -> str:
     return WMO_CONDITIONS.get(code or 0, "Unknown")
 
 
-def run(conn: sqlite3.Connection, resorts: list[dict] | None = None) -> None:
+def _build_resort_id_map(conn: sqlite3.Connection, resorts: list[dict]) -> dict[str, int]:
+    """Build slug → resort_id mapping."""
+    resort_id_map: dict[str, int] = {}
+    for r in resorts:
+        slug = r["slug"]
+        row = conn.execute("SELECT id FROM resorts WHERE slug = ?", (slug,)).fetchone()
+        if row:
+            resort_id_map[slug] = row["id"] if isinstance(row, sqlite3.Row) else row[0]
+    return resort_id_map
+
+
+def run_ingest_only(conn: sqlite3.Connection, resorts: list[dict] | None = None) -> dict[str, int]:
     """
-    Main entry point. Fetch forecasts from all models, blend them,
-    and write JSON output files.
+    Ingest raw forecasts from all models. Does NOT blend or generate JSON.
+    Returns the resort_id_map for use by downstream steps.
     """
     if resorts is None:
         rows = conn.execute("SELECT * FROM resorts").fetchall()
@@ -540,19 +616,12 @@ def run(conn: sqlite3.Connection, resorts: list[dict] | None = None) -> None:
 
     if not resorts:
         logger.warning("No resorts found — skipping Open-Meteo ingest")
-        return
+        return {}
 
-    # Build slug → resort_id map
-    resort_id_map: dict[str, int] = {}
-    for r in resorts:
-        slug = r["slug"]
-        row = conn.execute("SELECT id FROM resorts WHERE slug = ?", (slug,)).fetchone()
-        if row:
-            resort_id_map[slug] = row["id"] if isinstance(row, sqlite3.Row) else row[0]
-
+    resort_id_map = _build_resort_id_map(conn, resorts)
     if not resort_id_map:
         logger.error("No resort IDs found in database — run seed_resorts first")
-        return
+        return {}
 
     # Clear previous forecast data for a fresh ingest
     conn.execute("DELETE FROM forecasts")
@@ -564,13 +633,34 @@ def run(conn: sqlite3.Connection, resorts: list[dict] | None = None) -> None:
         count = _ingest_model(conn, model_name, url, resorts, resort_id_map)
         logger.info("  %s: ingested %d resorts", model_name, count)
 
-    # Compute blended forecasts
+    return resort_id_map
+
+
+def run_json_output(conn: sqlite3.Connection, resorts: list[dict], resort_id_map: dict[str, int]) -> None:
+    """Generate JSON output files from processed_forecasts (called after intelligence step)."""
+    logger.info("Generating JSON output files...")
+    _build_json_output(conn, resorts, resort_id_map)
+
+
+def run(conn: sqlite3.Connection, resorts: list[dict] | None = None) -> None:
+    """
+    Legacy entry point. Runs full pipeline: ingest + blend + JSON output.
+    Phase 2 pipeline uses run_ingest_only() + intelligence + run_json_output() instead.
+    """
+    if resorts is None:
+        rows = conn.execute("SELECT * FROM resorts").fetchall()
+        resorts = [dict(r) for r in rows]
+
+    resort_id_map = run_ingest_only(conn, resorts)
+    if not resort_id_map:
+        return
+
+    # Compute blended forecasts (Phase 1 simple average — kept as fallback)
     logger.info("Computing blended forecasts...")
     _compute_blended(conn, resorts, resort_id_map)
 
     # Generate JSON output for frontend
-    logger.info("Generating JSON output files...")
-    _build_json_output(conn, resorts, resort_id_map)
+    run_json_output(conn, resorts, resort_id_map)
 
 
 if __name__ == "__main__":

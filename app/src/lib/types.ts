@@ -63,6 +63,8 @@ export interface DailySummary {
   wind_gust: number;
   conditions: string;
   confidence: "high" | "medium" | "low";
+  snow_level_ft: number | null;
+  snow_quality: string | null;
 }
 
 export interface ResortForecast {
@@ -70,11 +72,14 @@ export interface ResortForecast {
   last_updated: string;
   models: Record<string, ModelForecast>;
   blended: {
+    narrative: string;
+    snow_quality: string;
     hourly: {
       time: string[];
       snowfall: number[];
       temperature_2m: number[];
       confidence: string[];
+      snow_level: (number | null)[];
     };
     daily_summary: DailySummary[];
   };

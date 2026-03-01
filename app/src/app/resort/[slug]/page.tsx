@@ -227,6 +227,39 @@ export default async function ResortPage({ params }: PageProps) {
         </div>
       </div>
 
+      {/* Narrative Banner */}
+      {forecast?.blended.narrative && (
+        <div className="mb-6 rounded-xl border border-accent-blue/20 bg-accent-blue/5 p-4">
+          <div className="flex items-start gap-3">
+            <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+            </svg>
+            <div>
+              <p className="text-sm leading-relaxed text-text-primary">
+                {forecast.blended.narrative}
+              </p>
+              {forecast.blended.snow_quality && (
+                <span className={`mt-2 inline-block rounded-full px-2.5 py-0.5 text-[11px] font-medium ${
+                  forecast.blended.snow_quality === "Fresh Powder"
+                    ? "bg-accent-blue/15 text-accent-blue"
+                    : forecast.blended.snow_quality === "Packed Powder"
+                    ? "bg-accent-green/15 text-accent-green"
+                    : forecast.blended.snow_quality === "Spring Conditions"
+                    ? "bg-accent-orange/15 text-accent-orange"
+                    : forecast.blended.snow_quality === "Wind Affected"
+                    ? "bg-text-secondary/15 text-text-secondary"
+                    : forecast.blended.snow_quality === "Wet/Heavy"
+                    ? "bg-accent-orange/15 text-accent-orange"
+                    : "bg-text-secondary/15 text-text-secondary"
+                }`}>
+                  {forecast.blended.snow_quality}
+                </span>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Main content grid */}
       <div className="grid gap-6 lg:grid-cols-3">
         {/* Left column: forecast data */}

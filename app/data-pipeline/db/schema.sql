@@ -60,6 +60,9 @@ CREATE TABLE IF NOT EXISTS processed_forecasts (
   snow_quality TEXT,
   confidence TEXT,
   weather_code INTEGER,
+  snow_level_ft REAL,
+  downscaled_temp_f REAL,
+  slr REAL,
   updated_at TEXT DEFAULT (datetime('now')),
   FOREIGN KEY (resort_id) REFERENCES resorts(id)
 );

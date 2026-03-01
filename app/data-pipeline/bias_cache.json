@@ -1,0 +1,527 @@
+{
+  "49-degrees-north": {
+    "temp_bias": 6.0,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "alta": {
+    "temp_bias": -3.7,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "angel-fire": {
+    "temp_bias": 6.2,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "anthony-lakes": {
+    "temp_bias": -3.3,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "arapahoe-basin": {
+    "temp_bias": 1.8,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "arizona-snowbowl": {
+    "temp_bias": 1.7,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "aspen-highlands": {
+    "temp_bias": 11.7,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "aspen-mountain": {
+    "temp_bias": 13.7,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "aspen-snowmass": {
+    "temp_bias": 8.7,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "badger-pass": {
+    "temp_bias": -2.0,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "beaver-mountain": {
+    "temp_bias": -1.1,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "big-sky": {
+    "temp_bias": 4.4,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "blacktail-mountain": {
+    "temp_bias": -0.7,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "bluewood": {
+    "temp_bias": 4.3,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "bogus-basin": {
+    "temp_bias": 0.1,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "boreal-mountain": {
+    "temp_bias": -3.9,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "breckenridge": {
+    "temp_bias": 3.9,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "brian-head": {
+    "temp_bias": -5.3,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "bridger-bowl": {
+    "temp_bias": 1.1,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "brighton": {
+    "temp_bias": -3.3,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "brundage-mountain": {
+    "temp_bias": 7.2,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "buttermilk": {
+    "temp_bias": 9.8,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "cherry-peak": {
+    "temp_bias": 3.8,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "copper-mountain": {
+    "temp_bias": 6.9,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "crested-butte": {
+    "temp_bias": 5.2,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "crystal-mountain-wa": {
+    "temp_bias": -1.8,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "deer-valley": {
+    "temp_bias": 0.2,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "diamond-peak": {
+    "temp_bias": -3.7,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "discovery": {
+    "temp_bias": 0.4,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "dodge-ridge": {
+    "temp_bias": 0.7,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "donner-ski-ranch": {
+    "temp_bias": -4.1,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "eagle-point": {
+    "temp_bias": -4.6,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "eldora": {
+    "temp_bias": 0.9,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "grand-targhee": {
+    "temp_bias": -2.3,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "heavenly": {
+    "temp_bias": -0.2,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "hogadon": {
+    "temp_bias": 3.1,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "homewood": {
+    "temp_bias": -2.5,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "hoodoo": {
+    "temp_bias": 1.1,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "howelsen-hill": {
+    "temp_bias": 12.4,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "jackson-hole": {
+    "temp_bias": 1.3,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "june-mountain": {
+    "temp_bias": -4.8,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "kelly-canyon": {
+    "temp_bias": 5.9,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "keystone": {
+    "temp_bias": 6.0,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "kirkwood": {
+    "temp_bias": -4.4,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "lee-canyon": {
+    "temp_bias": -9.1,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "lookout-pass": {
+    "temp_bias": 2.4,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "lost-trail": {
+    "temp_bias": 3.5,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "loveland": {
+    "temp_bias": 2.1,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "mammoth-mountain": {
+    "temp_bias": -16.1,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "meadowlark": {
+    "temp_bias": -6.9,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "mission-ridge": {
+    "temp_bias": 6.8,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "monarch-mountain": {
+    "temp_bias": 1.3,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "montana-snowbowl": {
+    "temp_bias": 10.1,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "mt-ashland": {
+    "temp_bias": -6.5,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "mt-bachelor": {
+    "temp_bias": -11.5,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "mt-baker": {
+    "temp_bias": 3.4,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "mt-hood-meadows": {
+    "temp_bias": 1.0,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "mt-hood-skibowl": {
+    "temp_bias": 6.2,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "mt-rose": {
+    "temp_bias": -12.2,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "mt-spokane": {
+    "temp_bias": 2.4,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "nordic-valley": {
+    "temp_bias": 3.8,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "northstar": {
+    "temp_bias": -1.7,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "palisades-tahoe": {
+    "temp_bias": -2.4,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "park-city": {
+    "temp_bias": 0.7,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "pebble-creek": {
+    "temp_bias": 0.9,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "powder-mountain": {
+    "temp_bias": -7.3,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "powderhorn": {
+    "temp_bias": 13.6,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "purgatory": {
+    "temp_bias": 6.5,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "red-lodge-mountain": {
+    "temp_bias": -2.2,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "schweitzer": {
+    "temp_bias": 3.1,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "showdown-montana": {
+    "temp_bias": -0.7,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "sierra-at-tahoe": {
+    "temp_bias": -2.5,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "silver-mountain": {
+    "temp_bias": 10.2,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "silverton-mountain": {
+    "temp_bias": 1.1,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "sipapu": {
+    "temp_bias": -1.2,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "ski-apache": {
+    "temp_bias": -1.3,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "ski-cooper": {
+    "temp_bias": 4.0,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "ski-granby-ranch": {
+    "temp_bias": 5.6,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "ski-santa-fe": {
+    "temp_bias": -1.1,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "sleeping-giant": {
+    "temp_bias": 3.5,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "snoqualmie-pass": {
+    "temp_bias": 5.8,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "snow-king-mountain": {
+    "temp_bias": 7.5,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "snowbasin": {
+    "temp_bias": 0.5,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "snowbird": {
+    "temp_bias": -2.6,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "soda-springs": {
+    "temp_bias": -1.4,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "solitude": {
+    "temp_bias": -1.3,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "steamboat": {
+    "temp_bias": 13.3,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "stevens-pass": {
+    "temp_bias": 5.8,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "sugar-bowl": {
+    "temp_bias": -3.8,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "sun-valley": {
+    "temp_bias": 9.0,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "sundance": {
+    "temp_bias": -0.2,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "sunlight-mountain": {
+    "temp_bias": 6.6,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "sunrise-park-resort": {
+    "temp_bias": 7.8,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "tamarack": {
+    "temp_bias": 6.3,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "taos-ski-valley": {
+    "temp_bias": 5.5,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "telluride": {
+    "temp_bias": 7.0,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "teton-pass-ski-area": {
+    "temp_bias": 5.0,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "timberline": {
+    "temp_bias": -0.5,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "vail": {
+    "temp_bias": 5.7,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "white-pass": {
+    "temp_bias": 5.5,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "white-pine": {
+    "temp_bias": 9.1,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "whitefish-mountain": {
+    "temp_bias": 6.1,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "willamette-pass": {
+    "temp_bias": 0.7,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "winter-park": {
+    "temp_bias": 6.4,
+    "precip_ratio": 1.0,
+    "days": 7
+  },
+  "wolf-creek": {
+    "temp_bias": 4.4,
+    "precip_ratio": 1.0,
+    "days": 7
+  }
+}

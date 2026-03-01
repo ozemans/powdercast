@@ -31,6 +31,8 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 from db_helper import get_db, init_schema, get_all_resorts
 from agents import seed_resorts, open_meteo_ingest, snotel_ingest, nws_ingest
+from intelligence.blend import compute_weighted_blend
+from intelligence.bias_correction import run as run_bias_correction
 
 # ---------------------------------------------------------------------------
 # Configuration
@@ -145,10 +147,11 @@ def main() -> None:
     db_resorts = get_all_resorts(conn)
     logger.info("Resorts in database: %d", len(db_resorts))
 
-    # Step 2: Open-Meteo forecasts (the core data source)
+    # Step 2: Open-Meteo raw forecast ingest
+    resort_id_map = {}
     with _timed("Open-Meteo Forecast Ingest"):
         try:
-            open_meteo_ingest.run(conn, db_resorts)
+            resort_id_map = open_meteo_ingest.run_ingest_only(conn, db_resorts)
         except Exception:
             logger.exception("Open-Meteo ingest failed")
 
@@ -171,6 +174,33 @@ def main() -> None:
                 logger.exception("NWS ingest failed")
     else:
         logger.info("Skipping NWS ingest (--skip-nws)")
+
+    # Step 5: Phase 2 Intelligence — weighted blend + SLR + elevation + narratives
+    with _timed("Intelligence Post-Processing"):
+        try:
+            if not resort_id_map:
+                resort_id_map = open_meteo_ingest._build_resort_id_map(conn, db_resorts)
+            compute_weighted_blend(conn, db_resorts, resort_id_map)
+        except Exception:
+            logger.exception("Weighted blend failed — falling back to simple average")
+            try:
+                open_meteo_ingest._compute_blended(conn, db_resorts, resort_id_map)
+            except Exception:
+                logger.exception("Simple blend also failed")
+
+    # Step 6: Bias correction (stores factors for future use)
+    with _timed("Bias Correction"):
+        try:
+            run_bias_correction(conn)
+        except Exception:
+            logger.exception("Bias correction failed (non-critical)")
+
+    # Step 7: Generate JSON output
+    with _timed("JSON Output Generation"):
+        try:
+            open_meteo_ingest.run_json_output(conn, db_resorts, resort_id_map)
+        except Exception:
+            logger.exception("JSON output generation failed")
 
     # Summary
     forecast_count = conn.execute("SELECT COUNT(*) FROM forecasts").fetchone()[0]
