@@ -1,19 +1,23 @@
+"use client";
+
 import type { DailySummary } from "@/lib/types";
 import {
   formatDate,
   formatDateShort,
   formatSnowfall,
-  formatTemp,
   formatWind,
   cn,
 } from "@/lib/utils";
 import { ConditionsIcon } from "./ConditionsIcon";
+import { useUnit } from "@/contexts/UnitContext";
 
 interface ForecastTableProps {
   days: DailySummary[];
 }
 
 export default function ForecastTable({ days }: ForecastTableProps) {
+  const { displayTemp } = useUnit();
+
   if (!days || days.length === 0) {
     return (
       <div className="rounded-xl border border-border bg-bg-secondary p-6 text-center text-sm text-text-secondary">
@@ -27,18 +31,18 @@ export default function ForecastTable({ days }: ForecastTableProps) {
       <table className="w-full text-sm">
         <thead>
           <tr className="border-b border-border text-xs uppercase tracking-wider text-text-secondary">
-            <th className="px-4 py-3 text-left font-medium">Day</th>
+            <th className="px-4 py-3 text-left font-medium">Date</th>
             <th className="px-4 py-3 text-left font-medium">Conditions</th>
-            <th className="px-4 py-3 text-right font-medium">Snowfall</th>
+            <th className="px-4 py-3 text-right font-medium">Snow</th>
             <th className="hidden px-4 py-3 text-right font-medium sm:table-cell">
               Range
             </th>
-            <th className="px-4 py-3 text-right font-medium">High / Low</th>
+            <th className="px-4 py-3 text-right font-medium">Hi / Lo</th>
             <th className="hidden px-4 py-3 text-right font-medium md:table-cell">
               Wind
             </th>
             <th className="hidden px-4 py-3 text-right font-medium lg:table-cell">
-              Snow Quality
+              Quality
             </th>
             <th className="hidden px-4 py-3 text-right font-medium lg:table-cell">
               Confidence
@@ -48,6 +52,9 @@ export default function ForecastTable({ days }: ForecastTableProps) {
         <tbody>
           {days.map((day) => {
             const isPowder = day.snowfall_total >= 6;
+            // "Mon, Mar 3" → split to get "Mar 3"
+            const dateParts = formatDate(day.date).split(",");
+            const monthDay = dateParts.length > 1 ? dateParts[1].trim() : dateParts[0];
             return (
               <tr
                 key={day.date}
@@ -62,11 +69,8 @@ export default function ForecastTable({ days }: ForecastTableProps) {
                   <div className="font-medium text-text-primary">
                     {formatDateShort(day.date)}
                   </div>
-                  <div className="text-[11px] text-text-secondary md:hidden">
-                    {formatDate(day.date)}
-                  </div>
-                  <div className="hidden text-[11px] text-text-secondary md:block">
-                    {formatDate(day.date)}
+                  <div className="text-[11px] text-text-secondary">
+                    {monthDay}
                   </div>
                 </td>
                 <td className="px-4 py-3">
@@ -86,13 +90,13 @@ export default function ForecastTable({ days }: ForecastTableProps) {
                   </span>
                 </td>
                 <td className="hidden px-4 py-3 text-right tabular-nums text-text-secondary sm:table-cell">
-                  {formatSnowfall(day.snowfall_low)} -{" "}
+                  {formatSnowfall(day.snowfall_low)} –{" "}
                   {formatSnowfall(day.snowfall_high)}
                 </td>
                 <td className="px-4 py-3 text-right tabular-nums text-text-primary">
-                  {formatTemp(day.temp_high)}{" "}
+                  {displayTemp(day.temp_high)}{" "}
                   <span className="text-text-secondary">
-                    / {formatTemp(day.temp_low)}
+                    / {displayTemp(day.temp_low)}
                   </span>
                 </td>
                 <td className="hidden px-4 py-3 text-right tabular-nums text-text-secondary md:table-cell">
@@ -116,7 +120,7 @@ export default function ForecastTable({ days }: ForecastTableProps) {
                           "bg-text-secondary/15 text-text-secondary",
                         day.snow_quality === "Wet/Heavy" &&
                           "bg-accent-orange/15 text-accent-orange",
-                        !["Fresh Powder", "Packed Powder", "Spring Conditions", "Wind Affected", "Wet/Heavy"].includes(day.snow_quality) &&
+                        !["Fresh Powder","Packed Powder","Spring Conditions","Wind Affected","Wet/Heavy"].includes(day.snow_quality) &&
                           "bg-text-secondary/15 text-text-secondary"
                       )}
                     >

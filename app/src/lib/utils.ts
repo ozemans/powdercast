@@ -22,8 +22,15 @@ export function formatElevation(ft: number | null | undefined): string {
   return `${ft.toLocaleString()} ft`;
 }
 
+// Parse YYYY-MM-DD as local time (avoids UTC-midnight off-by-one in US timezones)
+function parseLocalDate(dateStr: string): Date {
+  const [year, month, day] = dateStr.split("T")[0].split("-").map(Number);
+  return new Date(year, month - 1, day);
+}
+
+// "Mon, Mar 3" — full readable date for table rows and subtitles
 export function formatDate(dateStr: string): string {
-  const date = new Date(dateStr);
+  const date = parseLocalDate(dateStr);
   return date.toLocaleDateString("en-US", {
     weekday: "short",
     month: "short",
@@ -31,11 +38,11 @@ export function formatDate(dateStr: string): string {
   });
 }
 
+// "Mon 3" — compact format for chart axis labels and tight spaces
 export function formatDateShort(dateStr: string): string {
-  const date = new Date(dateStr);
-  return date.toLocaleDateString("en-US", {
-    weekday: "short",
-  });
+  const date = parseLocalDate(dateStr);
+  const weekday = date.toLocaleDateString("en-US", { weekday: "short" });
+  return `${weekday} ${date.getDate()}`;
 }
 
 export function getWeatherDescription(code: number): string {

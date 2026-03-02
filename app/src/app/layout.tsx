@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Bebas_Neue, Instrument_Sans, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
+import { Providers } from "@/components/Providers";
+import { UnitToggle } from "@/components/UnitToggle";
 
 const bebasNeue = Bebas_Neue({
   weight: "400",
@@ -49,6 +51,7 @@ export default function RootLayout({
       <body
         className={`${bebasNeue.variable} ${instrumentSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
+        <Providers>
         {/* Navigation */}
         <nav className="sticky top-0 z-50 border-b border-border bg-bg-secondary/90 backdrop-blur-md">
           <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -89,7 +92,7 @@ export default function RootLayout({
               </span>
             </Link>
 
-            <div className="flex items-center gap-8">
+            <div className="flex items-center gap-6">
               <Link
                 href="/"
                 className="text-sm font-medium text-text-secondary transition-colors hover:text-text-primary"
@@ -108,6 +111,7 @@ export default function RootLayout({
               >
                 About
               </Link>
+              <UnitToggle />
             </div>
           </div>
         </nav>
@@ -159,6 +163,7 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+        </Providers>
       </body>
     </html>
   );
