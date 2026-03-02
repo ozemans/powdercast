@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Bebas_Neue, Instrument_Sans, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
 import { UnitToggle } from "@/components/UnitToggle";
+import MobileNav from "@/components/MobileNav";
 
 const bebasNeue = Bebas_Neue({
   weight: "400",
@@ -21,6 +22,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  viewportFit: "cover",
+  themeColor: "#07111F",
+};
+
 export const metadata: Metadata = {
   title: "PowderCast — Snow Forecasting for Ski Resorts",
   description:
@@ -33,6 +42,12 @@ export const metadata: Metadata = {
     "SNOTEL",
     "ski weather",
   ],
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "PowderCast",
+  },
   openGraph: {
     title: "PowderCast — Snow Forecasting",
     description:
@@ -92,32 +107,35 @@ export default function RootLayout({
               </span>
             </Link>
 
-            <div className="flex items-center gap-6">
-              <Link
-                href="/"
-                className="text-sm font-medium text-text-secondary transition-colors hover:text-text-primary"
-              >
-                Forecasts
-              </Link>
-              <Link
-                href="/map"
-                className="text-sm font-medium text-text-secondary transition-colors hover:text-text-primary"
-              >
-                Map
-              </Link>
-              <Link
-                href="/about"
-                className="text-sm font-medium text-text-secondary transition-colors hover:text-text-primary"
-              >
-                About
-              </Link>
+            <div className="flex items-center gap-4">
+              <div className="hidden sm:flex items-center gap-6">
+                <Link
+                  href="/"
+                  className="text-sm font-medium text-text-secondary transition-colors hover:text-text-primary"
+                >
+                  Forecasts
+                </Link>
+                <Link
+                  href="/map"
+                  className="text-sm font-medium text-text-secondary transition-colors hover:text-text-primary"
+                >
+                  Map
+                </Link>
+                <Link
+                  href="/about"
+                  className="text-sm font-medium text-text-secondary transition-colors hover:text-text-primary"
+                >
+                  About
+                </Link>
+              </div>
               <UnitToggle />
             </div>
           </div>
         </nav>
 
         {/* Main content */}
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 pb-16 sm:pb-0">{children}</main>
+        <MobileNav />
 
         {/* Footer */}
         <footer className="border-t border-border bg-bg-secondary/50">
