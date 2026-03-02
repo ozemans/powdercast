@@ -158,8 +158,8 @@ export default async function ResortPage({ params }: PageProps) {
       <div className="mb-8">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-text-primary sm:text-3xl">
-              {resort.name}
+            <h1 className="font-brand text-3xl tracking-wider text-text-primary sm:text-4xl">
+              {resort.name.toUpperCase()}
             </h1>
             <p className="mt-1 text-sm text-text-secondary">
               {resort.state_province}, {resort.country} &middot; {resort.region}
@@ -266,8 +266,8 @@ export default async function ResortPage({ params }: PageProps) {
         <div className="space-y-6 lg:col-span-2">
           {/* 7-Day Forecast */}
           <section>
-            <h2 className="mb-3 text-base font-bold text-text-primary">
-              7-Day Forecast
+            <h2 className="mb-3 font-brand text-xl tracking-wider text-text-primary">
+              7-DAY FORECAST
             </h2>
             {forecast ? (
               <ForecastTable days={forecast.blended.daily_summary} />
@@ -280,8 +280,8 @@ export default async function ResortPage({ params }: PageProps) {
 
           {/* Snowfall Chart */}
           <section>
-            <h2 className="mb-3 text-base font-bold text-text-primary">
-              Snowfall Forecast
+            <h2 className="mb-3 font-brand text-xl tracking-wider text-text-primary">
+              SNOWFALL FORECAST
             </h2>
             {forecast ? (
               <SnowfallChart days={forecast.blended.daily_summary} />
@@ -295,8 +295,8 @@ export default async function ResortPage({ params }: PageProps) {
           {/* Model Comparison */}
           {forecast && (
             <section>
-              <h2 className="mb-3 text-base font-bold text-text-primary">
-                Model Comparison
+              <h2 className="mb-3 font-brand text-xl tracking-wider text-text-primary">
+                MODEL COMPARISON
               </h2>
               <ModelComparison
                 models={forecast.models}
@@ -308,8 +308,8 @@ export default async function ResortPage({ params }: PageProps) {
           {/* SNOTEL Observations */}
           {observations && observations.snotel_stations.length > 0 && (
             <section>
-              <h2 className="mb-3 text-base font-bold text-text-primary">
-                SNOTEL Observations
+              <h2 className="mb-3 font-brand text-xl tracking-wider text-text-primary">
+                SNOTEL OBSERVATIONS
               </h2>
               <div className="space-y-4">
                 {observations.snotel_stations.map((station) => (

@@ -82,8 +82,8 @@ def compute_weighted_blend(
 
     This replaces the Phase 1 simple-average _compute_blended() function.
     """
-    from .elevation import downscale_temperature, compute_snow_level
-    from .slr import compute_snowfall
+    from .elevation import compute_snow_level
+    from .slr import compute_slr
 
     # Clear old processed forecasts
     conn.execute("DELETE FROM processed_forecasts")
@@ -183,25 +183,34 @@ def compute_weighted_blend(
             humidity_avg = sum(humidities) / len(humidities) if humidities else None
             code = max(set(codes), key=codes.count) if codes else None
 
-            # Apply elevation downscaling to temperature
-            # Use model grid elevation from Open-Meteo (stored as resort elevation for now)
-            # TODO: store actual model grid elevation during ingest
-            model_elev = resort.get("elevation_mid_ft", 0)  # approximate
-            downscaled_temp = temp_avg  # Will be corrected with real model elev
+            # Elevation downscaling (approximate — uses resort elev as proxy)
+            downscaled_temp = temp_avg
 
-            # Compute dynamic SLR-based snowfall
-            snowfall, slr = compute_snowfall(precip_avg, temp_avg, wind_avg)
+            # Use model-reported snowfall for the blend. Models use wet-bulb
+            # temperature and full atmospheric profiles for phase detection and
+            # their own SLR — this is more accurate than re-deriving snowfall
+            # from liquid precip + 2m temp alone.
+            model_snow_sum = 0.0
+            model_snow_weight = 0.0
+            model_snows = []
+            for m in models:
+                mn = m["model_name"]
+                w = weights.get(mn, 0)
+                snow_val = m["snowfall_in"] if m["snowfall_in"] is not None else 0.0
+                model_snows.append(snow_val)
+                if w > 0:
+                    model_snow_sum += snow_val * w
+                    model_snow_weight += w
+
+            snowfall = (model_snow_sum / model_snow_weight) if model_snow_weight > 0 else 0
+
+            # Compute SLR for auxiliary use (narratives, quality labels)
+            slr = compute_slr(temp_avg or 33, wind_avg or 0)
 
             # Compute snow level
             snow_level = compute_snow_level(freezing_avg, precip_avg)
 
-            # Compute snowfall spread from individual model snowfalls
-            model_snows = []
-            for m in models:
-                if m["precip_liquid_in"] is not None and m["temperature_f"] is not None:
-                    sf, _ = compute_snowfall(m["precip_liquid_in"], m["temperature_f"], m.get("wind_speed_mph"))
-                    model_snows.append(sf)
-
+            # Snowfall spread from individual models
             snow_low = min(model_snows) if model_snows else 0
             snow_high = max(model_snows) if model_snows else 0
 

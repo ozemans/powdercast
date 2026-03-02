@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Bebas_Neue, Instrument_Sans, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const bebasNeue = Bebas_Neue({
+  weight: "400",
   subsets: ["latin"],
+  variable: "--font-bebas",
+});
+
+const instrumentSans = Instrument_Sans({
+  subsets: ["latin"],
+  variable: "--font-instrument",
 });
 
 const geistMono = Geist_Mono({
@@ -41,38 +47,54 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+        className={`${bebasNeue.variable} ${instrumentSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
         {/* Navigation */}
-        <nav className="sticky top-0 z-50 border-b border-border bg-bg-secondary/80 backdrop-blur-md">
+        <nav className="sticky top-0 z-50 border-b border-border bg-bg-secondary/90 backdrop-blur-md">
           <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-            <Link href="/" className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent-blue">
+            <Link href="/" className="group flex items-center gap-3">
+              {/* Mountain logo */}
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent-blue/10 ring-1 ring-accent-blue/25 transition-all group-hover:bg-accent-blue/15 group-hover:ring-accent-blue/50">
                 <svg
-                  className="h-5 w-5 text-white"
+                  className="h-5 w-5 text-accent-blue"
+                  viewBox="0 0 28 24"
                   fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
+                  xmlns="http://www.w3.org/2000/svg"
                 >
+                  {/* Mountain fill */}
                   <path
-                    strokeLinecap="round"
+                    d="M1 22L9 5L14 13L18 7L27 22H1Z"
+                    fill="currentColor"
+                    fillOpacity="0.15"
+                  />
+                  {/* Mountain outline */}
+                  <path
+                    d="M1 22L9 5L14 13L18 7L27 22"
+                    stroke="currentColor"
+                    strokeWidth="2"
                     strokeLinejoin="round"
-                    d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+                    fill="none"
+                  />
+                  {/* Snow sparkle at summit */}
+                  <path
+                    d="M18 7V4M18 7L20.5 5M18 7L15.5 5"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
                   />
                 </svg>
               </div>
-              <span className="text-lg font-bold text-text-primary">
-                PowderCast
+              <span className="font-brand text-xl tracking-widest text-text-primary transition-colors group-hover:text-accent-blue">
+                POWDERCAST
               </span>
             </Link>
 
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-8">
               <Link
                 href="/"
                 className="text-sm font-medium text-text-secondary transition-colors hover:text-text-primary"
               >
-                Home
+                Forecasts
               </Link>
               <Link
                 href="/map"
@@ -94,12 +116,12 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
 
         {/* Footer */}
-        <footer className="border-t border-border bg-bg-secondary">
+        <footer className="border-t border-border bg-bg-secondary/50">
           <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
             <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-semibold text-text-primary">
-                  PowderCast
+              <div className="flex items-center gap-3">
+                <span className="font-brand text-sm tracking-widest text-text-primary">
+                  POWDERCAST
                 </span>
                 <span className="text-xs text-text-secondary">
                   Multi-model snow forecasting
@@ -115,7 +137,7 @@ export default function RootLayout({
                 >
                   Open-Meteo
                 </a>
-                {" / "}
+                {" · "}
                 <a
                   href="https://www.nrcs.usda.gov/wps/portal/wcc/home/snowClimateMonitoring/snowpack/"
                   target="_blank"
@@ -124,7 +146,7 @@ export default function RootLayout({
                 >
                   SNOTEL
                 </a>
-                {" / "}
+                {" · "}
                 <a
                   href="https://www.weather.gov"
                   target="_blank"

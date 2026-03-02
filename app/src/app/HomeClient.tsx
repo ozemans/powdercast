@@ -55,12 +55,15 @@ export default function HomeClient({ resorts, regions }: HomeClientProps) {
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       {/* Hero / Search */}
-      <div className="mb-8 text-center">
-        <h1 className="mb-2 text-3xl font-bold text-text-primary sm:text-4xl">
-          Snow Forecasts for Every Mountain
+      <div className="mb-10 text-center">
+        <p className="mb-2 text-xs font-bold uppercase tracking-widest text-accent-blue">
+          Multi-Model · SNOTEL-Validated · 257 Resorts
+        </p>
+        <h1 className="mb-3 font-brand text-5xl tracking-widest text-text-primary sm:text-6xl">
+          KNOW BEFORE YOU GO
         </h1>
-        <p className="mb-6 text-text-secondary">
-          Multi-model blended forecasts for 200+ North American ski resorts
+        <p className="mb-7 text-sm text-text-secondary">
+          Blended GFS · ECMWF · ICON · GEM forecasts for North American ski resorts
         </p>
         <div
           className="mx-auto"
@@ -81,8 +84,8 @@ export default function HomeClient({ resorts, regions }: HomeClientProps) {
           {/* Top Snowfall Next 24 Hours */}
           <section className="mb-10">
             <div className="mb-4 flex items-center justify-between">
-              <h2 className="text-lg font-bold text-text-primary">
-                Top Snowfall — Next 24 Hours
+              <h2 className="font-brand text-2xl tracking-widest text-text-primary">
+                TOP SNOWFALL — 24H
               </h2>
               <span className="text-xs text-text-secondary">
                 {topSnowfall.length} resorts
@@ -97,16 +100,16 @@ export default function HomeClient({ resorts, regions }: HomeClientProps) {
 
           {/* Browse by Region */}
           <section className="mb-10">
-            <h2 className="mb-4 text-lg font-bold text-text-primary">
-              Browse by Region
+            <h2 className="mb-4 font-brand text-2xl tracking-widest text-text-primary">
+              BROWSE BY REGION
             </h2>
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setSelectedRegion(null)}
-                className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
+                className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-all ${
                   selectedRegion === null
-                    ? "bg-accent-blue text-white"
-                    : "bg-bg-secondary text-text-secondary hover:bg-bg-elevated hover:text-text-primary border border-border"
+                    ? "bg-accent-blue/15 text-accent-blue ring-1 ring-accent-blue/40"
+                    : "border border-border bg-bg-secondary text-text-secondary hover:border-accent-blue/20 hover:bg-bg-elevated hover:text-text-primary"
                 }`}
               >
                 All Regions
@@ -121,14 +124,14 @@ export default function HomeClient({ resorts, regions }: HomeClientProps) {
                         selectedRegion === region ? null : region
                       )
                     }
-                    className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
+                    className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-all ${
                       selectedRegion === region
-                        ? "bg-accent-blue text-white"
-                        : "bg-bg-secondary text-text-secondary hover:bg-bg-elevated hover:text-text-primary border border-border"
+                        ? "bg-accent-blue/15 text-accent-blue ring-1 ring-accent-blue/40"
+                        : "border border-border bg-bg-secondary text-text-secondary hover:border-accent-blue/20 hover:bg-bg-elevated hover:text-text-primary"
                     }`}
                   >
                     {region}{" "}
-                    <span className="opacity-60">({count})</span>
+                    <span className="opacity-50">({count})</span>
                   </button>
                 );
               })}
@@ -138,8 +141,8 @@ export default function HomeClient({ resorts, regions }: HomeClientProps) {
           {/* All Resorts */}
           <section>
             <div className="mb-4 flex items-center justify-between">
-              <h2 className="text-lg font-bold text-text-primary">
-                {selectedRegion ? selectedRegion : "All Resorts"}
+              <h2 className="font-brand text-2xl tracking-widest text-text-primary">
+                {selectedRegion ? selectedRegion.toUpperCase() : "ALL RESORTS"}
               </h2>
               <span className="text-xs text-text-secondary">
                 {filteredResorts.length} resort{filteredResorts.length !== 1 ? "s" : ""}
