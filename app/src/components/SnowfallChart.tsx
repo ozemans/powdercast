@@ -71,12 +71,12 @@ function CustomTooltip({ active, payload }: CustomTooltipProps) {
       <div style={{ color: "#4A7396", fontSize: "11px", marginTop: "2px" }}>
         Range: {data.snowLow}&quot; – {data.snowHigh}&quot;
       </div>
-      {data.melt > 0 && (
+      {data.melt < 0 && (
         <div style={{ color: "#F87171", fontSize: "11px", marginTop: "2px" }}>
-          Melt: {data.melt.toFixed(1)}&quot;
+          Melt: {Math.abs(data.melt).toFixed(1)}&quot;
         </div>
       )}
-      {data.melt > 0 && (
+      {data.melt < 0 && (
         <div
           style={{
             color: data.netChange >= 0 ? "#10B981" : "#F87171",
@@ -161,7 +161,7 @@ export default function SnowfallChart({ days }: SnowfallChartProps) {
             content={<CustomTooltip />}
             cursor={{ fill: "rgba(34,211,238,0.05)" }}
           />
-          <Bar dataKey="snowfall" radius={[4, 4, 0, 0]} maxBarSize={48}>
+          <Bar dataKey="snowfall" stackId="a" radius={[4, 4, 0, 0]} maxBarSize={48}>
             <ErrorBar
               dataKey="errorRange"
               width={4}
@@ -183,7 +183,7 @@ export default function SnowfallChart({ days }: SnowfallChartProps) {
             ))}
           </Bar>
           {hasMelt && (
-            <Bar dataKey="melt" radius={[0, 0, 4, 4]} maxBarSize={48}>
+            <Bar dataKey="melt" stackId="a" radius={[0, 0, 4, 4]} maxBarSize={48}>
               {data.map((_, index) => (
                 <Cell
                   key={`melt-${index}`}
