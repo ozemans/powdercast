@@ -28,6 +28,13 @@ MODELS = {
     "ecmwf": "https://api.open-meteo.com/v1/ecmwf",
     "icon": "https://api.open-meteo.com/v1/dwd-icon",
     "gem": "https://api.open-meteo.com/v1/gem",
+    "hrrr": "https://api.open-meteo.com/v1/gfs",
+    "nbm": "https://api.open-meteo.com/v1/gfs",
+}
+
+MODEL_PARAMS = {
+    "hrrr": {"models": "ncep_hrrr_conus", "forecast_days": 2},
+    "nbm": {"models": "ncep_nbm_conus"},
 }
 
 HOURLY_VARS = (
@@ -77,6 +84,7 @@ def _fetch_model(model_name: str, url: str, resorts: list[dict]) -> dict | None:
         "forecast_days": 7,
         "timezone": "UTC",
     }
+    params.update(MODEL_PARAMS.get(model_name, {}))
 
     for attempt in range(3):
         try:
@@ -164,6 +172,13 @@ def _ingest_model(
     Ingest forecasts for all resorts from one model.
     Returns the number of resorts successfully ingested.
     """
+    # HRRR and NBM are US-only models
+    if model_name in ("hrrr", "nbm"):
+        resorts = [r for r in resorts if r.get("country", "US") != "CA"]
+        if not resorts:
+            logger.info("  %s: no US resorts to ingest, skipping", model_name)
+            return 0
+
     run_time = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     batches = _batch_resorts(resorts, BATCH_SIZE)
     total_ingested = 0
