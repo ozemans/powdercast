@@ -109,8 +109,9 @@ export default function ForecastTable({ days, hourly }: ForecastTableProps) {
                     )}
                   </td>
                   <td className="hidden px-4 py-3 text-right tabular-nums text-text-secondary sm:table-cell">
-                    {formatSnowfall(day.snowfall_low)} –{" "}
-                    {formatSnowfall(day.snowfall_high)}
+                    <span className="whitespace-nowrap">
+                      {Math.round(day.snowfall_low)}&ndash;{formatSnowfall(day.snowfall_high)}
+                    </span>
                   </td>
                   <td className="whitespace-nowrap px-4 py-3 text-right tabular-nums text-text-primary">
                     {displayTemp(day.temp_high)}{" "}
@@ -133,7 +134,7 @@ export default function ForecastTable({ days, hourly }: ForecastTableProps) {
                     {day.snow_quality ? (
                       <span
                         className={cn(
-                          "inline-block rounded-full px-2 py-0.5 text-[11px] font-medium",
+                          "inline-block whitespace-nowrap rounded-full px-2 py-0.5 text-[11px] font-medium",
                           day.snow_quality === "Fresh Powder" &&
                             "bg-accent-blue/15 text-accent-blue",
                           day.snow_quality === "Packed Powder" &&
@@ -148,7 +149,11 @@ export default function ForecastTable({ days, hourly }: ForecastTableProps) {
                             "bg-text-secondary/15 text-text-secondary"
                         )}
                       >
-                        {day.snow_quality}
+                        {day.snow_quality
+                          .replace("Fresh Powder", "Powder")
+                          .replace("Packed Powder", "Packed")
+                          .replace("Spring Conditions", "Spring")
+                          .replace("Wind Affected", "Windy")}
                       </span>
                     ) : (
                       <span className="text-[11px] text-text-secondary">—</span>
