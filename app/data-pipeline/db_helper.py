@@ -36,6 +36,8 @@ def init_schema(conn: sqlite3.Connection) -> None:
     _migrate_phase2(conn)
     # Phase 3 migrations: melt forecasting columns
     _migrate_phase3(conn)
+    # Phase 4 migrations: base/summit temps and extra hourly fields
+    _migrate_phase4(conn)
 
     logger.info("Database schema initialized")
 
@@ -80,6 +82,17 @@ def _migrate_phase3(conn: sqlite3.Connection) -> None:
         if col not in processed_cols:
             conn.execute(f"ALTER TABLE processed_forecasts ADD COLUMN {col} {typ}")
             logger.info("Added column processed_forecasts.%s", col)
+    conn.commit()
+
+
+def _migrate_phase4(conn: sqlite3.Connection) -> None:
+    """Add base/summit temps and extra hourly fields to processed_forecasts."""
+    cursor = conn.cursor()
+    for col in ("base_temp_f REAL", "summit_temp_f REAL", "humidity_pct REAL", "wind_direction INTEGER", "precip_liquid_in REAL"):
+        try:
+            cursor.execute(f"ALTER TABLE processed_forecasts ADD COLUMN {col}")
+        except Exception:
+            pass  # Already exists
     conn.commit()
 
 

@@ -396,7 +396,9 @@ def _build_json_output(conn: sqlite3.Connection, resorts: list[dict], resort_id_
                    temperature_f, wind_speed_mph, wind_gust_mph,
                    confidence, weather_code,
                    snow_level_ft, downscaled_temp_f, slr, snow_quality,
-                   melt_rate_in_hr, net_snow_change_in
+                   melt_rate_in_hr, net_snow_change_in,
+                   base_temp_f, summit_temp_f,
+                   humidity_pct, wind_direction, precip_liquid_in
             FROM processed_forecasts
             WHERE resort_id = ?
             ORDER BY valid_time
@@ -419,6 +421,14 @@ def _build_json_output(conn: sqlite3.Connection, resorts: list[dict], resort_id_
             "time": [],
             "snowfall": [],
             "temperature_2m": [],
+            "base_temp": [],
+            "summit_temp": [],
+            "wind_speed": [],
+            "wind_gust": [],
+            "wind_direction": [],
+            "precipitation": [],
+            "humidity": [],
+            "weather_code": [],
             "confidence": [],
             "snow_level": [],
         }
@@ -426,6 +436,14 @@ def _build_json_output(conn: sqlite3.Connection, resorts: list[dict], resort_id_
             blended_hourly["time"].append(r["valid_time"])
             blended_hourly["snowfall"].append(r["snowfall_in"])
             blended_hourly["temperature_2m"].append(r["temperature_f"])
+            blended_hourly["base_temp"].append(r["base_temp_f"])
+            blended_hourly["summit_temp"].append(r["summit_temp_f"])
+            blended_hourly["wind_speed"].append(r["wind_speed_mph"])
+            blended_hourly["wind_gust"].append(r["wind_gust_mph"])
+            blended_hourly["wind_direction"].append(r["wind_direction"])
+            blended_hourly["precipitation"].append(r["precip_liquid_in"])
+            blended_hourly["humidity"].append(r["humidity_pct"])
+            blended_hourly["weather_code"].append(r["weather_code"])
             blended_hourly["confidence"].append(r["confidence"])
             blended_hourly["snow_level"].append(r["snow_level_ft"])
 
@@ -555,6 +573,8 @@ def _compute_daily_summary(blended_rows: list, starting_snow_depth_in: float | N
         confs = [h["confidence"] for h in hours if h["confidence"] is not None]
         melts = [h["melt_rate_in_hr"] or 0 for h in hours]
         nets = [h["net_snow_change_in"] or 0 for h in hours]
+        base_temps = [h["base_temp_f"] for h in hours if h.get("base_temp_f") is not None]
+        summit_temps = [h["summit_temp_f"] for h in hours if h.get("summit_temp_f") is not None]
 
         daily_snow = round(sum(snows), 1)
         daily_snow_low = round(sum(snow_lows), 1)
@@ -603,6 +623,10 @@ def _compute_daily_summary(blended_rows: list, starting_snow_depth_in: float | N
             "snow_quality": day_quality,
             "melt_total": daily_melt,
             "net_snow_change": daily_net,
+            "base_temp_high": round(max(base_temps)) if base_temps else None,
+            "base_temp_low": round(min(base_temps)) if base_temps else None,
+            "summit_temp_high": round(max(summit_temps)) if summit_temps else None,
+            "summit_temp_low": round(min(summit_temps)) if summit_temps else None,
         })
 
     # Compute days_until_depleted using cumulative net snow change

@@ -82,7 +82,7 @@ def compute_weighted_blend(
 
     This replaces the Phase 1 simple-average _compute_blended() function.
     """
-    from .elevation import compute_snow_level
+    from .elevation import compute_snow_level, downscale_temperature
     from .slr import compute_slr
     from .melt import compute_melt_rate, compute_net_snow_change
 
@@ -222,6 +222,16 @@ def compute_weighted_blend(
             melt_rate = compute_melt_rate(temp_avg, radiation_avg)
             net_snow_change = compute_net_snow_change(snowfall, melt_rate)
 
+            # Base and summit temperature via lapse rate
+            resort_base_ft = resort.get("elevation_base_ft", resort_mid_ft)
+            resort_summit_ft = resort.get("elevation_summit_ft", resort_mid_ft)
+            base_temp = downscale_temperature(temp_avg, resort_mid_ft, resort_base_ft, humidity_avg)
+            summit_temp = downscale_temperature(temp_avg, resort_mid_ft, resort_summit_ft, humidity_avg)
+
+            # Wind direction (weighted circular mean is complex; use simple mode)
+            wind_dirs = [m["wind_direction"] for m in models if m["wind_direction"] is not None]
+            wind_dir_avg = round(sum(wind_dirs) / len(wind_dirs)) if wind_dirs else None
+
             # Snowfall spread from individual models
             snow_low = min(model_snows) if model_snows else 0
             snow_high = max(model_snows) if model_snows else 0
@@ -248,6 +258,11 @@ def compute_weighted_blend(
                 round(slr, 1),
                 round(melt_rate, 4),
                 round(net_snow_change, 4),
+                round(base_temp, 1) if base_temp is not None else None,
+                round(summit_temp, 1) if summit_temp is not None else None,
+                round(humidity_avg, 1) if humidity_avg is not None else None,
+                wind_dir_avg,
+                round(precip_avg, 4) if precip_avg is not None else None,
             ))
 
         if blended_rows:
@@ -259,8 +274,9 @@ def compute_weighted_blend(
                     temperature_f, wind_speed_mph, wind_gust_mph,
                     snow_quality, confidence, weather_code,
                     snow_level_ft, downscaled_temp_f, slr,
-                    melt_rate_in_hr, net_snow_change_in
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    melt_rate_in_hr, net_snow_change_in,
+                    base_temp_f, summit_temp_f, humidity_pct, wind_direction, precip_liquid_in
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 blended_rows,
             )

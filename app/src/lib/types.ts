@@ -68,6 +68,10 @@ export interface DailySummary {
   melt_total: number;
   net_snow_change: number;
   days_until_depleted: number | null;
+  base_temp_high: number | null;
+  base_temp_low: number | null;
+  summit_temp_high: number | null;
+  summit_temp_low: number | null;
 }
 
 export interface ResortForecast {
@@ -81,6 +85,14 @@ export interface ResortForecast {
       time: string[];
       snowfall: number[];
       temperature_2m: number[];
+      base_temp: (number | null)[];
+      summit_temp: (number | null)[];
+      wind_speed: (number | null)[];
+      wind_gust: (number | null)[];
+      wind_direction: (number | null)[];
+      precipitation: (number | null)[];
+      humidity: (number | null)[];
+      weather_code: (number | null)[];
       confidence: string[];
       snow_level: (number | null)[];
     };
