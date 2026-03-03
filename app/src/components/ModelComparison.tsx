@@ -11,6 +11,8 @@ const MODEL_COLORS: Record<string, { bg: string; text: string; label: string }> 
   ecmwf: { bg: "bg-accent-green", text: "text-accent-green", label: "ECMWF" },
   icon: { bg: "bg-yellow-500", text: "text-yellow-500", label: "ICON" },
   gem: { bg: "bg-accent-purple", text: "text-accent-purple", label: "GEM" },
+  hrrr: { bg: "bg-orange-500", text: "text-orange-500", label: "HRRR" },
+  nbm: { bg: "bg-cyan-500", text: "text-cyan-500", label: "NBM" },
 };
 
 export default function ModelComparison({
