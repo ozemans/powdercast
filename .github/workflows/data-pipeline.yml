@@ -1,0 +1,44 @@
+name: Data Pipeline
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Every 6 hours
+  workflow_dispatch:        # Manual trigger
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: app/data-pipeline/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r data-pipeline/requirements.txt
+
+      - name: Run data pipeline
+        env:
+          TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
+          TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
+        run: python data-pipeline/run_pipeline.py --skip-nws
+
+      - name: Commit updated data files
+        working-directory: .
+        run: |
+          git config user.name "PowderCast Bot"
+          git config user.email "bot@powdercast.app"
+          git add app/public/data/
+          git diff --staged --quiet || git commit -m "Update forecast data $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+      - name: Push changes
+        run: git push
+        working-directory: .
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
