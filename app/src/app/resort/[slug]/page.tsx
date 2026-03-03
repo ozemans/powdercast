@@ -329,7 +329,7 @@ export default async function ResortPage({ params }: PageProps) {
               7-DAY FORECAST
             </h2>
             {forecast ? (
-              <ForecastTable days={forecast.blended.daily_summary} />
+              <ForecastTable days={forecast.blended.daily_summary} hourly={forecast.blended.hourly} />
             ) : (
               <div className="rounded-xl border border-border bg-bg-secondary p-6 text-center text-sm text-text-secondary">
                 Forecast data not yet available for this resort.
