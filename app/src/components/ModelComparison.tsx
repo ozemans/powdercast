@@ -17,7 +17,7 @@ export default function ModelComparison({
   models,
   blendedTotal,
 }: ModelComparisonProps) {
-  // Calculate 7-day total for each model
+  // Calculate total for each model
   const modelTotals = Object.entries(models).map(([key, model]) => {
     const total = model.hourly.snowfall.reduce((sum, val) => sum + val, 0);
     const config = MODEL_COLORS[key] || {
@@ -37,7 +37,7 @@ export default function ModelComparison({
   return (
     <div className="rounded-xl border border-border bg-bg-secondary p-4 sm:p-5">
       <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-secondary">
-        Model Comparison — 7-Day Total
+        Model Comparison — 14-Day Total
       </h3>
 
       <div className="space-y-3">

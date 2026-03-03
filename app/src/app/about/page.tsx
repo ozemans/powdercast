@@ -29,7 +29,7 @@ export default function AboutPage() {
           confidence-weighted blend that outperforms any individual model.
         </p>
         <p className="text-sm leading-relaxed text-text-secondary">
-          The result is a 7-day snowfall forecast for each resort, complete
+          The result is a 14-day snowfall forecast for each resort, complete
           with confidence scores and forecast ranges that let you know how
           certain the prediction is. We also integrate SNOTEL ground-truth
           data to validate and improve our forecasts over time.
@@ -69,7 +69,7 @@ export default function AboutPage() {
           <MethodStep
             number={1}
             title="Multi-Model Fetch"
-            description="Every 6 hours, we fetch 7-day forecasts from 4 global weather models (GFS, ECMWF, ICON, GEM) for the mid-mountain coordinate of each resort."
+            description="Every 6 hours, we fetch 14-day forecasts from 6 weather models (GFS, ECMWF, ICON, GEM, HRRR, NBM) for the mid-mountain coordinate of each resort."
           />
           <MethodStep
             number={2}

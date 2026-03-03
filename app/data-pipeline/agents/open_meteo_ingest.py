@@ -1,9 +1,9 @@
 """
 Open-Meteo forecast ingest agent.
 
-Pulls 7-day hourly forecasts from 4 weather models (GFS, ECMWF, ICON, GEM)
-for every resort, inserts raw data into the forecasts table, then computes
-blended (multi-model average) forecasts into processed_forecasts.
+Pulls 14-day hourly forecasts from 6 weather models (GFS, ECMWF, ICON, GEM,
+HRRR, NBM) for every resort, inserts raw data into the forecasts table, then
+computes blended (multi-model average) forecasts into processed_forecasts.
 """
 
 from __future__ import annotations
@@ -34,7 +34,8 @@ MODELS = {
 
 MODEL_PARAMS = {
     "hrrr": {"models": "ncep_hrrr_conus", "forecast_days": 2},
-    "nbm": {"models": "ncep_nbm_conus"},
+    "nbm": {"models": "ncep_nbm_conus", "forecast_days": 7},
+    "icon": {"forecast_days": 7},  # ICON API max is ~7 days
 }
 
 HOURLY_VARS = (
@@ -81,7 +82,7 @@ def _fetch_model(model_name: str, url: str, resorts: list[dict]) -> dict | None:
         "temperature_unit": "fahrenheit",
         "wind_speed_unit": "mph",
         "precipitation_unit": "inch",
-        "forecast_days": 7,
+        "forecast_days": 14,
         "timezone": "UTC",
     }
     params.update(MODEL_PARAMS.get(model_name, {}))
@@ -455,7 +456,7 @@ def _build_json_output(conn: sqlite3.Connection, resorts: list[dict], resort_id_
         snow_quality_label = ""
         try:
             from intelligence.narrative import generate_narrative, predict_snow_quality
-            snow_24h_tmp, snow_48h_tmp, snow_7d_tmp = _compute_snowfall_totals(blended_rows)
+            snow_24h_tmp, snow_48h_tmp, snow_14d_tmp = _compute_snowfall_totals(blended_rows)
             avg_temp = None
             avg_wind = None
             avg_gust = None
@@ -475,7 +476,7 @@ def _build_json_output(conn: sqlite3.Connection, resorts: list[dict], resort_id_
                 avg_slr = sum(slr_vals) / len(slr_vals)
 
             narrative = generate_narrative(
-                resort["name"], snow_48h_tmp, snow_7d_tmp,
+                resort["name"], snow_48h_tmp, snow_14d_tmp,
                 avg_temp, daily_summary[0].get("temp_low") if daily_summary else None,
                 avg_wind, avg_gust, avg_snow_level, avg_slr,
                 daily_summary[0].get("confidence", "medium") if daily_summary else "medium",
@@ -504,7 +505,7 @@ def _build_json_output(conn: sqlite3.Connection, resorts: list[dict], resort_id_
             json.dump(forecast_obj, f, separators=(",", ":"))
 
         # --- Accumulate master list entry ---
-        snow_24h, snow_48h, snow_7d = _compute_snowfall_totals(blended_rows)
+        snow_24h, snow_48h, snow_14d = _compute_snowfall_totals(blended_rows)
         current_temp = blended_rows[0]["temperature_f"] if blended_rows else None
         conditions = _get_current_conditions(blended_rows)
 
@@ -533,7 +534,7 @@ def _build_json_output(conn: sqlite3.Connection, resorts: list[dict], resort_id_
             "operating_season": resort.get("operating_season", ""),
             "snow_24h": snow_24h,
             "snow_48h": snow_48h,
-            "snow_7d": snow_7d,
+            "snow_14d": snow_14d,
             "current_temp": current_temp,
             "conditions": conditions,
         })
@@ -648,14 +649,14 @@ def _compute_daily_summary(blended_rows: list, starting_snow_depth_in: float | N
 
 
 def _compute_snowfall_totals(blended_rows: list) -> tuple[float, float, float]:
-    """Compute 24h, 48h, and 7d snowfall totals from blended hourly data."""
+    """Compute 24h, 48h, and 14d snowfall totals from blended hourly data."""
     if not blended_rows:
         return 0.0, 0.0, 0.0
 
     now = datetime.now(timezone.utc)
     snow_24 = 0.0
     snow_48 = 0.0
-    snow_7d = 0.0
+    snow_14d = 0.0
 
     for r in blended_rows:
         vt_str = r["valid_time"]
@@ -674,10 +675,10 @@ def _compute_snowfall_totals(blended_rows: list) -> tuple[float, float, float]:
             snow_24 += snow
         if 0 <= hours_ahead <= 48:
             snow_48 += snow
-        if 0 <= hours_ahead <= 168:
-            snow_7d += snow
+        if 0 <= hours_ahead <= 336:
+            snow_14d += snow
 
-    return round(snow_24, 1), round(snow_48, 1), round(snow_7d, 1)
+    return round(snow_24, 1), round(snow_48, 1), round(snow_14d, 1)
 
 
 def _get_current_conditions(blended_rows: list) -> str:

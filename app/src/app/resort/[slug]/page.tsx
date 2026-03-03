@@ -104,7 +104,7 @@ export async function generateMetadata({
   }
   return {
     title: `${resort.name} Snow Forecast — PowderCast`,
-    description: `7-day snow forecast for ${resort.name}, ${resort.state_province}. Current: ${formatSnowfall(resort.snow_24h)} in 24h, ${formatTemp(resort.current_temp)}.`,
+    description: `14-day snow forecast for ${resort.name}, ${resort.state_province}. Current: ${formatSnowfall(resort.snow_24h)} in 24h, ${formatTemp(resort.current_temp)}.`,
   };
 }
 
@@ -139,7 +139,7 @@ export default async function ResortPage({ params }: PageProps) {
 
   const isPowderDay = resort.snow_24h >= 6;
 
-  // Calculate blended 7-day total
+  // Calculate blended 14-day total
   const blendedTotal =
     forecast?.blended.daily_summary.reduce(
       (sum, d) => sum + d.snowfall_total,
@@ -219,9 +219,9 @@ export default async function ResortPage({ params }: PageProps) {
               <div className="h-10 w-px bg-border" />
               <div className="text-center">
                 <div className="text-xl font-bold tabular-nums text-text-primary">
-                  {formatSnowfall(resort.snow_7d)}
+                  {formatSnowfall(resort.snow_14d)}
                 </div>
-                <div className="text-[11px] text-text-secondary">7d</div>
+                <div className="text-[11px] text-text-secondary">14d</div>
               </div>
               <div className="h-10 w-px bg-border" />
               <div className="flex items-center gap-2">
@@ -323,10 +323,10 @@ export default async function ResortPage({ params }: PageProps) {
       <div className="grid gap-6 lg:grid-cols-3">
         {/* Left column: forecast data */}
         <div className="space-y-6 lg:col-span-2">
-          {/* 7-Day Forecast */}
+          {/* 14-Day Forecast */}
           <section>
             <h2 className="mb-3 font-brand text-xl tracking-wider text-text-primary">
-              7-DAY FORECAST
+              14-DAY FORECAST
             </h2>
             {forecast ? (
               <ForecastTable days={forecast.blended.daily_summary} hourly={forecast.blended.hourly} />
@@ -587,14 +587,14 @@ export default async function ResortPage({ params }: PageProps) {
                   </dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-text-secondary">7-Day Blended Total</dt>
+                  <dt className="text-text-secondary">14-Day Blended Total</dt>
                   <dd className="font-bold text-accent-blue">
                     {formatSnowfall(blendedTotal)}
                   </dd>
                 </div>
                 {hasMeltData && (
                   <div className="flex justify-between">
-                    <dt className="text-text-secondary">7-Day Net Snow</dt>
+                    <dt className="text-text-secondary">14-Day Net Snow</dt>
                     <dd
                       className={`font-bold ${
                         netSnow7d >= 0 ? "text-accent-green" : "text-accent-red"

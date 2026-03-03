@@ -77,7 +77,7 @@ def predict_snow_quality(
 def generate_narrative(
     resort_name: str,
     snow_48h: float,
-    snow_7d: float,
+    snow_14d: float,
     temp_high: float | None,
     temp_low: float | None,
     wind_avg: float | None,
@@ -129,11 +129,11 @@ def generate_narrative(
     if snow_level_ft is not None and snow_48h >= 0.5:
         sentence2 = f" Snow levels around {snow_level_ft:,.0f} ft."
 
-    # 7-day outlook
-    if snow_7d >= 12:
-        outlook = f" Looking ahead, {snow_7d:.0f} inches possible over the next 7 days."
-    elif snow_7d >= 6:
-        outlook = f" The 7-day outlook shows {snow_7d:.0f} inches total."
+    # 14-day outlook
+    if snow_14d >= 12:
+        outlook = f" Looking ahead, {snow_14d:.0f} inches possible over the next 14 days."
+    elif snow_14d >= 6:
+        outlook = f" The 14-day outlook shows {snow_14d:.0f} inches total."
     else:
         outlook = ""
 

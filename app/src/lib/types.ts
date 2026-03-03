@@ -128,7 +128,7 @@ export interface ResortObservations {
 export interface ResortWithConditions extends Resort {
   snow_24h: number;
   snow_48h: number;
-  snow_7d: number;
+  snow_14d: number;
   current_temp: number;
   conditions: string;
 }
