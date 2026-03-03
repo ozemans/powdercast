@@ -10,25 +10,32 @@ import {
   ResponsiveContainer,
   Cell,
   ErrorBar,
+  ReferenceLine,
 } from "recharts";
 import type { DailySummary } from "@/lib/types";
-import { formatDateShort, formatDate, getConfidenceLabel } from "@/lib/utils";
+import { formatDateShort, formatDate, getConfidenceLabel, formatNetChange } from "@/lib/utils";
 
 interface SnowfallChartProps {
   days: DailySummary[];
 }
 
+interface ChartDataPoint {
+  date: string;
+  fullDate: string;
+  name: string;
+  snowfall: number;
+  snowLow: number;
+  snowHigh: number;
+  confidence: "high" | "medium" | "low";
+  melt: number;
+  netChange: number;
+  errorRange: [number, number];
+}
+
 interface CustomTooltipProps {
   active?: boolean;
   payload?: Array<{
-    payload: {
-      date: string;
-      fullDate: string;
-      snowfall: number;
-      snowLow: number;
-      snowHigh: number;
-      confidence: "high" | "medium" | "low";
-    };
+    payload: ChartDataPoint;
   }>;
 }
 
@@ -64,6 +71,22 @@ function CustomTooltip({ active, payload }: CustomTooltipProps) {
       <div style={{ color: "#4A7396", fontSize: "11px", marginTop: "2px" }}>
         Range: {data.snowLow}&quot; – {data.snowHigh}&quot;
       </div>
+      {data.melt > 0 && (
+        <div style={{ color: "#F87171", fontSize: "11px", marginTop: "2px" }}>
+          Melt: {data.melt.toFixed(1)}&quot;
+        </div>
+      )}
+      {data.melt > 0 && (
+        <div
+          style={{
+            color: data.netChange >= 0 ? "#10B981" : "#F87171",
+            fontSize: "11px",
+            marginTop: "1px",
+          }}
+        >
+          Net: {formatNetChange(data.netChange)}
+        </div>
+      )}
       <div style={{ color: "#4A7396", fontSize: "11px", marginTop: "1px" }}>
         {getConfidenceLabel(data.confidence)}
       </div>
@@ -80,7 +103,9 @@ export default function SnowfallChart({ days }: SnowfallChartProps) {
     );
   }
 
-  const data = days.map((day) => ({
+  const hasMelt = days.some((d) => d.melt_total > 0);
+
+  const data: ChartDataPoint[] = days.map((day) => ({
     name: formatDateShort(day.date),
     fullDate: formatDate(day.date),
     date: day.date,
@@ -88,6 +113,8 @@ export default function SnowfallChart({ days }: SnowfallChartProps) {
     snowLow: day.snowfall_low,
     snowHigh: day.snowfall_high,
     confidence: day.confidence,
+    melt: hasMelt ? -day.melt_total : 0,
+    netChange: day.net_snow_change,
     // ErrorBar expects [minus, plus] — show spread above and below
     errorRange: [
       Math.max(0, day.snowfall_total - day.snowfall_low),
@@ -96,6 +123,7 @@ export default function SnowfallChart({ days }: SnowfallChartProps) {
   }));
 
   const maxSnow = Math.max(...data.map((d) => d.snowHigh), 4);
+  const minMelt = hasMelt ? Math.min(...data.map((d) => d.melt), 0) : 0;
 
   return (
     <div className="h-64 w-full rounded-xl border border-border bg-bg-secondary p-4">
@@ -103,6 +131,7 @@ export default function SnowfallChart({ days }: SnowfallChartProps) {
         <BarChart
           data={data}
           margin={{ top: 12, right: 8, left: -12, bottom: 0 }}
+          stackOffset="sign"
         >
           <CartesianGrid
             strokeDasharray="3 3"
@@ -119,9 +148,15 @@ export default function SnowfallChart({ days }: SnowfallChartProps) {
             tick={{ fill: "#4A7396", fontSize: 11 }}
             axisLine={false}
             tickLine={false}
-            domain={[0, Math.ceil(maxSnow / 2) * 2]}
+            domain={[
+              hasMelt ? Math.floor(minMelt) : 0,
+              Math.ceil(maxSnow / 2) * 2,
+            ]}
             tickFormatter={(value: number) => `${value}"`}
           />
+          {hasMelt && (
+            <ReferenceLine y={0} stroke="rgba(34,211,238,0.15)" />
+          )}
           <Tooltip
             content={<CustomTooltip />}
             cursor={{ fill: "rgba(34,211,238,0.05)" }}
@@ -147,6 +182,17 @@ export default function SnowfallChart({ days }: SnowfallChartProps) {
               />
             ))}
           </Bar>
+          {hasMelt && (
+            <Bar dataKey="melt" radius={[0, 0, 4, 4]} maxBarSize={48}>
+              {data.map((_, index) => (
+                <Cell
+                  key={`melt-${index}`}
+                  fill="#F87171"
+                  fillOpacity={0.5}
+                />
+              ))}
+            </Bar>
+          )}
         </BarChart>
       </ResponsiveContainer>
     </div>

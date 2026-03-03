@@ -10,6 +10,7 @@
   --accent-blue: #22D3EE;
   --accent-orange: #F97316;
   --accent-green: #10B981;
+  --accent-red: #F87171;
   --accent-purple: #A78BFA;
   --snow-bar: #22D3EE;
   --powder-bar: #F97316;
@@ -28,6 +29,7 @@
   --color-accent-blue: var(--accent-blue);
   --color-accent-orange: var(--accent-orange);
   --color-accent-green: var(--accent-green);
+  --color-accent-red: var(--accent-red);
   --color-accent-purple: var(--accent-purple);
   --color-snow-bar: var(--snow-bar);
   --color-powder-bar: var(--powder-bar);

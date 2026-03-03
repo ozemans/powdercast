@@ -5,6 +5,7 @@ import {
   formatDate,
   formatDateShort,
   formatSnowfall,
+  formatNetChange,
   formatWind,
   cn,
 } from "@/lib/utils";
@@ -88,6 +89,18 @@ export default function ForecastTable({ days }: ForecastTableProps) {
                   >
                     {formatSnowfall(day.snowfall_total)}
                   </span>
+                  {day.melt_total > 0 && (
+                    <div
+                      className={cn(
+                        "text-[11px] tabular-nums",
+                        day.net_snow_change >= 0
+                          ? "text-accent-green"
+                          : "text-accent-red"
+                      )}
+                    >
+                      {formatNetChange(day.net_snow_change)} net
+                    </div>
+                  )}
                 </td>
                 <td className="hidden px-4 py-3 text-right tabular-nums text-text-secondary sm:table-cell">
                   {formatSnowfall(day.snowfall_low)} –{" "}

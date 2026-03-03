@@ -107,3 +107,20 @@ export function windDirectionToCompass(degrees: number): string {
 export function cn(...classes: (string | boolean | undefined | null)[]): string {
   return classes.filter(Boolean).join(" ");
 }
+
+export function formatNetChange(inches: number): string {
+  if (inches === 0) return '0"';
+  const sign = inches > 0 ? "+" : "";
+  const abs = Math.abs(inches);
+  if (abs < 1) return `${sign}${inches.toFixed(1)}"`;
+  return `${sign}${Math.round(inches)}"`;
+}
+
+export function getSnowpackStatus(
+  daysUntilDepleted: number | null
+): "stable" | "watch" | "warning" | "critical" {
+  if (daysUntilDepleted === null) return "stable";
+  if (daysUntilDepleted > 5) return "watch";
+  if (daysUntilDepleted > 2) return "warning";
+  return "critical";
+}

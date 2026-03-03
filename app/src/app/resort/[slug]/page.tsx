@@ -10,9 +10,11 @@ import type {
 import {
   formatTemp,
   formatSnowfall,
+  formatNetChange,
   formatElevation,
   formatWind,
   formatDate,
+  getSnowpackStatus,
 } from "@/lib/utils";
 import ForecastTable from "@/components/ForecastTable";
 import SnowfallChart from "@/components/SnowfallChart";
@@ -144,6 +146,16 @@ export default async function ResortPage({ params }: PageProps) {
       0
     ) ?? 0;
 
+  // Melt / snowpack metrics
+  const dailySummary = forecast?.blended.daily_summary ?? [];
+  const hasMeltData = dailySummary.some((d) => d.melt_total > 0);
+  const netSnow7d = dailySummary.reduce(
+    (sum, d) => sum + d.net_snow_change,
+    0
+  );
+  const lastDayDepleted = dailySummary.at(-1)?.days_until_depleted ?? null;
+  const snowpackStatus = getSnowpackStatus(lastDayDepleted);
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
       {/* Breadcrumb */}
@@ -257,6 +269,52 @@ export default async function ResortPage({ params }: PageProps) {
                 </span>
               )}
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Snowpack Health Banner */}
+      {hasMeltData && lastDayDepleted !== null && (
+        <div
+          className={`mb-6 rounded-xl border p-4 ${
+            snowpackStatus === "stable"
+              ? "border-accent-green/20 bg-accent-green/5"
+              : snowpackStatus === "watch"
+              ? "border-accent-blue/20 bg-accent-blue/5"
+              : snowpackStatus === "warning"
+              ? "border-accent-orange/20 bg-accent-orange/5"
+              : "border-accent-red/20 bg-accent-red/5"
+          }`}
+        >
+          <div className="flex items-center gap-3">
+            <svg
+              className={`h-5 w-5 flex-shrink-0 ${
+                snowpackStatus === "stable"
+                  ? "text-accent-green"
+                  : snowpackStatus === "watch"
+                  ? "text-accent-blue"
+                  : snowpackStatus === "warning"
+                  ? "text-accent-orange"
+                  : "text-accent-red"
+              }`}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={1.5}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+              />
+            </svg>
+            <p className="text-sm text-text-primary">
+              {snowpackStatus === "critical"
+                ? `Snowpack may deplete in ${lastDayDepleted} day${lastDayDepleted === 1 ? "" : "s"}`
+                : snowpackStatus === "warning"
+                ? `Snowpack thinning — ${lastDayDepleted} days until depletion`
+                : `Snowpack depletion possible in ${lastDayDepleted} days`}
+            </p>
           </div>
         </div>
       )}
@@ -534,6 +592,18 @@ export default async function ResortPage({ params }: PageProps) {
                     {formatSnowfall(blendedTotal)}
                   </dd>
                 </div>
+                {hasMeltData && (
+                  <div className="flex justify-between">
+                    <dt className="text-text-secondary">7-Day Net Snow</dt>
+                    <dd
+                      className={`font-bold ${
+                        netSnow7d >= 0 ? "text-accent-green" : "text-accent-red"
+                      }`}
+                    >
+                      {formatNetChange(netSnow7d)}
+                    </dd>
+                  </div>
+                )}
               </dl>
             </div>
           )}
