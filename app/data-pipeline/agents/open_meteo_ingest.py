@@ -573,8 +573,8 @@ def _compute_daily_summary(blended_rows: list, starting_snow_depth_in: float | N
         confs = [h["confidence"] for h in hours if h["confidence"] is not None]
         melts = [h["melt_rate_in_hr"] or 0 for h in hours]
         nets = [h["net_snow_change_in"] or 0 for h in hours]
-        base_temps = [h["base_temp_f"] for h in hours if h.get("base_temp_f") is not None]
-        summit_temps = [h["summit_temp_f"] for h in hours if h.get("summit_temp_f") is not None]
+        base_temps = [h["base_temp_f"] for h in hours if h["base_temp_f"] is not None]
+        summit_temps = [h["summit_temp_f"] for h in hours if h["summit_temp_f"] is not None]
 
         daily_snow = round(sum(snows), 1)
         daily_snow_low = round(sum(snow_lows), 1)
