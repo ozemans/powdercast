@@ -18,9 +18,9 @@ logger = logging.getLogger(__name__)
 # Default model weights by lead-time bucket
 # Structure: {lead_time_bucket: {model: weight}}
 WEIGHT_TABLE = {
-    "short": {"gfs": 0.35, "ecmwf": 0.20, "icon": 0.20, "gem": 0.25},   # 0-24h
-    "medium": {"gfs": 0.25, "ecmwf": 0.30, "icon": 0.20, "gem": 0.25},  # 24-120h
-    "long": {"gfs": 0.15, "ecmwf": 0.35, "icon": 0.20, "gem": 0.30},    # 120h+
+    "short": {"gfs": 0.20, "ecmwf": 0.15, "icon": 0.10, "gem": 0.15, "hrrr": 0.25, "nbm": 0.15},   # 0-24h
+    "medium": {"gfs": 0.20, "ecmwf": 0.25, "icon": 0.15, "gem": 0.15, "hrrr": 0.10, "nbm": 0.15},  # 24-120h
+    "long": {"gfs": 0.15, "ecmwf": 0.30, "icon": 0.15, "gem": 0.20, "hrrr": 0.00, "nbm": 0.20},    # 120h+
 }
 
 # Canadian resorts get a GEM boost
