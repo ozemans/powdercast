@@ -43,6 +43,9 @@ CREATE TABLE IF NOT EXISTS forecasts (
   humidity_pct REAL,
   cloud_cover_pct REAL,
   weather_code INTEGER,
+  direct_radiation_wm2 REAL,
+  shortwave_radiation_wm2 REAL,
+  snow_depth_in REAL,
   created_at TEXT DEFAULT (datetime('now')),
   FOREIGN KEY (resort_id) REFERENCES resorts(id)
 );

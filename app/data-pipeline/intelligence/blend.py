@@ -84,6 +84,7 @@ def compute_weighted_blend(
     """
     from .elevation import compute_snow_level
     from .slr import compute_slr
+    from .melt import compute_melt_rate, compute_net_snow_change
 
     # Clear old processed forecasts
     conn.execute("DELETE FROM processed_forecasts")
@@ -120,7 +121,8 @@ def compute_weighted_blend(
                 SELECT valid_time, model_name,
                        temperature_f, snowfall_in, precip_liquid_in,
                        wind_speed_mph, wind_direction, freezing_level_ft,
-                       humidity_pct, cloud_cover_pct, weather_code
+                       humidity_pct, cloud_cover_pct, weather_code,
+                       direct_radiation_wm2, shortwave_radiation_wm2
                 FROM forecasts
                 WHERE resort_id = ? AND model_name = ? AND run_time = ?
                 ORDER BY valid_time
@@ -149,6 +151,8 @@ def compute_weighted_blend(
             wind_sum = 0.0
             wind_weight = 0.0
             wind_max = 0.0
+            radiation_sum = 0.0
+            radiation_weight = 0.0
             freezing_levels = []
             humidities = []
             codes = []
@@ -169,6 +173,9 @@ def compute_weighted_blend(
                     wind_sum += m["wind_speed_mph"] * w
                     wind_weight += w
                     wind_max = max(wind_max, m["wind_speed_mph"])
+                if m["direct_radiation_wm2"] is not None:
+                    radiation_sum += m["direct_radiation_wm2"] * w
+                    radiation_weight += w
                 if m["freezing_level_ft"] is not None:
                     freezing_levels.append(m["freezing_level_ft"])
                 if m["humidity_pct"] is not None:
@@ -179,6 +186,7 @@ def compute_weighted_blend(
             temp_avg = (temp_sum / temp_weight) if temp_weight > 0 else None
             precip_avg = (precip_sum / precip_weight) if precip_weight > 0 else 0
             wind_avg = (wind_sum / wind_weight) if wind_weight > 0 else None
+            radiation_avg = (radiation_sum / radiation_weight) if radiation_weight > 0 else None
             freezing_avg = sum(freezing_levels) / len(freezing_levels) if freezing_levels else None
             humidity_avg = sum(humidities) / len(humidities) if humidities else None
             code = max(set(codes), key=codes.count) if codes else None
@@ -210,6 +218,10 @@ def compute_weighted_blend(
             # Compute snow level
             snow_level = compute_snow_level(freezing_avg, precip_avg)
 
+            # Compute melt rate and net snow change (ETI model)
+            melt_rate = compute_melt_rate(temp_avg, radiation_avg)
+            net_snow_change = compute_net_snow_change(snowfall, melt_rate)
+
             # Snowfall spread from individual models
             snow_low = min(model_snows) if model_snows else 0
             snow_high = max(model_snows) if model_snows else 0
@@ -234,6 +246,8 @@ def compute_weighted_blend(
                 round(snow_level) if snow_level is not None else None,
                 round(downscaled_temp, 1) if downscaled_temp is not None else None,
                 round(slr, 1),
+                round(melt_rate, 4),
+                round(net_snow_change, 4),
             ))
 
         if blended_rows:
@@ -244,8 +258,9 @@ def compute_weighted_blend(
                     snowfall_in, snowfall_low, snowfall_high,
                     temperature_f, wind_speed_mph, wind_gust_mph,
                     snow_quality, confidence, weather_code,
-                    snow_level_ft, downscaled_temp_f, slr
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    snow_level_ft, downscaled_temp_f, slr,
+                    melt_rate_in_hr, net_snow_change_in
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 blended_rows,
             )

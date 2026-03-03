@@ -33,7 +33,8 @@ MODELS = {
 HOURLY_VARS = (
     "temperature_2m,snowfall,precipitation,snow_depth,"
     "freezing_level_height,wind_speed_10m,wind_direction_10m,"
-    "cloud_cover,relative_humidity_2m,weather_code"
+    "cloud_cover,relative_humidity_2m,weather_code,"
+    "direct_radiation,shortwave_radiation"
 )
 
 BATCH_SIZE = 50  # Open-Meteo multi-location limit
@@ -108,6 +109,8 @@ def _insert_forecasts(
 
     rows = []
     for i, t in enumerate(times):
+        snow_depth_m = _safe_get(hourly, "snow_depth", i)
+        snow_depth_in = round(snow_depth_m * 39.37, 1) if snow_depth_m is not None else None
         rows.append((
             resort_id,
             model_name,
@@ -123,6 +126,9 @@ def _insert_forecasts(
             _safe_get(hourly, "relative_humidity_2m", i),
             _safe_get(hourly, "cloud_cover", i),
             _safe_get(hourly, "weather_code", i),
+            _safe_get(hourly, "direct_radiation", i),
+            _safe_get(hourly, "shortwave_radiation", i),
+            snow_depth_in,
         ))
 
     conn.executemany(
@@ -131,8 +137,9 @@ def _insert_forecasts(
             resort_id, model_name, run_time, valid_time,
             temperature_f, wind_speed_mph, wind_direction,
             precip_liquid_in, snowfall_in, snow_level_ft, freezing_level_ft,
-            humidity_pct, cloud_cover_pct, weather_code
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            humidity_pct, cloud_cover_pct, weather_code,
+            direct_radiation_wm2, shortwave_radiation_wm2, snow_depth_in
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
         rows,
     )
@@ -373,13 +380,25 @@ def _build_json_output(conn: sqlite3.Connection, resorts: list[dict], resort_id_
             SELECT valid_time, snowfall_in, snowfall_low, snowfall_high,
                    temperature_f, wind_speed_mph, wind_gust_mph,
                    confidence, weather_code,
-                   snow_level_ft, downscaled_temp_f, slr, snow_quality
+                   snow_level_ft, downscaled_temp_f, slr, snow_quality,
+                   melt_rate_in_hr, net_snow_change_in
             FROM processed_forecasts
             WHERE resort_id = ?
             ORDER BY valid_time
             """,
             (rid,),
         ).fetchall()
+
+        # Current snowpack depth (first non-null value from latest forecasts)
+        depth_row = conn.execute(
+            """
+            SELECT snow_depth_in FROM forecasts
+            WHERE resort_id = ? AND snow_depth_in IS NOT NULL
+            ORDER BY valid_time LIMIT 1
+            """,
+            (rid,),
+        ).fetchone()
+        starting_snow_depth = depth_row["snow_depth_in"] if depth_row else None
 
         blended_hourly = {
             "time": [],
@@ -396,7 +415,7 @@ def _build_json_output(conn: sqlite3.Connection, resorts: list[dict], resort_id_
             blended_hourly["snow_level"].append(r["snow_level_ft"])
 
         # --- Build daily summaries ---
-        daily_summary = _compute_daily_summary(blended_rows)
+        daily_summary = _compute_daily_summary(blended_rows, starting_snow_depth)
 
         # --- Generate narrative ---
         narrative = ""
@@ -497,7 +516,7 @@ def _build_json_output(conn: sqlite3.Connection, resorts: list[dict], resort_id_
     )
 
 
-def _compute_daily_summary(blended_rows: list) -> list[dict]:
+def _compute_daily_summary(blended_rows: list, starting_snow_depth_in: float | None = None) -> list[dict]:
     """Aggregate hourly blended forecasts into daily summaries."""
     if not blended_rows:
         return []
@@ -519,10 +538,14 @@ def _compute_daily_summary(blended_rows: list) -> list[dict]:
         gusts = [h["wind_gust_mph"] for h in hours if h["wind_gust_mph"] is not None]
         codes = [h["weather_code"] for h in hours if h["weather_code"] is not None]
         confs = [h["confidence"] for h in hours if h["confidence"] is not None]
+        melts = [h["melt_rate_in_hr"] or 0 for h in hours]
+        nets = [h["net_snow_change_in"] or 0 for h in hours]
 
         daily_snow = round(sum(snows), 1)
         daily_snow_low = round(sum(snow_lows), 1)
         daily_snow_high = round(sum(snow_highs), 1)
+        daily_melt = round(sum(melts), 2)
+        daily_net = round(sum(nets), 2)
 
         # Daily confidence = worst confidence of the day
         if "low" in confs:
@@ -563,7 +586,24 @@ def _compute_daily_summary(blended_rows: list) -> list[dict]:
             "confidence": day_conf,
             "snow_level_ft": avg_snow_level,
             "snow_quality": day_quality,
+            "melt_total": daily_melt,
+            "net_snow_change": daily_net,
         })
+
+    # Compute days_until_depleted using cumulative net snow change
+    if starting_snow_depth_in is not None and starting_snow_depth_in > 0:
+        snowpack = starting_snow_depth_in
+        days_until_depleted = None
+        for i, day in enumerate(summaries):
+            snowpack += day["net_snow_change"]
+            if snowpack <= 0:
+                days_until_depleted = i + 1
+                break
+        for day in summaries:
+            day["days_until_depleted"] = days_until_depleted
+    else:
+        for day in summaries:
+            day["days_until_depleted"] = None
 
     return summaries
 

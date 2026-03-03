@@ -34,6 +34,8 @@ def init_schema(conn: sqlite3.Connection) -> None:
 
     # Phase 2 migrations: add new columns if missing
     _migrate_phase2(conn)
+    # Phase 3 migrations: melt forecasting columns
+    _migrate_phase3(conn)
 
     logger.info("Database schema initialized")
 
@@ -51,6 +53,31 @@ def _migrate_phase2(conn: sqlite3.Connection) -> None:
     ]
     for col, typ in migrations:
         if col not in existing:
+            conn.execute(f"ALTER TABLE processed_forecasts ADD COLUMN {col} {typ}")
+            logger.info("Added column processed_forecasts.%s", col)
+    conn.commit()
+
+
+def _migrate_phase3(conn: sqlite3.Connection) -> None:
+    """Add Phase 3 melt columns if they don't exist."""
+    forecasts_cols = {
+        row[1]
+        for row in conn.execute("PRAGMA table_info(forecasts)").fetchall()
+    }
+    processed_cols = {
+        row[1]
+        for row in conn.execute("PRAGMA table_info(processed_forecasts)").fetchall()
+    }
+    for col, typ in [
+        ("direct_radiation_wm2", "REAL"),
+        ("shortwave_radiation_wm2", "REAL"),
+        ("snow_depth_in", "REAL"),
+    ]:
+        if col not in forecasts_cols:
+            conn.execute(f"ALTER TABLE forecasts ADD COLUMN {col} {typ}")
+            logger.info("Added column forecasts.%s", col)
+    for col, typ in [("melt_rate_in_hr", "REAL"), ("net_snow_change_in", "REAL")]:
+        if col not in processed_cols:
             conn.execute(f"ALTER TABLE processed_forecasts ADD COLUMN {col} {typ}")
             logger.info("Added column processed_forecasts.%s", col)
     conn.commit()

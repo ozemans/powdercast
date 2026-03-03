@@ -65,6 +65,9 @@ export interface DailySummary {
   confidence: "high" | "medium" | "low";
   snow_level_ft: number | null;
   snow_quality: string | null;
+  melt_total: number;
+  net_snow_change: number;
+  days_until_depleted: number | null;
 }
 
 export interface ResortForecast {
