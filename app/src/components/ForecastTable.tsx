@@ -4,7 +4,6 @@ import { Fragment, useState } from "react";
 import type { DailySummary, ResortForecast } from "@/lib/types";
 import {
   formatDate,
-  formatDateShort,
   formatSnowfall,
   formatNetChange,
   formatWind,
@@ -42,7 +41,7 @@ export default function ForecastTable({ days, hourly }: ForecastTableProps) {
             <th className="hidden px-4 py-3 text-right font-medium sm:table-cell">
               Range
             </th>
-            <th className="px-4 py-3 text-right font-medium">Hi / Lo</th>
+            <th className="px-4 py-3 text-right font-medium">Temps</th>
             <th className="hidden px-4 py-3 text-right font-medium md:table-cell">
               Wind
             </th>
@@ -75,7 +74,7 @@ export default function ForecastTable({ days, hourly }: ForecastTableProps) {
                 >
                   <td className="px-4 py-3">
                     <div className="font-medium text-text-primary">
-                      {formatDateShort(day.date)}
+                      {new Date(day.date + "T12:00:00").toLocaleDateString("en-US", { weekday: "short" })}
                     </div>
                     <div className="text-[11px] text-text-secondary">
                       {monthDay}
@@ -84,7 +83,7 @@ export default function ForecastTable({ days, hourly }: ForecastTableProps) {
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-2">
                       <ConditionsIcon conditions={day.conditions} size={18} />
-                      <span className="text-text-primary">{day.conditions}</span>
+                      <span className="truncate text-text-primary max-w-[120px]">{day.conditions}</span>
                     </div>
                   </td>
                   <td className="px-4 py-3 text-right">
@@ -113,11 +112,16 @@ export default function ForecastTable({ days, hourly }: ForecastTableProps) {
                     {formatSnowfall(day.snowfall_low)} –{" "}
                     {formatSnowfall(day.snowfall_high)}
                   </td>
-                  <td className="px-4 py-3 text-right tabular-nums text-text-primary">
+                  <td className="whitespace-nowrap px-4 py-3 text-right tabular-nums text-text-primary">
                     {displayTemp(day.temp_high)}{" "}
                     <span className="text-text-secondary">
                       / {displayTemp(day.temp_low)}
                     </span>
+                    {day.base_temp_high != null && (
+                      <div className="text-[10px] tabular-nums text-text-secondary">
+                        Base: {displayTemp(day.base_temp_high)} / {displayTemp(day.base_temp_low)}
+                      </div>
+                    )}
                   </td>
                   <td className="hidden px-4 py-3 text-right tabular-nums text-text-secondary md:table-cell">
                     {formatWind(day.wind_avg)}
