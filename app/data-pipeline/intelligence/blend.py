@@ -83,7 +83,7 @@ def compute_weighted_blend(
     This replaces the Phase 1 simple-average _compute_blended() function.
     """
     from .elevation import compute_snow_level, downscale_temperature
-    from .slr import compute_slr
+    from .slr import compute_slr, compute_snowfall as slr_compute_snowfall
     from .melt import compute_melt_rate, compute_net_snow_change
 
     # Clear old processed forecasts
@@ -194,26 +194,32 @@ def compute_weighted_blend(
             # Elevation downscaling (approximate — uses resort elev as proxy)
             downscaled_temp = temp_avg
 
-            # Use model-reported snowfall for the blend. Models use wet-bulb
-            # temperature and full atmospheric profiles for phase detection and
-            # their own SLR — this is more accurate than re-deriving snowfall
-            # from liquid precip + 2m temp alone.
+            # SLR-corrected snowfall: take the max of model-reported snowfall
+            # vs precip * our dynamic SLR. Open-Meteo's snowfall field often
+            # uses a conservative ~5:1 ratio even at cold temps where 12-15:1
+            # is realistic, significantly underforecasting fluffy snow events.
+            slr = compute_slr(temp_avg or 33, wind_avg or 0)
+
             model_snow_sum = 0.0
             model_snow_weight = 0.0
             model_snows = []
             for m in models:
                 mn = m["model_name"]
                 w = weights.get(mn, 0)
-                snow_val = m["snowfall_in"] if m["snowfall_in"] is not None else 0.0
+                model_snow = m["snowfall_in"] if m["snowfall_in"] is not None else 0.0
+                # SLR floor correction: if model underestimates SLR, use ours
+                precip = m["precip_liquid_in"] if m["precip_liquid_in"] is not None else 0.0
+                if precip > 0 and slr > 0:
+                    slr_snow, _ = slr_compute_snowfall(precip, temp_avg, wind_avg)
+                    snow_val = max(model_snow, slr_snow)
+                else:
+                    snow_val = model_snow
                 model_snows.append(snow_val)
                 if w > 0:
                     model_snow_sum += snow_val * w
                     model_snow_weight += w
 
             snowfall = (model_snow_sum / model_snow_weight) if model_snow_weight > 0 else 0
-
-            # Compute SLR for auxiliary use (narratives, quality labels)
-            slr = compute_slr(temp_avg or 33, wind_avg or 0)
 
             # Compute snow level
             snow_level = compute_snow_level(freezing_avg, precip_avg)
