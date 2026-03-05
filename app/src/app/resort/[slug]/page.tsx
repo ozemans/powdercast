@@ -21,6 +21,7 @@ import SnowfallChart from "@/components/SnowfallChart";
 import ModelComparison from "@/components/ModelComparison";
 import { ConditionsIcon } from "@/components/ConditionsIcon";
 import WebcamSection from "@/components/WebcamSection";
+import type { Webcam } from "@/components/WebcamSection";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -78,6 +79,17 @@ async function getObservations(
   }
 }
 
+async function getWebcams(slug: string): Promise<Webcam[]> {
+  try {
+    const filePath = path.join(process.cwd(), "public", "data", "webcams.json");
+    const data = await fs.readFile(filePath, "utf-8");
+    const all = JSON.parse(data) as Record<string, Webcam[]>;
+    return all[slug] || [];
+  } catch {
+    return [];
+  }
+}
+
 export async function generateStaticParams() {
   try {
     const filePath = path.join(
@@ -110,10 +122,11 @@ export async function generateMetadata({
 
 export default async function ResortPage({ params }: PageProps) {
   const { slug } = await params;
-  const [resort, forecast, observations] = await Promise.all([
+  const [resort, forecast, observations, webcams] = await Promise.all([
     getResort(slug),
     getForecast(slug),
     getObservations(slug),
+    getWebcams(slug),
   ]);
 
   if (!resort) {
@@ -315,6 +328,33 @@ export default async function ResortPage({ params }: PageProps) {
                 ? `Snowpack thinning — ${lastDayDepleted} days until depletion`
                 : `Snowpack depletion possible in ${lastDayDepleted} days`}
             </p>
+          </div>
+        </div>
+      )}
+
+      {/* Daily Breakdown */}
+      {forecast && forecast.blended.daily_summary.some((d) => d.narrative) && (
+        <div className="mb-6 rounded-xl border border-border bg-bg-secondary p-4 sm:p-5">
+          <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-text-secondary">
+            Daily Breakdown
+          </h3>
+          <div className="space-y-2">
+            {forecast.blended.daily_summary.slice(0, 7).map((day, i) => (
+              <div key={day.date} className="flex items-start gap-3">
+                {day.snowfall_total >= 1 ? (
+                  <span className="mt-0.5 flex h-5 min-w-[2.5rem] items-center justify-center rounded-full bg-accent-blue/15 px-1.5 text-[11px] font-bold tabular-nums text-accent-blue">
+                    {formatSnowfall(day.snowfall_total)}
+                  </span>
+                ) : (
+                  <span className="mt-0.5 flex h-5 min-w-[2.5rem] items-center justify-center rounded-full bg-bg-primary px-1.5 text-[11px] font-bold tabular-nums text-text-secondary">
+                    —
+                  </span>
+                )}
+                <p className="text-sm leading-relaxed text-text-primary">
+                  {day.narrative}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       )}
@@ -609,7 +649,7 @@ export default async function ResortPage({ params }: PageProps) {
           )}
 
           {/* Webcam */}
-          <WebcamSection webcamUrl={resort.webcam_url} resortName={resort.name} />
+          <WebcamSection webcams={webcams} webcamUrl={resort.webcam_url} resortName={resort.name} />
 
           {/* Quick links */}
           <div className="rounded-xl border border-border bg-bg-secondary p-5">

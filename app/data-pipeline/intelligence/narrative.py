@@ -8,6 +8,8 @@ summaries and predicts surface snow conditions.
 from __future__ import annotations
 
 import logging
+from datetime import datetime, timedelta
+
 from .slr import get_slr_description
 
 logger = logging.getLogger(__name__)
@@ -161,3 +163,93 @@ def generate_narrative(
 
     narrative = f"{sentence1}{sentence2}{outlook}{wind_note}{temp_note}{conf_note}"
     return narrative.strip()
+
+
+# Day-of-week names for narratives
+_DAY_NAMES = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+
+def generate_daily_narrative(day_index: int, day: dict) -> str:
+    """
+    Generate a 1-2 sentence narrative for a single forecast day.
+
+    Args:
+        day_index: 0 = today, 1 = tomorrow, 2+ = future days
+        day: Daily summary dict with snowfall_total, temp_high, temp_low,
+             wind_avg, wind_gust, conditions, snow_quality, confidence, etc.
+    """
+    # Day label
+    date_str = day.get("date", "")
+    if day_index == 0:
+        label = "Today"
+    elif day_index == 1:
+        label = "Tomorrow"
+    else:
+        try:
+            dt = datetime.strptime(date_str, "%Y-%m-%d")
+            label = _DAY_NAMES[dt.weekday()]
+        except (ValueError, IndexError):
+            label = f"Day {day_index + 1}"
+
+    snow = day.get("snowfall_total", 0) or 0
+    temp_high = day.get("temp_high")
+    temp_low = day.get("temp_low")
+    wind_avg = day.get("wind_avg") or 0
+    wind_gust = day.get("wind_gust") or 0
+    conditions = day.get("conditions", "")
+    quality = day.get("snow_quality", "")
+    confidence = day.get("confidence", "high")
+
+    parts = []
+
+    # Snow description
+    if snow >= 8:
+        parts.append(f'{snow:.0f}" of heavy snow')
+    elif snow >= 4:
+        parts.append(f'{snow:.0f}" of snow')
+    elif snow >= 1:
+        parts.append(f'{snow:.1f}" of snow')
+    elif snow >= 0.5:
+        parts.append("flurries")
+    else:
+        # No snow — describe conditions
+        if conditions in ("Clear", "Mainly Clear"):
+            parts.append("clear skies")
+        elif conditions in ("Partly Cloudy", "Overcast"):
+            parts.append(conditions.lower())
+        elif "Rain" in conditions or "Drizzle" in conditions:
+            parts.append(conditions.lower())
+        else:
+            parts.append("dry")
+
+    # Temperature
+    if temp_high is not None and temp_low is not None:
+        parts.append(f"highs of {temp_high:.0f}°F")
+
+    # Wind (only if notable)
+    if wind_gust > 40:
+        parts.append(f"gusts to {wind_gust:.0f} mph")
+    elif wind_avg > 20:
+        parts.append(f"winds around {wind_avg:.0f} mph")
+
+    # Build sentence
+    detail = ", ".join(parts)
+    sentence = f"{label}: {detail}."
+
+    # Quality note for snow days
+    if snow >= 2 and quality:
+        short_quality = (
+            quality.replace("Fresh Powder", "powder")
+            .replace("Packed Powder", "packed snow")
+            .replace("Spring Conditions", "spring snow")
+            .replace("Wind Affected", "wind-affected snow")
+            .replace("Wet/Heavy", "wet, heavy snow")
+            .replace("Variable", "variable conditions")
+        )
+        sentence += f" Expect {short_quality}."
+
+    # Low confidence warning
+    if confidence == "low" and snow >= 1:
+        sentence += " Models disagree — check back."
+
+    return sentence

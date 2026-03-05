@@ -630,6 +630,15 @@ def _compute_daily_summary(blended_rows: list, starting_snow_depth_in: float | N
             "summit_temp_low": round(min(summit_temps)) if summit_temps else None,
         })
 
+    # Generate per-day narratives
+    try:
+        from intelligence.narrative import generate_daily_narrative
+        for i, day in enumerate(summaries):
+            day["narrative"] = generate_daily_narrative(i, day)
+    except Exception:
+        for day in summaries:
+            day.setdefault("narrative", "")
+
     # Compute days_until_depleted using cumulative net snow change
     if starting_snow_depth_in is not None and starting_snow_depth_in > 0:
         snowpack = starting_snow_depth_in

@@ -72,6 +72,7 @@ export interface DailySummary {
   base_temp_low: number | null;
   summit_temp_high: number | null;
   summit_temp_low: number | null;
+  narrative: string;
 }
 
 export interface ResortForecast {
