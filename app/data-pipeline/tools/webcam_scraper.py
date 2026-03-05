@@ -66,6 +66,30 @@ def search_youtube(query: str, max_results: int = 5) -> list[dict]:
         return []
 
 
+def verify_is_live(vid_id: str) -> bool:
+    """Check if a YouTube video is currently a live stream using yt-dlp metadata."""
+    try:
+        result = subprocess.run(
+            [
+                YTDLP_BIN,
+                f"https://www.youtube.com/watch?v={vid_id}",
+                "--dump-json",
+                "--no-warnings",
+                "--quiet",
+                "--skip-download",
+            ],
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+        if result.returncode != 0:
+            return False
+        meta = json.loads(result.stdout)
+        return meta.get("live_status") == "is_live" or meta.get("is_live") is True
+    except (subprocess.TimeoutExpired, FileNotFoundError, json.JSONDecodeError):
+        return False
+
+
 def is_live_webcam(entry: dict, resort_name: str) -> bool:
     """Check if a YouTube entry looks like a live webcam stream for this resort."""
     title = (entry.get("title") or "").lower()
@@ -128,6 +152,10 @@ def find_youtube_webcams(resort_name: str) -> list[dict]:
             if not is_live_webcam(entry, resort_name):
                 continue
             seen_ids.add(vid_id)
+            # Verify the video is actually a live stream right now
+            if not verify_is_live(vid_id):
+                logger.debug("  Skipping %s (not live)", vid_id)
+                continue
             cam_name = extract_cam_name(entry.get("title", ""), resort_name)
             cams.append({
                 "name": cam_name,
@@ -149,8 +177,15 @@ def scrape_resort_webcam_page(url: str) -> list[dict]:
         cams = []
         # Look for YouTube embeds in iframes
         yt_pattern = r'(?:youtube\.com/embed/|youtube\.com/live/|youtu\.be/)([a-zA-Z0-9_-]{11})'
+        seen_yt = set()
         for match in re.finditer(yt_pattern, html):
             vid_id = match.group(1)
+            if vid_id in seen_yt:
+                continue
+            seen_yt.add(vid_id)
+            # Only include if the video is actually live
+            if not verify_is_live(vid_id):
+                continue
             cams.append({
                 "name": "Resort Cam",
                 "url": f"https://www.youtube.com/live/{vid_id}",
