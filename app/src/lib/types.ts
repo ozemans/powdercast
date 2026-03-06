@@ -75,10 +75,22 @@ export interface DailySummary {
   narrative: string;
 }
 
+export interface RecentConditions {
+  current_depth_in: number;
+  depth_change_48h_in: number;
+  depth_change_7d_in: number;
+  new_snow_48h_in: number;
+  new_snow_7d_in: number;
+  melt_48h_in: number;
+  trend: "gaining" | "stable" | "losing";
+  narrative: string;
+}
+
 export interface ResortForecast {
   slug: string;
   last_updated: string;
   models: Record<string, ModelForecast>;
+  recent_conditions?: RecentConditions;
   blended: {
     narrative: string;
     snow_quality: string;

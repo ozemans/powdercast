@@ -22,6 +22,7 @@ import ModelComparison from "@/components/ModelComparison";
 import { ConditionsIcon } from "@/components/ConditionsIcon";
 import WebcamSection from "@/components/WebcamSection";
 import type { Webcam } from "@/components/WebcamSection";
+import RecentConditionsCard from "@/components/RecentConditionsCard";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -646,6 +647,11 @@ export default async function ResortPage({ params }: PageProps) {
                 )}
               </dl>
             </div>
+          )}
+
+          {/* Recent Conditions */}
+          {forecast?.recent_conditions && (
+            <RecentConditionsCard recentConditions={forecast.recent_conditions} />
           )}
 
           {/* Webcam */}

@@ -500,6 +500,20 @@ def _build_json_output(conn: sqlite3.Connection, resorts: list[dict], resort_id_
             },
         }
 
+        # --- Inject recent conditions from SNOTEL observations ---
+        obs_dir = os.path.join(output_dir, "observations")
+        obs_path = os.path.join(obs_dir, f"{slug}.json")
+        if os.path.exists(obs_path):
+            try:
+                with open(obs_path) as obs_f:
+                    obs_data = json.load(obs_f)
+                from intelligence.recent_conditions import compute_recent_conditions
+                recent = compute_recent_conditions(obs_data)
+                if recent:
+                    forecast_obj["recent_conditions"] = recent
+            except Exception as e:
+                logger.debug("Recent conditions skipped for %s: %s", slug, e)
+
         filepath = os.path.join(forecast_dir, f"{slug}.json")
         with open(filepath, "w") as f:
             json.dump(forecast_obj, f, separators=(",", ":"))

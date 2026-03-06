@@ -133,6 +133,26 @@
       "name": "All Cams",
       "url": "https://www.arapahoebasin.com/snow-conditions/webcams/",
       "type": "link"
+    },
+    {
+      "name": "Snow Stake Time Lapse",
+      "url": "https://img.hdrelay.com/frames/61e08a0efaf0bf0b5629ac54/default/last.jpg",
+      "type": "iframe"
+    },
+    {
+      "name": "Summit",
+      "url": "https://img.hdrelay.com/frames/61f4736d8110f6589add33bf/default/last.jpg",
+      "type": "iframe"
+    },
+    {
+      "name": "Black Mountain Lodge",
+      "url": "https://img.hdrelay.com/frames/61f1bb01faf0bf0b5629ac63/default/last.jpg",
+      "type": "iframe"
+    },
+    {
+      "name": "Pali + Molly Lifts",
+      "url": "https://img.hdrelay.com/frames/61e1c1e5faf0bf0b5629ac57/default/last.jpg",
+      "type": "iframe"
     }
   ],
   "telluride": [
@@ -178,6 +198,21 @@
       "name": "All Cams",
       "url": "https://wolfcreekski.com/webcams/",
       "type": "link"
+    },
+    {
+      "name": "Base Area",
+      "url": "https://live2.brownrice.com/embed/wolfcreektreasure",
+      "type": "iframe"
+    },
+    {
+      "name": "Summit",
+      "url": "https://live2.brownrice.com/embed/wolfcreeksummit",
+      "type": "iframe"
+    },
+    {
+      "name": "Treasure Stoke Lift Line",
+      "url": "https://live2.brownrice.com/embed/wolfcreektresurlift",
+      "type": "iframe"
     }
   ],
   "purgatory": [
@@ -223,6 +258,16 @@
       "name": "All Cams",
       "url": "https://www.aspensnowmass.com/four-mountains/mountain-cams",
       "type": "link"
+    },
+    {
+      "name": "Buttermilk Panorama",
+      "url": "https://aspen.roundshot.com/buttermilk/",
+      "type": "iframe"
+    },
+    {
+      "name": "Power of Four",
+      "url": "https://aspen.roundshot.com/power-of-four/",
+      "type": "iframe"
     }
   ],
   "sunlight-mountain": [
@@ -348,6 +393,41 @@
       "name": "All Cams",
       "url": "https://www.snowbasin.com/webcams/",
       "type": "link"
+    },
+    {
+      "name": "Mt. Ogden",
+      "url": "https://img.hdrelay.com/frames/f9e1b19a-a72f-4319-8c01-0fd3e4392efb/default/last.jpg",
+      "type": "iframe"
+    },
+    {
+      "name": "John Paul Lodge",
+      "url": "https://img.hdrelay.com/frames/6192dda05233cdcad76d7dbb/default/last.jpg",
+      "type": "iframe"
+    },
+    {
+      "name": "Needles",
+      "url": "https://img.hdrelay.com/frames/5af99fc0-02f8-4dc2-8e9a-ba20ad3093c5/default/last.jpg",
+      "type": "iframe"
+    },
+    {
+      "name": "Strawberry Patio",
+      "url": "https://img.hdrelay.com/frames/65652b917efa88233092a64d/default/last.jpg",
+      "type": "iframe"
+    },
+    {
+      "name": "Base Area",
+      "url": "https://img.hdrelay.com/frames/621944fbaaab8d0820944246/default/last.jpg",
+      "type": "iframe"
+    },
+    {
+      "name": "Middle Bowl Base",
+      "url": "https://img.hdrelay.com/frames/62101bfb8db58d080b9eac84/default/last.jpg",
+      "type": "iframe"
+    },
+    {
+      "name": "Base of Wildcat",
+      "url": "https://img.hdrelay.com/frames/61e1c348e73e870b5583f203/default/last.jpg",
+      "type": "iframe"
     }
   ],
   "brian-head": [
@@ -355,6 +435,11 @@
       "name": "All Cams",
       "url": "https://www.brianhead.com/mountain/webcams",
       "type": "link"
+    },
+    {
+      "name": "Base Area",
+      "url": "https://img.hdrelay.com/frames/b2e81028-f1f0-408c-9f6d-dee347d0b001/default/last.jpg",
+      "type": "iframe"
     }
   ],
   "sundance": [
@@ -486,6 +571,21 @@
       "name": "All Cams",
       "url": "https://www.kirkwood.com/the-mountain/mountain-conditions/mountain-cams.aspx",
       "type": "link"
+    },
+    {
+      "name": "Cornice",
+      "url": "https://player.brownrice.com/embed/kirkwoodcornice",
+      "type": "iframe"
+    },
+    {
+      "name": "Red Cliffs",
+      "url": "https://player.brownrice.com/embed/kirkwoodredcliffs",
+      "type": "iframe"
+    },
+    {
+      "name": "Snow Stake",
+      "url": "https://timecam.tv/view_cam_embed.aspx?C=FA96AJEMC1ED",
+      "type": "iframe"
     }
   ],
   "northstar": [
@@ -493,6 +593,21 @@
       "name": "All Cams",
       "url": "https://www.northstarcalifornia.com/the-mountain/mountain-conditions/mountain-cams.aspx",
       "type": "link"
+    },
+    {
+      "name": "Snow Stake",
+      "url": "https://player.brownrice.com/embed/northstarsnowstake",
+      "type": "iframe"
+    },
+    {
+      "name": "Vista Express Mid Mountain",
+      "url": "https://player.brownrice.com/embed/northstarmidmountain",
+      "type": "iframe"
+    },
+    {
+      "name": "Summit",
+      "url": "https://player.brownrice.com/embed/northstarspluto",
+      "type": "iframe"
     }
   ],
   "sugar-bowl": [
@@ -500,6 +615,11 @@
       "name": "All Cams",
       "url": "https://www.sugarbowl.com/webcams",
       "type": "link"
+    },
+    {
+      "name": "Union Street",
+      "url": "https://player.roob.sk/?param=https://b9.hdrelay.com/camera/94f2ccc6-0caa-45d9-b6b9-c2e9be2bc41b/relay/chunklist_w1798215427.m3u8&autoplay",
+      "type": "iframe"
     }
   ],
   "sierra-at-tahoe": [
@@ -607,6 +727,31 @@
       "name": "All Cams",
       "url": "https://skirose.com/webcams/",
       "type": "link"
+    },
+    {
+      "name": "Summit",
+      "url": "https://live3.brownrice.com/embed/mtrose1",
+      "type": "iframe"
+    },
+    {
+      "name": "Main Lodge",
+      "url": "https://live3.brownrice.com/embed/mtrosecam",
+      "type": "iframe"
+    },
+    {
+      "name": "North View",
+      "url": "https://live3.brownrice.com/embed/mtrosesummit",
+      "type": "iframe"
+    },
+    {
+      "name": "Slide Bowl",
+      "url": "https://live3.brownrice.com/embed/mtroseslidebowl",
+      "type": "iframe"
+    },
+    {
+      "name": "Winters Creek Lodge",
+      "url": "https://live3.brownrice.com/embed/mtrosewcl",
+      "type": "iframe"
     }
   ],
   "diamond-peak": [
@@ -614,6 +759,21 @@
       "name": "All Cams",
       "url": "https://www.diamondpeak.com/mountain/webcams",
       "type": "link"
+    },
+    {
+      "name": "Summit",
+      "url": "https://img.hdrelay.com/frames/544ccabf-7940-470e-86ba-4e06b192c29f/default/last.jpg",
+      "type": "iframe"
+    },
+    {
+      "name": "Snowflake Lodge",
+      "url": "https://img.hdrelay.com/frames/0b881044-f574-49ff-b548-e2b617063ae6/default/last.jpg",
+      "type": "iframe"
+    },
+    {
+      "name": "Base Area",
+      "url": "https://img.hdrelay.com/frames/f696eee0-2224-4f36-b215-864ddb36012f/default/last.jpg",
+      "type": "iframe"
     }
   ],
   "mountain-high": [
@@ -677,6 +837,11 @@
       "name": "All Cams",
       "url": "https://www.crystalmountainresort.com/webcams",
       "type": "link"
+    },
+    {
+      "name": "Summit Panorama",
+      "url": "https://crystalmountainresort.roundshot.com/summit/",
+      "type": "iframe"
     }
   ],
   "stevens-pass": [
@@ -684,6 +849,21 @@
       "name": "All Cams",
       "url": "https://www.stevenspass.com/the-mountain/mountain-conditions/mountain-cams.aspx",
       "type": "link"
+    },
+    {
+      "name": "Snow Stake",
+      "url": "https://player.brownrice.com/embed/stevenspasssnowstake",
+      "type": "iframe"
+    },
+    {
+      "name": "Jupiter",
+      "url": "https://player.brownrice.com/embed/stevenspassjupiter",
+      "type": "iframe"
+    },
+    {
+      "name": "Courtyard",
+      "url": "https://player.brownrice.com/embed/stevenspasscourtyard",
+      "type": "iframe"
     }
   ],
   "mt-baker": [
@@ -734,6 +914,26 @@
       "name": "All Cams",
       "url": "https://summitatsnoqualmie.com/mountain-cams",
       "type": "link"
+    },
+    {
+      "name": "Summit Central",
+      "url": "https://www.youtube.com/embed/BxM71UffjpU",
+      "type": "youtube"
+    },
+    {
+      "name": "Central Express Lift Summit",
+      "url": "https://www.youtube.com/embed/q2jMYi5mXv8",
+      "type": "youtube"
+    },
+    {
+      "name": "Alpental Base",
+      "url": "https://www.youtube.com/embed/tGXlFWKi93I",
+      "type": "youtube"
+    },
+    {
+      "name": "Silver Fir",
+      "url": "https://www.youtube.com/embed/X6SnY1TiX-k",
+      "type": "youtube"
     }
   ],
   "mt-bachelor": [
@@ -780,6 +980,21 @@
       "name": "All Cams",
       "url": "https://www.skibowl.com/webcams",
       "type": "link"
+    },
+    {
+      "name": "Upper Bowl",
+      "url": "https://video.nest.com/embedded/live/npsFa2hlJU?autoplay=1",
+      "type": "iframe"
+    },
+    {
+      "name": "West Base",
+      "url": "https://video.nest.com/embedded/live/SUFOrgWa6m?autoplay=1",
+      "type": "iframe"
+    },
+    {
+      "name": "East Base",
+      "url": "https://video.nest.com/embedded/live/V7j7Fc9F0o?autoplay=1",
+      "type": "iframe"
     }
   ],
   "schweitzer": [
@@ -901,6 +1116,11 @@
       "name": "All Cams",
       "url": "https://bridgerbowl.com/weather/webcams",
       "type": "link"
+    },
+    {
+      "name": "Red Chair Live",
+      "url": "https://www.youtube.com/embed/AHARPwavQ_0",
+      "type": "youtube"
     }
   ],
   "whitefish-mountain": [
@@ -908,6 +1128,11 @@
       "name": "All Cams",
       "url": "https://skiwhitefish.com/webcams/",
       "type": "link"
+    },
+    {
+      "name": "Summit Panorama",
+      "url": "https://skiwhitefish.roundshot.com/summit/#/",
+      "type": "iframe"
     }
   ],
   "red-lodge-mountain": [
@@ -915,6 +1140,26 @@
       "name": "All Cams",
       "url": "https://www.redlodgemountain.com/webcams/",
       "type": "link"
+    },
+    {
+      "name": "Webcam 1",
+      "url": "https://v.angelcam.com/iframe?v=16rb82kzr4&autoplay=1",
+      "type": "iframe"
+    },
+    {
+      "name": "Webcam 2",
+      "url": "https://v.angelcam.com/iframe?v=16lb823dl4&autoplay=1&mute=1",
+      "type": "iframe"
+    },
+    {
+      "name": "Webcam 3",
+      "url": "https://v.angelcam.com/iframe?v=2dy6e2kprk&autoplay=1",
+      "type": "iframe"
+    },
+    {
+      "name": "Webcam 4",
+      "url": "https://v.angelcam.com/iframe?v=2dy6e070rk&autoplay=1",
+      "type": "iframe"
     }
   ],
   "grand-targhee": [
@@ -949,6 +1194,31 @@
       "name": "All Cams",
       "url": "https://www.sunvalley.com/mountain-info/webcams/",
       "type": "link"
+    },
+    {
+      "name": "Roundhouse",
+      "url": "https://img.hdrelay.com/frames/dfd66293-97e7-4c5d-b1eb-e375f64df469/default/last.jpg",
+      "type": "iframe"
+    },
+    {
+      "name": "The Bowls",
+      "url": "https://img.hdrelay.com/frames/a786b634-06e1-47dc-bef3-36b476a3ceab/default/last.jpg",
+      "type": "iframe"
+    },
+    {
+      "name": "River Run",
+      "url": "https://img.hdrelay.com/frames/fd6ee8bb-c858-4ffc-949b-12d1e18bda7f/default/last.jpg",
+      "type": "iframe"
+    },
+    {
+      "name": "Warm Springs",
+      "url": "https://img.hdrelay.com/frames/96c45c9e-7d23-4c62-a366-9e6991ff2599/default/last.jpg",
+      "type": "iframe"
+    },
+    {
+      "name": "Quarter Dollar",
+      "url": "https://img.hdrelay.com/frames/3f0f18fd-16ca-45ab-9241-672535255f7e/default/last.jpg",
+      "type": "iframe"
     }
   ],
   "brundage-mountain": [
@@ -978,6 +1248,21 @@
       "name": "All Cams",
       "url": "https://bogusbasin.org/webcams/",
       "type": "link"
+    },
+    {
+      "name": "Snow Stake",
+      "url": "https://www.youtube.com/embed/g714uvR8Rjg",
+      "type": "youtube"
+    },
+    {
+      "name": "Base Area",
+      "url": "https://www.youtube.com/embed/t1cm2D-1TLY",
+      "type": "youtube"
+    },
+    {
+      "name": "Parking Lot",
+      "url": "https://www.youtube.com/embed/EJ0bbdSvLIY",
+      "type": "youtube"
     }
   ],
   "silver-mountain": [
@@ -985,6 +1270,11 @@
       "name": "All Cams",
       "url": "https://silvermt.com/webcams/",
       "type": "link"
+    },
+    {
+      "name": "KREM 2 Camera",
+      "url": "https://api.wetmet.net/client-content/PlayerFrame.php?CAMERA=162-04-01&CFVER=WM&WIDTH=100%&HEIGHT=100%",
+      "type": "iframe"
     }
   ],
   "tamarack": [
@@ -1038,6 +1328,16 @@
       "name": "All Cams",
       "url": "https://www.killington.com/conditions/webcams",
       "type": "link"
+    },
+    {
+      "name": "Snowshed",
+      "url": "https://camstreamer.com/embed/c140c59184d25e6/S-21047?rel=0",
+      "type": "iframe"
+    },
+    {
+      "name": "Peak 360",
+      "url": "https://killington.roundshot.com/peaklodge",
+      "type": "iframe"
     }
   ],
   "stowe": [
@@ -1045,6 +1345,16 @@
       "name": "All Cams",
       "url": "https://www.stowe.com/the-mountain/mountain-conditions/mountain-cams.aspx",
       "type": "link"
+    },
+    {
+      "name": "Stowe Mountain",
+      "url": "https://player.brownrice.com/embed/stowevillage2",
+      "type": "iframe"
+    },
+    {
+      "name": "Spruce Peak Village",
+      "url": "https://player.brownrice.com/embed/stowevillage",
+      "type": "iframe"
     }
   ],
   "sugarbush": [
@@ -1130,6 +1440,11 @@
       "name": "All Cams",
       "url": "https://www.brettonwoods.com/webcams",
       "type": "link"
+    },
+    {
+      "name": "Mount Washington Observatory Deck",
+      "url": "https://www.youtube.com/embed/RUN2G9r136c",
+      "type": "youtube"
     }
   ],
   "loon-mountain": [
@@ -1193,6 +1508,26 @@
       "name": "All Cams",
       "url": "https://www.okemo.com/the-mountain/mountain-conditions/mountain-cams.aspx",
       "type": "link"
+    },
+    {
+      "name": "Summit",
+      "url": "https://player.brownrice.com/embed/okemosummit",
+      "type": "iframe"
+    },
+    {
+      "name": "Snow Stake",
+      "url": "https://player.brownrice.com/embed/okemosnowstake",
+      "type": "iframe"
+    },
+    {
+      "name": "Sugar House",
+      "url": "https://player.brownrice.com/embed/okemosugarhouse",
+      "type": "iframe"
+    },
+    {
+      "name": "Roundhouse",
+      "url": "https://player.brownrice.com/embed/okemoroundhouse",
+      "type": "iframe"
     }
   ],
   "mount-snow": [
@@ -1241,6 +1576,21 @@
       "name": "All Cams",
       "url": "https://www.skiwildcat.com/the-mountain/mountain-conditions/mountain-cams.aspx",
       "type": "link"
+    },
+    {
+      "name": "Snowstake",
+      "url": "https://player.brownrice.com/embed/wildcat3",
+      "type": "iframe"
+    },
+    {
+      "name": "Base Area",
+      "url": "https://player.brownrice.com/embed/wildcat2",
+      "type": "iframe"
+    },
+    {
+      "name": "Base Lodge",
+      "url": "https://player.brownrice.com/embed/wildcat1",
+      "type": "iframe"
     }
   ],
   "mad-river-glen": [
@@ -1320,6 +1670,21 @@
       "name": "All Cams",
       "url": "https://www.gunstock.com/webcam/",
       "type": "link"
+    },
+    {
+      "name": "Summit",
+      "url": "https://api.wetmet.net/client-content/PlayerFrame.php?CAMERA=196-01-01&CFVER=WM&WIDTH=640&HEIGHT=480",
+      "type": "iframe"
+    },
+    {
+      "name": "Base",
+      "url": "https://api.wetmet.net/client-content/PlayerFrame.php?CAMERA=196-03-01&CFVER=CB&WIDTH=640&HEIGHT=480",
+      "type": "iframe"
+    },
+    {
+      "name": "Tubing Hill",
+      "url": "https://api.wetmet.net/client-content/PlayerFrame.php?CAMERA=196-02-01&CFVER=CB&WIDTH=640&HEIGHT=480",
+      "type": "iframe"
     }
   ],
   "wachusett-mountain": [
@@ -1327,6 +1692,26 @@
       "name": "All Cams",
       "url": "https://www.wachusett.com/webcams",
       "type": "link"
+    },
+    {
+      "name": "Summit",
+      "url": "https://api.wetmet.net/widgets/stream/frame.php?uid=ae0a41d92d6d4c74d5c696e2d18ae88f",
+      "type": "iframe"
+    },
+    {
+      "name": "Nastar",
+      "url": "https://api.wetmet.net/widgets/stream/frame.php?uid=c5d9979a7622e03eb89b208a83d65810",
+      "type": "iframe"
+    },
+    {
+      "name": "Look Mom",
+      "url": "https://api.wetmet.net/widgets/stream/frame.php?uid=7779a0b4e49498d466397f061cf39d82",
+      "type": "iframe"
+    },
+    {
+      "name": "Beginner",
+      "url": "https://api.wetmet.net/widgets/stream/frame.php?uid=091cb124fa06319a70608454e73ffacf",
+      "type": "iframe"
     }
   ],
   "mount-sunapee": [
@@ -1334,6 +1719,21 @@
       "name": "All Cams",
       "url": "https://www.mountsunapee.com/the-mountain/mountain-conditions/mountain-cams.aspx",
       "type": "link"
+    },
+    {
+      "name": "Summit",
+      "url": "https://player.brownrice.com/embed/sunapeesummit",
+      "type": "iframe"
+    },
+    {
+      "name": "Express Lift",
+      "url": "https://player.brownrice.com/embed/sunapeeexpresslift",
+      "type": "iframe"
+    },
+    {
+      "name": "Spruce Lodge",
+      "url": "https://player.brownrice.com/embed/sunapeesprucelodge",
+      "type": "iframe"
     }
   ],
   "jiminy-peak": [
@@ -1362,6 +1762,26 @@
       "name": "All Cams",
       "url": "https://www.huntermtn.com/the-mountain/mountain-conditions/mountain-cams.aspx",
       "type": "link"
+    },
+    {
+      "name": "Base",
+      "url": "https://player.brownrice.com/embed/hunter1",
+      "type": "iframe"
+    },
+    {
+      "name": "Mid Mountain",
+      "url": "https://player.brownrice.com/embed/huntermidstation",
+      "type": "iframe"
+    },
+    {
+      "name": "Hunter East",
+      "url": "https://player.brownrice.com/embed/hunternorthside",
+      "type": "iframe"
+    },
+    {
+      "name": "Summit",
+      "url": "https://player.brownrice.com/embed/huntersummit",
+      "type": "iframe"
     }
   ],
   "windham-mountain": [
@@ -1369,6 +1789,11 @@
       "name": "All Cams",
       "url": "https://www.windhammountain.com/the-mountain/mountain-conditions/mountain-cams.aspx",
       "type": "link"
+    },
+    {
+      "name": "Base",
+      "url": "https://player.brownrice.com/embed/windhammountainclub",
+      "type": "iframe"
     }
   ],
   "camelback": [
@@ -1383,6 +1808,11 @@
       "name": "All Cams",
       "url": "https://www.jfbb.com/webcams/",
       "type": "link"
+    },
+    {
+      "name": "Discovery",
+      "url": "https://player.roob.sk/?param=https://live8.brownrice.com:444/jackfrost2/jackfrost2.stream/main_playlist.m3u8&autoplay",
+      "type": "iframe"
     }
   ],
   "seven-springs": [
@@ -1397,6 +1827,36 @@
       "name": "All Cams",
       "url": "https://www.holidayvalley.com/webcams/",
       "type": "link"
+    },
+    {
+      "name": "Top of Cindy's",
+      "url": "https://manage.hdrelay.com/webPlayer/iframe/619e67b47ee0bcc6eb462f81",
+      "type": "iframe"
+    },
+    {
+      "name": "Main Lodge",
+      "url": "https://manage.hdrelay.com/webPlayer/iframe/691f45a02fc3303fedc919c1",
+      "type": "iframe"
+    },
+    {
+      "name": "Mardi Gras Top",
+      "url": "https://manage.hdrelay.com/webPlayer/iframe/691f441c2fc3303fedc919be",
+      "type": "iframe"
+    },
+    {
+      "name": "Morning Star Top",
+      "url": "https://manage.hdrelay.com/webPlayer/iframe/691f483e2fc3303fedc919c5",
+      "type": "iframe"
+    },
+    {
+      "name": "Tannenbaum",
+      "url": "https://manage.hdrelay.com/webPlayer/iframe/691f420a2fc3303fedc919b8",
+      "type": "iframe"
+    },
+    {
+      "name": "Snowpine Camera",
+      "url": "https://manage.hdrelay.com/webPlayer/iframe/691f43722fc3303fedc919bb",
+      "type": "iframe"
     }
   ],
   "snowshoe": [
@@ -1418,6 +1878,16 @@
       "name": "All Cams",
       "url": "https://www.wispresort.com/webcams/",
       "type": "link"
+    },
+    {
+      "name": "Base Cam",
+      "url": "https://www.resortcams.com/webcams/wisp/iframe/",
+      "type": "iframe"
+    },
+    {
+      "name": "Mountain Park Cam",
+      "url": "https://www.resortcams.com/webcams/wisp-resort-mountain-park/iframe/",
+      "type": "iframe"
     }
   ],
   "timberline-mountain-wv": [
@@ -1490,6 +1960,11 @@
       "name": "All Cams",
       "url": "https://www.appskimtn.com/webcams/",
       "type": "link"
+    },
+    {
+      "name": "Slope Cam",
+      "url": "https://6182b61737503.streamlock.net/live/AppSkiMtn.stream/playlist.m3u8",
+      "type": "iframe"
     }
   ],
   "sugar-mountain": [
@@ -1497,6 +1972,41 @@
       "name": "All Cams",
       "url": "https://www.skisugar.com/webcams/",
       "type": "link"
+    },
+    {
+      "name": "Base",
+      "url": "https://skisugar.com/library/camnew-base.html",
+      "type": "iframe"
+    },
+    {
+      "name": "Easy Street",
+      "url": "https://skisugar.com/library/camnew-easystreet.html",
+      "type": "iframe"
+    },
+    {
+      "name": "Summit",
+      "url": "https://skisugar.com/library/camnew-summit.html",
+      "type": "iframe"
+    },
+    {
+      "name": "Grandfather View",
+      "url": "https://skisugar.com/library/camnew-grandfather.html",
+      "type": "iframe"
+    },
+    {
+      "name": "Tubing / Ice Skating",
+      "url": "https://skisugar.com/library/camnew-activity.html",
+      "type": "iframe"
+    },
+    {
+      "name": "Big Birch",
+      "url": "https://skisugar.com/library/camnew-tubingbirch.html",
+      "type": "iframe"
+    },
+    {
+      "name": "Oma's",
+      "url": "https://skisugar.com/library/camnew-omas.html",
+      "type": "iframe"
     }
   ],
   "beech-mountain": [
@@ -1511,6 +2021,21 @@
       "name": "All Cams",
       "url": "https://cataloochee.com/webcams/",
       "type": "link"
+    },
+    {
+      "name": "Base of Mountain",
+      "url": "https://www.resortcams.com/webcams/cataloochee/iframe/",
+      "type": "iframe"
+    },
+    {
+      "name": "Top of Mountain",
+      "url": "https://www.resortcams.com/webcams/cataloochee-liftcam/iframe/",
+      "type": "iframe"
+    },
+    {
+      "name": "Aerial View",
+      "url": "https://www.resortcams.com/webcams/cataloochee-hemphill/iframe/",
+      "type": "iframe"
     }
   ],
   "whitetail": [
@@ -1525,6 +2050,11 @@
       "name": "All Cams",
       "url": "https://www.mountaincreek.com/webcams",
       "type": "link"
+    },
+    {
+      "name": "Mountain Cam",
+      "url": "https://www.youtube.com/embed/XwfL3P0LRVo",
+      "type": "youtube"
     }
   ],
   "taos-ski-valley": [
@@ -1532,6 +2062,36 @@
       "name": "All Cams",
       "url": "https://www.skitaos.com/webcams",
       "type": "link"
+    },
+    {
+      "name": "Base",
+      "url": "https://live2.brownrice.com/embed/tsv",
+      "type": "iframe"
+    },
+    {
+      "name": "Highline",
+      "url": "https://live2.brownrice.com/embed/tsvridge",
+      "type": "iframe"
+    },
+    {
+      "name": "Kachina Basin",
+      "url": "https://live3.brownrice.com/embed/tsvbav",
+      "type": "iframe"
+    },
+    {
+      "name": "Kachina Peak",
+      "url": "https://live3.brownrice.com/embed/tsvlonestar",
+      "type": "iframe"
+    },
+    {
+      "name": "Poco Cam",
+      "url": "https://tsvweather.brownrice.com/poco-webcam.php",
+      "type": "iframe"
+    },
+    {
+      "name": "Lower Plaza",
+      "url": "https://live2.brownrice.com/embed/tsvconstruction",
+      "type": "iframe"
     }
   ],
   "ski-santa-fe": [
@@ -1539,6 +2099,21 @@
       "name": "All Cams",
       "url": "https://www.skisantafe.com/webcam/",
       "type": "link"
+    },
+    {
+      "name": "Quad Cam",
+      "url": "https://player.brownrice.com/embed/quadtop",
+      "type": "iframe"
+    },
+    {
+      "name": "Base Cam",
+      "url": "https://player.brownrice.com/embed/santafe",
+      "type": "iframe"
+    },
+    {
+      "name": "Millennium Lift Cam",
+      "url": "https://player.brownrice.com/embed/santafechair5",
+      "type": "iframe"
     }
   ],
   "ski-apache": [
@@ -1546,6 +2121,11 @@
       "name": "All Cams",
       "url": "https://www.skiapache.com/webcams/",
       "type": "link"
+    },
+    {
+      "name": "Mountain Cam",
+      "url": "https://live2.brownrice.com/embed/apache",
+      "type": "iframe"
     }
   ],
   "arizona-snowbowl": [
@@ -1553,6 +2133,16 @@
       "name": "All Cams",
       "url": "https://www.snowbowl.ski/webcams/",
       "type": "link"
+    },
+    {
+      "name": "Arizona Gondola Camera",
+      "url": "https://www.youtube.com/embed/ceNwUBvirnA",
+      "type": "youtube"
+    },
+    {
+      "name": "Grand Canyon Express Camera",
+      "url": "https://www.youtube.com/embed/kj_dcYE8PT4",
+      "type": "youtube"
     }
   ],
   "sunrise-park-resort": [
@@ -1587,6 +2177,11 @@
       "name": "All Cams",
       "url": "https://www.leecanyonlv.com/webcams/",
       "type": "link"
+    },
+    {
+      "name": "Base Area",
+      "url": "https://manage.hdrelay.com/webPlayer/iframe/e8ecca63-a91c-4ebe-98a7-341b2244dbc5",
+      "type": "iframe"
     }
   ],
   "lutsen-mountains": [
@@ -1594,6 +2189,11 @@
       "name": "All Cams",
       "url": "https://www.lutsen.com/webcams",
       "type": "link"
+    },
+    {
+      "name": "Roundshot 360",
+      "url": "https://lutsen.roundshot.com/",
+      "type": "iframe"
     }
   ],
   "spirit-mountain": [
@@ -1620,6 +2220,16 @@
       "name": "All Cams",
       "url": "https://www.skigranitepeak.com/webcam",
       "type": "link"
+    },
+    {
+      "name": "Base Area Webcam",
+      "url": "https://manage.hdrelay.com/webPlayer/iframe/887c7f2a-75c4-4fd3-bd7a-dc0c84ee6170",
+      "type": "iframe"
+    },
+    {
+      "name": "Dasher Webcam",
+      "url": "https://manage.hdrelay.com/webPlayer/iframe/3f63ae3b-2fd7-4c61-95ab-9cb2e9c55d26",
+      "type": "iframe"
     }
   ],
   "boyne-mountain": [
@@ -1853,6 +2463,31 @@
       "name": "All Cams",
       "url": "https://www.skilouise.com/webcams/",
       "type": "link"
+    },
+    {
+      "name": "Base Area",
+      "url": "https://player.brownrice.com/embed/lakelouisebasearea",
+      "type": "iframe"
+    },
+    {
+      "name": "Ptarmigan Backside",
+      "url": "https://player.brownrice.com/embed/ptarmiganbackside",
+      "type": "iframe"
+    },
+    {
+      "name": "Pipestone Top",
+      "url": "https://player.brownrice.com/embed/lakelouisepipestonetop",
+      "type": "iframe"
+    },
+    {
+      "name": "Paradise Backside",
+      "url": "https://player.brownrice.com/embed/paradisebackside",
+      "type": "iframe"
+    },
+    {
+      "name": "Roundshot Ptarmigan 360",
+      "url": "https://skilouise.roundshot.com/ptarmigan/",
+      "type": "iframe"
     }
   ],
   "sunshine-village": [
@@ -1899,6 +2534,11 @@
       "name": "All Cams",
       "url": "https://www.skimarmot.com/webcams/",
       "type": "link"
+    },
+    {
+      "name": "Roundshot Panorama",
+      "url": "https://skimarmot.roundshot.com/",
+      "type": "iframe"
     }
   ],
   "mont-tremblant": [
@@ -2150,6 +2790,56 @@
       "name": "All Cams",
       "url": "https://www.skibromont.com/webcams/",
       "type": "link"
+    },
+    {
+      "name": "Sommet",
+      "url": "https://www.skaping.com/bromont/panoramique-sommet",
+      "type": "iframe"
+    },
+    {
+      "name": "Versant du Village",
+      "url": "https://www.skaping.com/bromont/village",
+      "type": "iframe"
+    },
+    {
+      "name": "Sommet Versant du Midi",
+      "url": "https://www.skaping.com/bromont/sommet-versant-du-midi",
+      "type": "iframe"
+    },
+    {
+      "name": "Express du Village",
+      "url": "https://www.skaping.com/bromont/rm-4",
+      "type": "iframe"
+    },
+    {
+      "name": "Express du Lac",
+      "url": "https://www.skaping.com/bromont/rm-5",
+      "type": "iframe"
+    },
+    {
+      "name": "Express des Epinettes",
+      "url": "https://www.skaping.com/bromont/rm-6",
+      "type": "iframe"
+    },
+    {
+      "name": "Remontee du Mont Soleil",
+      "url": "https://www.skaping.com/bromont/rm-2",
+      "type": "iframe"
+    },
+    {
+      "name": "Remontee du Midi",
+      "url": "https://www.skaping.com/bromont/rm-7",
+      "type": "iframe"
+    },
+    {
+      "name": "Remontee de la Cote Ouest",
+      "url": "https://www.skaping.com/bromont/rm-8",
+      "type": "iframe"
+    },
+    {
+      "name": "Remontee des Cantons",
+      "url": "https://www.skaping.com/bromont/rm-9",
+      "type": "iframe"
     }
   ],
   "mont-orford": [
