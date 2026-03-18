@@ -24,8 +24,8 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 1.3,
-    "current_temp": 51.6,
+    "snow_14d": 0.8,
+    "current_temp": 51.9,
     "conditions": "Clear"
   },
   {
@@ -53,7 +53,7 @@
     "operating_season": "Nov-May",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 1.9,
+    "snow_14d": 1.3,
     "current_temp": 45.3,
     "conditions": "Clear"
   },
@@ -82,8 +82,8 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.4,
-    "current_temp": 52.2,
+    "snow_14d": 0.2,
+    "current_temp": 52.6,
     "conditions": "Clear"
   },
   {
@@ -111,8 +111,8 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.7,
-    "current_temp": 58.0,
+    "snow_14d": 0.6,
+    "current_temp": 58.1,
     "conditions": "Clear"
   },
   {
@@ -140,7 +140,7 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 1.4,
+    "snow_14d": 1.1,
     "current_temp": 44.3,
     "conditions": "Clear"
   },
@@ -169,9 +169,9 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 2.1,
+    "snow_14d": 1.2,
     "current_temp": 46.8,
-    "conditions": "Clear"
+    "conditions": "Partly Cloudy"
   },
   {
     "slug": "keystone",
@@ -198,7 +198,7 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 1.9,
+    "snow_14d": 1.3,
     "current_temp": 47.7,
     "conditions": "Clear"
   },
@@ -227,9 +227,9 @@
     "operating_season": "Oct-Jun",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 2.2,
-    "current_temp": 40.0,
-    "conditions": "Clear"
+    "snow_14d": 1.7,
+    "current_temp": 40.1,
+    "conditions": "Mainly Clear"
   },
   {
     "slug": "telluride",
@@ -256,7 +256,7 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.5,
+    "snow_14d": 0.9,
     "current_temp": 51.7,
     "conditions": "Clear"
   },
@@ -285,7 +285,7 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 1.1,
+    "snow_14d": 0.8,
     "current_temp": 46.8,
     "conditions": "Clear"
   },
@@ -314,8 +314,8 @@
     "operating_season": "Oct-May",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 1.4,
-    "current_temp": 36.7,
+    "snow_14d": 1.8,
+    "current_temp": 36.8,
     "conditions": "Clear"
   },
   {
@@ -343,7 +343,7 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 2.1,
+    "snow_14d": 1.5,
     "current_temp": 43.3,
     "conditions": "Clear"
   },
@@ -372,7 +372,7 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.3,
+    "snow_14d": 0.1,
     "current_temp": 49.0,
     "conditions": "Clear"
   },
@@ -401,8 +401,8 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.1,
-    "current_temp": 52.7,
+    "snow_14d": 0.4,
+    "current_temp": 52.5,
     "conditions": "Clear"
   },
   {
@@ -430,7 +430,7 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 2.4,
+    "snow_14d": 1.3,
     "current_temp": 42.4,
     "conditions": "Mainly Clear"
   },
@@ -459,7 +459,7 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.8,
+    "snow_14d": 0.5,
     "current_temp": 53.4,
     "conditions": "Clear"
   },
@@ -488,7 +488,7 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.8,
+    "snow_14d": 0.5,
     "current_temp": 52.4,
     "conditions": "Clear"
   },
@@ -517,8 +517,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.8,
-    "current_temp": 49.9,
+    "snow_14d": 0.5,
+    "current_temp": 49.8,
     "conditions": "Clear"
   },
   {
@@ -546,8 +546,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.8,
-    "current_temp": 41.3,
+    "snow_14d": 1.2,
+    "current_temp": 41.2,
     "conditions": "Clear"
   },
   {
@@ -575,8 +575,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.1,
-    "current_temp": 53.2,
+    "snow_14d": 0.0,
+    "current_temp": 53.6,
     "conditions": "Clear"
   },
   {
@@ -605,7 +605,7 @@
     "snow_24h": 0.0,
     "snow_48h": 0.0,
     "snow_14d": 1.1,
-    "current_temp": 41.0,
+    "current_temp": 41.4,
     "conditions": "Clear"
   },
   {
@@ -633,7 +633,7 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.1,
+    "snow_14d": 0.0,
     "current_temp": 55.6,
     "conditions": "Clear"
   },
@@ -662,8 +662,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.9,
-    "current_temp": 49.4,
+    "snow_14d": 0.6,
+    "current_temp": 49.8,
     "conditions": "Mainly Clear"
   },
   {
@@ -691,8 +691,8 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.2,
-    "current_temp": 58.6,
+    "snow_14d": 0.0,
+    "current_temp": 58.8,
     "conditions": "Clear"
   },
   {
@@ -720,8 +720,8 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.5,
-    "current_temp": 56.4,
+    "snow_14d": 0.1,
+    "current_temp": 56.6,
     "conditions": "Clear"
   },
   {
@@ -808,7 +808,7 @@
     "snow_24h": 0.0,
     "snow_48h": 0.0,
     "snow_14d": 0.2,
-    "current_temp": 47.1,
+    "current_temp": 47.0,
     "conditions": "Clear"
   },
   {
@@ -836,7 +836,7 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.2,
+    "snow_14d": 0.1,
     "current_temp": 49.4,
     "conditions": "Clear"
   },
@@ -865,8 +865,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.5,
-    "current_temp": 55.6,
+    "snow_14d": 0.1,
+    "current_temp": 55.8,
     "conditions": "Clear"
   },
   {
@@ -894,8 +894,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.1,
-    "current_temp": 47.4,
+    "snow_14d": 0.4,
+    "current_temp": 47.5,
     "conditions": "Clear"
   },
   {
@@ -923,7 +923,7 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.5,
+    "snow_14d": 0.1,
     "current_temp": 58.1,
     "conditions": "Clear"
   },
@@ -952,7 +952,7 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.4,
+    "snow_14d": 0.5,
     "current_temp": 54.7,
     "conditions": "Clear"
   },
@@ -1010,8 +1010,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 2.7,
-    "current_temp": 48.7,
+    "snow_14d": 2.0,
+    "current_temp": 48.6,
     "conditions": "Clear"
   },
   {
@@ -1039,9 +1039,9 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.5,
+    "snow_14d": 0.1,
     "current_temp": 58.6,
-    "conditions": "Clear"
+    "conditions": "Mainly Clear"
   },
   {
     "slug": "cherry-peak",
@@ -1068,8 +1068,8 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.0,
-    "current_temp": 57.6,
+    "snow_14d": 0.1,
+    "current_temp": 57.7,
     "conditions": "Clear"
   },
   {
@@ -1097,8 +1097,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.4,
-    "current_temp": 53.2,
+    "snow_14d": 0.5,
+    "current_temp": 53.3,
     "conditions": "Clear"
   },
   {
@@ -1126,7 +1126,7 @@
     "operating_season": "Nov-Jun",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 1.4,
+    "snow_14d": 1.6,
     "current_temp": 46.5,
     "conditions": "Clear"
   },
@@ -1155,7 +1155,7 @@
     "operating_season": "Nov-May",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.8,
+    "snow_14d": 1.4,
     "current_temp": 67.7,
     "conditions": "Mainly Clear"
   },
@@ -1184,8 +1184,8 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.5,
-    "current_temp": 66.6,
+    "snow_14d": 0.1,
+    "current_temp": 66.8,
     "conditions": "Mainly Clear"
   },
   {
@@ -1213,7 +1213,7 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.9,
+    "snow_14d": 0.6,
     "current_temp": 59.9,
     "conditions": "Mainly Clear"
   },
@@ -1271,8 +1271,8 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.9,
-    "current_temp": 65.1,
+    "snow_14d": 1.5,
+    "current_temp": 65.0,
     "conditions": "Clear"
   },
   {
@@ -1300,8 +1300,8 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.9,
-    "current_temp": 63.5,
+    "snow_14d": 0.6,
+    "current_temp": 63.4,
     "conditions": "Mainly Clear"
   },
   {
@@ -1330,7 +1330,7 @@
     "snow_24h": 0.0,
     "snow_48h": 0.0,
     "snow_14d": 0.0,
-    "current_temp": 68.6,
+    "current_temp": 68.5,
     "conditions": "Clear"
   },
   {
@@ -1359,7 +1359,7 @@
     "snow_24h": 0.0,
     "snow_48h": 0.0,
     "snow_14d": 0.0,
-    "current_temp": 70.0,
+    "current_temp": 70.1,
     "conditions": "Clear"
   },
   {
@@ -1387,8 +1387,8 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 1.0,
-    "current_temp": 62.8,
+    "snow_14d": 1.6,
+    "current_temp": 62.7,
     "conditions": "Clear"
   },
   {
@@ -1416,8 +1416,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.7,
-    "current_temp": 67.9,
+    "snow_14d": 0.1,
+    "current_temp": 67.8,
     "conditions": "Clear"
   },
   {
@@ -1445,7 +1445,7 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.8,
+    "snow_14d": 0.7,
     "current_temp": 53.8,
     "conditions": "Clear"
   },
@@ -1474,8 +1474,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.5,
-    "current_temp": 62.6,
+    "snow_14d": 0.6,
+    "current_temp": 63.7,
     "conditions": "Clear"
   },
   {
@@ -1504,8 +1504,8 @@
     "snow_24h": 0.0,
     "snow_48h": 0.0,
     "snow_14d": 0.9,
-    "current_temp": 63.2,
-    "conditions": "Mainly Clear"
+    "current_temp": 63.3,
+    "conditions": "Clear"
   },
   {
     "slug": "china-peak",
@@ -1532,8 +1532,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.4,
-    "current_temp": 64.8,
+    "snow_14d": 0.1,
+    "current_temp": 65.2,
     "conditions": "Clear"
   },
   {
@@ -1562,7 +1562,7 @@
     "snow_24h": 0.0,
     "snow_48h": 0.0,
     "snow_14d": 0.0,
-    "current_temp": 66.3,
+    "current_temp": 66.8,
     "conditions": "Clear"
   },
   {
@@ -1591,7 +1591,7 @@
     "snow_24h": 0.0,
     "snow_48h": 0.0,
     "snow_14d": 0.0,
-    "current_temp": 69.7,
+    "current_temp": 70.0,
     "conditions": "Clear"
   },
   {
@@ -1619,8 +1619,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.3,
-    "current_temp": 64.2,
+    "snow_14d": 0.0,
+    "current_temp": 65.7,
     "conditions": "Clear"
   },
   {
@@ -1648,8 +1648,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.9,
-    "current_temp": 64.5,
+    "snow_14d": 1.3,
+    "current_temp": 65.7,
     "conditions": "Clear"
   },
   {
@@ -1675,10 +1675,10 @@
     "webcam_url": "https://www.crystalmountainresort.com/webcams",
     "timezone": "America/Los_Angeles",
     "operating_season": "Nov-Apr",
-    "snow_24h": 0.6,
-    "snow_48h": 3.2,
-    "snow_14d": 28.8,
-    "current_temp": 36.5,
+    "snow_24h": 0.5,
+    "snow_48h": 2.0,
+    "snow_14d": 13.0,
+    "current_temp": 35.7,
     "conditions": "Light Drizzle"
   },
   {
@@ -1706,9 +1706,9 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 12.7,
-    "current_temp": 42.2,
-    "conditions": "Drizzle"
+    "snow_14d": 7.6,
+    "current_temp": 41.1,
+    "conditions": "Light Rain"
   },
   {
     "slug": "mt-baker",
@@ -1735,8 +1735,8 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.1,
-    "snow_14d": 33.2,
-    "current_temp": 39.3,
+    "snow_14d": 18.6,
+    "current_temp": 39.4,
     "conditions": "Fog"
   },
   {
@@ -1764,8 +1764,8 @@
     "operating_season": "Nov-May",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 8.0,
-    "current_temp": 48.1,
+    "snow_14d": 4.1,
+    "current_temp": 49.0,
     "conditions": "Clear"
   },
   {
@@ -1793,8 +1793,8 @@
     "operating_season": "Nov-May",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 9.9,
-    "current_temp": 44.7,
+    "snow_14d": 5.0,
+    "current_temp": 45.6,
     "conditions": "Clear"
   },
   {
@@ -1822,8 +1822,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 2.4,
-    "current_temp": 47.2,
+    "snow_14d": 0.4,
+    "current_temp": 47.5,
     "conditions": "Clear"
   },
   {
@@ -1851,9 +1851,9 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 11.0,
-    "current_temp": 45.8,
-    "conditions": "Light Drizzle"
+    "snow_14d": 5.4,
+    "current_temp": 44.5,
+    "conditions": "Light Rain"
   },
   {
     "slug": "mt-bachelor",
@@ -1880,7 +1880,7 @@
     "operating_season": "Nov-May",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 5.5,
+    "snow_14d": 3.6,
     "current_temp": 42.3,
     "conditions": "Clear"
   },
@@ -1909,9 +1909,9 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 12.5,
-    "current_temp": 44.3,
-    "conditions": "Overcast"
+    "snow_14d": 8.1,
+    "current_temp": 43.2,
+    "conditions": "Drizzle"
   },
   {
     "slug": "mt-hood-skibowl",
@@ -1938,8 +1938,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 5.7,
-    "current_temp": 56.8,
+    "snow_14d": 3.7,
+    "current_temp": 57.4,
     "conditions": "Overcast"
   },
   {
@@ -1967,8 +1967,8 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 4.4,
-    "current_temp": 39.7,
+    "snow_14d": 1.1,
+    "current_temp": 39.5,
     "conditions": "Overcast"
   },
   {
@@ -1996,9 +1996,9 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 2.3,
-    "current_temp": 46.9,
-    "conditions": "Overcast"
+    "snow_14d": 0.1,
+    "current_temp": 46.4,
+    "conditions": "Partly Cloudy"
   },
   {
     "slug": "mt-spokane",
@@ -2025,8 +2025,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 3.3,
-    "current_temp": 39.3,
+    "snow_14d": 0.8,
+    "current_temp": 40.2,
     "conditions": "Overcast"
   },
   {
@@ -2054,9 +2054,9 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 4.4,
-    "current_temp": 53.9,
-    "conditions": "Partly Cloudy"
+    "snow_14d": 2.6,
+    "current_temp": 55.8,
+    "conditions": "Overcast"
   },
   {
     "slug": "mt-ashland",
@@ -2083,8 +2083,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.3,
-    "current_temp": 63.2,
+    "snow_14d": 0.4,
+    "current_temp": 62.9,
     "conditions": "Clear"
   },
   {
@@ -2112,8 +2112,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 1.9,
-    "current_temp": 59.4,
+    "snow_14d": 1.3,
+    "current_temp": 58.9,
     "conditions": "Clear"
   },
   {
@@ -2141,8 +2141,8 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 1.3,
-    "current_temp": 46.2,
+    "snow_14d": 1.5,
+    "current_temp": 45.8,
     "conditions": "Overcast"
   },
   {
@@ -2170,9 +2170,9 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.7,
-    "current_temp": 50.4,
-    "conditions": "Overcast"
+    "snow_14d": 0.6,
+    "current_temp": 51.9,
+    "conditions": "Clear"
   },
   {
     "slug": "bridger-bowl",
@@ -2199,8 +2199,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 1.2,
-    "current_temp": 47.7,
+    "snow_14d": 0.9,
+    "current_temp": 48.2,
     "conditions": "Overcast"
   },
   {
@@ -2228,8 +2228,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 3.4,
-    "current_temp": 37.8,
+    "snow_14d": 0.4,
+    "current_temp": 39.9,
     "conditions": "Overcast"
   },
   {
@@ -2257,8 +2257,8 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 4.0,
-    "current_temp": 42.2,
+    "snow_14d": 2.9,
+    "current_temp": 43.5,
     "conditions": "Clear"
   },
   {
@@ -2286,7 +2286,7 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 1.9,
+    "snow_14d": 2.1,
     "current_temp": 43.7,
     "conditions": "Mainly Clear"
   },
@@ -2315,8 +2315,8 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.1,
-    "current_temp": 56.2,
+    "snow_14d": 0.6,
+    "current_temp": 56.5,
     "conditions": "Clear"
   },
   {
@@ -2344,8 +2344,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 2.0,
-    "current_temp": 53.4,
+    "snow_14d": 1.7,
+    "current_temp": 52.7,
     "conditions": "Clear"
   },
   {
@@ -2373,9 +2373,9 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.0,
-    "current_temp": 56.8,
-    "conditions": "Mainly Clear"
+    "snow_14d": 0.3,
+    "current_temp": 57.0,
+    "conditions": "Clear"
   },
   {
     "slug": "lookout-pass",
@@ -2402,8 +2402,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.2,
     "snow_48h": 0.2,
-    "snow_14d": 5.3,
-    "current_temp": 40.3,
+    "snow_14d": 1.9,
+    "current_temp": 39.5,
     "conditions": "Light Drizzle"
   },
   {
@@ -2431,9 +2431,9 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 1.7,
-    "current_temp": 46.7,
-    "conditions": "Light Drizzle"
+    "snow_14d": 0.7,
+    "current_temp": 47.2,
+    "conditions": "Overcast"
   },
   {
     "slug": "tamarack",
@@ -2461,7 +2461,7 @@
     "snow_24h": 0.0,
     "snow_48h": 0.0,
     "snow_14d": 0.5,
-    "current_temp": 53.7,
+    "current_temp": 54.3,
     "conditions": "Clear"
   },
   {
@@ -2489,9 +2489,9 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.5,
-    "current_temp": 53.9,
-    "conditions": "Overcast"
+    "snow_14d": 0.6,
+    "current_temp": 54.7,
+    "conditions": "Mainly Clear"
   },
   {
     "slug": "lost-trail",
@@ -2518,9 +2518,9 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 2.5,
-    "current_temp": 42.3,
-    "conditions": "Overcast"
+    "snow_14d": 1.9,
+    "current_temp": 42.4,
+    "conditions": "Partly Cloudy"
   },
   {
     "slug": "discovery",
@@ -2547,9 +2547,9 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 2.8,
-    "current_temp": 37.8,
-    "conditions": "Overcast"
+    "snow_14d": 2.4,
+    "current_temp": 39.0,
+    "conditions": "Partly Cloudy"
   },
   {
     "slug": "montana-snowbowl",
@@ -2576,8 +2576,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.4,
-    "current_temp": 43.3,
+    "snow_14d": 0.2,
+    "current_temp": 42.3,
     "conditions": "Overcast"
   },
   {
@@ -2605,8 +2605,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 2.9,
-    "current_temp": 33.3,
+    "snow_14d": 2.0,
+    "current_temp": 33.8,
     "conditions": "Overcast"
   },
   {
@@ -2633,9 +2633,9 @@
     "timezone": "America/New_York",
     "operating_season": "Oct-May",
     "snow_24h": 0.0,
-    "snow_48h": 0.9,
-    "snow_14d": 7.8,
-    "current_temp": 6.9,
+    "snow_48h": 0.8,
+    "snow_14d": 11.5,
+    "current_temp": 8.4,
     "conditions": "Overcast"
   },
   {
@@ -2661,10 +2661,10 @@
     "webcam_url": "https://www.stowe.com/the-mountain/mountain-conditions/mountain-cams.aspx",
     "timezone": "America/New_York",
     "operating_season": "Nov-Apr",
-    "snow_24h": 0.1,
-    "snow_48h": 0.9,
-    "snow_14d": 6.9,
-    "current_temp": 12.0,
+    "snow_24h": 0.0,
+    "snow_48h": 0.8,
+    "snow_14d": 9.5,
+    "current_temp": 12.8,
     "conditions": "Overcast"
   },
   {
@@ -2690,9 +2690,9 @@
     "webcam_url": "https://www.sugarbush.com/conditions/webcams",
     "timezone": "America/New_York",
     "operating_season": "Nov-Apr",
-    "snow_24h": 0.1,
-    "snow_48h": 0.3,
-    "snow_14d": 5.2,
+    "snow_24h": 0.0,
+    "snow_48h": 0.4,
+    "snow_14d": 9.0,
     "current_temp": 13.8,
     "conditions": "Overcast"
   },
@@ -2720,9 +2720,9 @@
     "timezone": "America/New_York",
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.8,
+    "snow_48h": 1.4,
     "snow_14d": 13.3,
-    "current_temp": 3.9,
+    "current_temp": 4.5,
     "conditions": "Overcast"
   },
   {
@@ -2749,10 +2749,10 @@
     "timezone": "America/New_York",
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.1,
-    "snow_14d": 4.4,
-    "current_temp": 23.1,
-    "conditions": "Mainly Clear"
+    "snow_48h": 0.4,
+    "snow_14d": 5.9,
+    "current_temp": 22.8,
+    "conditions": "Partly Cloudy"
   },
   {
     "slug": "sugarloaf",
@@ -2778,9 +2778,9 @@
     "timezone": "America/New_York",
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.5,
-    "snow_14d": 9.2,
-    "current_temp": 6.1,
+    "snow_48h": 1.1,
+    "snow_14d": 10.0,
+    "current_temp": 6.9,
     "conditions": "Overcast"
   },
   {
@@ -2807,9 +2807,9 @@
     "timezone": "America/New_York",
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.3,
-    "snow_14d": 7.8,
-    "current_temp": 17.7,
+    "snow_48h": 0.5,
+    "snow_14d": 9.8,
+    "current_temp": 17.1,
     "conditions": "Overcast"
   },
   {
@@ -2836,10 +2836,10 @@
     "timezone": "America/New_York",
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.5,
-    "snow_14d": 10.1,
-    "current_temp": 11.3,
-    "conditions": "Overcast"
+    "snow_48h": 0.9,
+    "snow_14d": 13.8,
+    "current_temp": 12.4,
+    "conditions": "Partly Cloudy"
   },
   {
     "slug": "cannon-mountain",
@@ -2865,9 +2865,9 @@
     "timezone": "America/New_York",
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.4,
-    "snow_14d": 12.4,
-    "current_temp": 7.3,
+    "snow_48h": 1.0,
+    "snow_14d": 14.9,
+    "current_temp": 8.1,
     "conditions": "Overcast"
   },
   {
@@ -2894,10 +2894,10 @@
     "timezone": "America/New_York",
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.2,
-    "snow_14d": 4.9,
-    "current_temp": 15.2,
-    "conditions": "Overcast"
+    "snow_48h": 0.3,
+    "snow_14d": 6.6,
+    "current_temp": 15.9,
+    "conditions": "Partly Cloudy"
   },
   {
     "slug": "okemo",
@@ -2923,10 +2923,10 @@
     "timezone": "America/New_York",
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.1,
-    "snow_14d": 3.3,
-    "current_temp": 19.3,
-    "conditions": "Partly Cloudy"
+    "snow_48h": 0.2,
+    "snow_14d": 5.5,
+    "current_temp": 19.5,
+    "conditions": "Clear"
   },
   {
     "slug": "mount-snow",
@@ -2952,9 +2952,9 @@
     "timezone": "America/New_York",
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.3,
-    "snow_14d": 8.3,
-    "current_temp": 10.4,
+    "snow_48h": 0.8,
+    "snow_14d": 8.6,
+    "current_temp": 10.2,
     "conditions": "Overcast"
   },
   {
@@ -2981,9 +2981,9 @@
     "timezone": "America/New_York",
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.6,
-    "snow_14d": 6.3,
-    "current_temp": 14.2,
+    "snow_48h": 0.4,
+    "snow_14d": 8.0,
+    "current_temp": 14.1,
     "conditions": "Overcast"
   },
   {
@@ -3010,9 +3010,9 @@
     "timezone": "America/New_York",
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.2,
-    "snow_14d": 4.3,
-    "current_temp": 24.8,
+    "snow_48h": 0.4,
+    "snow_14d": 6.4,
+    "current_temp": 25.1,
     "conditions": "Partly Cloudy"
   },
   {
@@ -3039,9 +3039,9 @@
     "timezone": "America/New_York",
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.5,
-    "snow_14d": 8.4,
-    "current_temp": 14.3,
+    "snow_48h": 0.8,
+    "snow_14d": 10.2,
+    "current_temp": 14.0,
     "conditions": "Clear"
   },
   {
@@ -3068,10 +3068,10 @@
     "timezone": "America/New_York",
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.4,
-    "snow_14d": 5.9,
+    "snow_48h": 0.3,
+    "snow_14d": 8.6,
     "current_temp": 14.0,
-    "conditions": "Partly Cloudy"
+    "conditions": "Overcast"
   },
   {
     "slug": "bolton-valley",
@@ -3096,9 +3096,9 @@
     "webcam_url": null,
     "timezone": "America/New_York",
     "operating_season": "Dec-Apr",
-    "snow_24h": 0.1,
-    "snow_48h": 0.6,
-    "snow_14d": 8.2,
+    "snow_24h": 0.0,
+    "snow_48h": 0.5,
+    "snow_14d": 9.5,
     "current_temp": 10.5,
     "conditions": "Overcast"
   },
@@ -3126,9 +3126,9 @@
     "timezone": "America/New_York",
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.7,
-    "snow_14d": 4.8,
-    "current_temp": 15.2,
+    "snow_48h": 0.3,
+    "snow_14d": 7.1,
+    "current_temp": 15.1,
     "conditions": "Overcast"
   },
   {
@@ -3155,8 +3155,8 @@
     "timezone": "America/New_York",
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.2,
-    "snow_14d": 5.4,
+    "snow_48h": 0.4,
+    "snow_14d": 8.4,
     "current_temp": 14.2,
     "conditions": "Overcast"
   },
@@ -3184,9 +3184,9 @@
     "timezone": "America/New_York",
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.3,
-    "snow_14d": 6.4,
-    "current_temp": 14.9,
+    "snow_48h": 0.4,
+    "snow_14d": 6.5,
+    "current_temp": 15.2,
     "conditions": "Overcast"
   },
   {
@@ -3214,8 +3214,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.1,
-    "snow_14d": 2.9,
-    "current_temp": 22.0,
+    "snow_14d": 4.8,
+    "current_temp": 22.3,
     "conditions": "Partly Cloudy"
   },
   {
@@ -3242,9 +3242,9 @@
     "timezone": "America/New_York",
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.3,
-    "snow_14d": 7.7,
-    "current_temp": 18.5,
+    "snow_48h": 0.7,
+    "snow_14d": 10.8,
+    "current_temp": 19.0,
     "conditions": "Mainly Clear"
   },
   {
@@ -3271,10 +3271,10 @@
     "timezone": "America/New_York",
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.1,
-    "snow_14d": 3.6,
-    "current_temp": 25.9,
-    "conditions": "Mainly Clear"
+    "snow_48h": 0.3,
+    "snow_14d": 5.8,
+    "current_temp": 26.0,
+    "conditions": "Partly Cloudy"
   },
   {
     "slug": "gunstock-mountain",
@@ -3300,9 +3300,9 @@
     "timezone": "America/New_York",
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.0,
-    "snow_14d": 3.0,
-    "current_temp": 25.4,
+    "snow_48h": 0.1,
+    "snow_14d": 4.0,
+    "current_temp": 25.6,
     "conditions": "Mainly Clear"
   },
   {
@@ -3330,9 +3330,9 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 3.1,
-    "current_temp": 24.8,
-    "conditions": "Partly Cloudy"
+    "snow_14d": 4.5,
+    "current_temp": 25.3,
+    "conditions": "Mainly Clear"
   },
   {
     "slug": "saddleback-maine",
@@ -3358,9 +3358,9 @@
     "timezone": "America/New_York",
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.6,
-    "snow_14d": 8.8,
-    "current_temp": 7.7,
+    "snow_48h": 0.9,
+    "snow_14d": 8.0,
+    "current_temp": 7.8,
     "conditions": "Overcast"
   },
   {
@@ -3388,9 +3388,9 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.1,
-    "snow_14d": 3.4,
-    "current_temp": 26.8,
-    "conditions": "Mainly Clear"
+    "snow_14d": 4.9,
+    "current_temp": 27.1,
+    "conditions": "Clear"
   },
   {
     "slug": "wachusett-mountain",
@@ -3417,8 +3417,8 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 3.2,
-    "current_temp": 26.5,
+    "snow_14d": 3.1,
+    "current_temp": 26.8,
     "conditions": "Clear"
   },
   {
@@ -3446,9 +3446,9 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 3.3,
-    "current_temp": 22.6,
-    "conditions": "Mainly Clear"
+    "snow_14d": 4.1,
+    "current_temp": 23.0,
+    "conditions": "Partly Cloudy"
   },
   {
     "slug": "berkshire-east",
@@ -3476,7 +3476,7 @@
     "snow_24h": 0.0,
     "snow_48h": 0.0,
     "snow_14d": 3.0,
-    "current_temp": 25.2,
+    "current_temp": 25.4,
     "conditions": "Mainly Clear"
   },
   {
@@ -3503,9 +3503,9 @@
     "timezone": "America/New_York",
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.1,
-    "snow_14d": 3.5,
-    "current_temp": 22.2,
+    "snow_48h": 0.2,
+    "snow_14d": 3.7,
+    "current_temp": 22.4,
     "conditions": "Overcast"
   },
   {
@@ -3531,10 +3531,10 @@
     "webcam_url": "https://www.whiteface.com/webcams",
     "timezone": "America/New_York",
     "operating_season": "Nov-Apr",
-    "snow_24h": 0.1,
+    "snow_24h": 0.0,
     "snow_48h": 0.8,
-    "snow_14d": 14.7,
-    "current_temp": -1.4,
+    "snow_14d": 18.9,
+    "current_temp": -1.9,
     "conditions": "Overcast"
   },
   {
@@ -3562,8 +3562,8 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.2,
-    "snow_14d": 4.7,
-    "current_temp": 16.5,
+    "snow_14d": 8.7,
+    "current_temp": 17.0,
     "conditions": "Clear"
   },
   {
@@ -3590,9 +3590,9 @@
     "timezone": "America/New_York",
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.1,
+    "snow_48h": 0.3,
     "snow_14d": 5.2,
-    "current_temp": 17.4,
+    "current_temp": 17.5,
     "conditions": "Overcast"
   },
   {
@@ -3620,9 +3620,9 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.1,
-    "snow_14d": 3.9,
-    "current_temp": 22.3,
-    "conditions": "Partly Cloudy"
+    "snow_14d": 3.4,
+    "current_temp": 22.8,
+    "conditions": "Mainly Clear"
   },
   {
     "slug": "camelback",
@@ -3649,9 +3649,9 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 3.9,
-    "current_temp": 25.4,
-    "conditions": "Clear"
+    "snow_14d": 1.2,
+    "current_temp": 25.6,
+    "conditions": "Mainly Clear"
   },
   {
     "slug": "jack-frost",
@@ -3678,9 +3678,9 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.1,
-    "snow_14d": 5.7,
-    "current_temp": 23.1,
-    "conditions": "Overcast"
+    "snow_14d": 2.0,
+    "current_temp": 23.2,
+    "conditions": "Clear"
   },
   {
     "slug": "seven-springs",
@@ -3706,9 +3706,9 @@
     "timezone": "America/New_York",
     "operating_season": "Dec-Mar",
     "snow_24h": 0.1,
-    "snow_48h": 0.2,
-    "snow_14d": 5.0,
-    "current_temp": 16.2,
+    "snow_48h": 0.1,
+    "snow_14d": 0.9,
+    "current_temp": 16.0,
     "conditions": "Overcast"
   },
   {
@@ -3734,10 +3734,10 @@
     "webcam_url": "https://www.holidayvalley.com/webcams/",
     "timezone": "America/New_York",
     "operating_season": "Dec-Apr",
-    "snow_24h": 0.2,
-    "snow_48h": 0.4,
-    "snow_14d": 3.9,
-    "current_temp": 14.2,
+    "snow_24h": 0.0,
+    "snow_48h": 0.3,
+    "snow_14d": 2.6,
+    "current_temp": 14.0,
     "conditions": "Overcast"
   },
   {
@@ -3763,10 +3763,10 @@
     "webcam_url": "https://www.snowshoemtn.com/webcams",
     "timezone": "America/New_York",
     "operating_season": "Nov-Apr",
-    "snow_24h": 0.1,
+    "snow_24h": 0.0,
     "snow_48h": 0.2,
-    "snow_14d": 8.5,
-    "current_temp": 7.9,
+    "snow_14d": 0.9,
+    "current_temp": 7.7,
     "conditions": "Light Snow"
   },
   {
@@ -3794,8 +3794,8 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 6.9,
-    "current_temp": 20.9,
+    "snow_14d": 0.1,
+    "current_temp": 20.8,
     "conditions": "Mainly Clear"
   },
   {
@@ -3823,7 +3823,7 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 4.0,
+    "snow_14d": 0.0,
     "current_temp": 26.7,
     "conditions": "Clear"
   },
@@ -3850,10 +3850,10 @@
     "webcam_url": "https://www.wispresort.com/webcams/",
     "timezone": "America/New_York",
     "operating_season": "Dec-Mar",
-    "snow_24h": 0.0,
-    "snow_48h": 0.0,
-    "snow_14d": 3.5,
-    "current_temp": 16.1,
+    "snow_24h": 0.1,
+    "snow_48h": 0.1,
+    "snow_14d": 0.6,
+    "current_temp": 15.8,
     "conditions": "Light Snow"
   },
   {
@@ -3881,8 +3881,8 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 5.0,
-    "current_temp": 16.0,
+    "snow_14d": 0.5,
+    "current_temp": 15.9,
     "conditions": "Overcast"
   },
   {
@@ -3908,10 +3908,10 @@
     "webcam_url": null,
     "timezone": "America/New_York",
     "operating_season": "Dec-Mar",
-    "snow_24h": 0.0,
-    "snow_48h": 0.0,
-    "snow_14d": 7.3,
-    "current_temp": 11.0,
+    "snow_24h": 0.1,
+    "snow_48h": 0.1,
+    "snow_14d": 0.9,
+    "current_temp": 10.9,
     "conditions": "Overcast"
   },
   {
@@ -3938,9 +3938,9 @@
     "timezone": "America/New_York",
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
-    "snow_48h": 0.1,
-    "snow_14d": 2.2,
-    "current_temp": 22.6,
+    "snow_48h": 0.2,
+    "snow_14d": 1.6,
+    "current_temp": 22.9,
     "conditions": "Overcast"
   },
   {
@@ -3968,8 +3968,8 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 3.1,
-    "current_temp": 29.4,
+    "snow_14d": 1.2,
+    "current_temp": 29.2,
     "conditions": "Partly Cloudy"
   },
   {
@@ -3996,9 +3996,9 @@
     "timezone": "America/New_York",
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.2,
-    "snow_14d": 3.3,
-    "current_temp": 19.0,
+    "snow_48h": 0.1,
+    "snow_14d": 3.0,
+    "current_temp": 18.9,
     "conditions": "Overcast"
   },
   {
@@ -4026,8 +4026,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.1,
-    "snow_14d": 3.0,
-    "current_temp": 18.1,
+    "snow_14d": 3.1,
+    "current_temp": 18.2,
     "conditions": "Mainly Clear"
   },
   {
@@ -4054,8 +4054,8 @@
     "timezone": "America/New_York",
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.2,
-    "snow_14d": 4.1,
+    "snow_48h": 0.3,
+    "snow_14d": 4.0,
     "current_temp": 18.3,
     "conditions": "Partly Cloudy"
   },
@@ -4083,9 +4083,9 @@
     "timezone": "America/New_York",
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.2,
-    "snow_14d": 4.7,
-    "current_temp": 16.7,
+    "snow_48h": 0.5,
+    "snow_14d": 5.2,
+    "current_temp": 16.9,
     "conditions": "Partly Cloudy"
   },
   {
@@ -4113,8 +4113,8 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.2,
-    "current_temp": 27.6,
+    "snow_14d": 0.0,
+    "current_temp": 27.9,
     "conditions": "Mainly Clear"
   },
   {
@@ -4142,8 +4142,8 @@
     "operating_season": "Nov-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.7,
-    "current_temp": 17.1,
+    "snow_14d": 0.2,
+    "current_temp": 17.2,
     "conditions": "Mainly Clear"
   },
   {
@@ -4171,8 +4171,8 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.9,
-    "current_temp": 17.6,
+    "snow_14d": 0.2,
+    "current_temp": 17.9,
     "conditions": "Clear"
   },
   {
@@ -4200,7 +4200,7 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.3,
+    "snow_14d": 0.1,
     "current_temp": 18.9,
     "conditions": "Clear"
   },
@@ -4229,8 +4229,8 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 3.8,
-    "current_temp": 29.6,
+    "snow_14d": 0.2,
+    "current_temp": 29.5,
     "conditions": "Clear"
   },
   {
@@ -4258,9 +4258,9 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 2.3,
-    "current_temp": 29.6,
-    "conditions": "Mainly Clear"
+    "snow_14d": 0.5,
+    "current_temp": 29.3,
+    "conditions": "Clear"
   },
   {
     "slug": "whitetail",
@@ -4287,7 +4287,7 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 3.5,
+    "snow_14d": 0.0,
     "current_temp": 27.7,
     "conditions": "Clear"
   },
@@ -4316,8 +4316,8 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 1.7,
-    "current_temp": 30.6,
+    "snow_14d": 0.5,
+    "current_temp": 30.3,
     "conditions": "Overcast"
   },
   {
@@ -4344,9 +4344,9 @@
     "timezone": "America/New_York",
     "operating_season": "Mar-Jun",
     "snow_24h": 0.0,
-    "snow_48h": 0.9,
-    "snow_14d": 14.7,
-    "current_temp": 3.1,
+    "snow_48h": 1.6,
+    "snow_14d": 16.4,
+    "current_temp": 3.6,
     "conditions": "Overcast"
   },
   {
@@ -4374,8 +4374,8 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.0,
-    "current_temp": 55.2,
+    "snow_14d": 0.8,
+    "current_temp": 54.6,
     "conditions": "Clear"
   },
   {
@@ -4403,8 +4403,8 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.9,
-    "current_temp": 47.2,
+    "snow_14d": 0.6,
+    "current_temp": 47.1,
     "conditions": "Clear"
   },
   {
@@ -4432,8 +4432,8 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.4,
-    "current_temp": 60.7,
+    "snow_14d": 0.6,
+    "current_temp": 60.6,
     "conditions": "Clear"
   },
   {
@@ -4461,8 +4461,8 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.8,
-    "current_temp": 48.3,
+    "snow_14d": 0.7,
+    "current_temp": 47.8,
     "conditions": "Clear"
   },
   {
@@ -4491,7 +4491,7 @@
     "snow_24h": 0.0,
     "snow_48h": 0.0,
     "snow_14d": 0.0,
-    "current_temp": 48.1,
+    "current_temp": 48.0,
     "conditions": "Clear"
   },
   {
@@ -4519,8 +4519,8 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.0,
-    "current_temp": 58.8,
+    "snow_14d": 0.1,
+    "current_temp": 59.0,
     "conditions": "Clear"
   },
   {
@@ -4548,8 +4548,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.1,
-    "current_temp": 56.6,
+    "snow_14d": 0.3,
+    "current_temp": 56.4,
     "conditions": "Clear"
   },
   {
@@ -4577,8 +4577,8 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.2,
-    "current_temp": 58.1,
+    "snow_14d": 0.1,
+    "current_temp": 58.4,
     "conditions": "Clear"
   },
   {
@@ -4604,9 +4604,9 @@
     "webcam_url": "https://www.lutsen.com/webcams",
     "timezone": "America/Chicago",
     "operating_season": "Nov-Apr",
-    "snow_24h": 0.3,
-    "snow_48h": 0.6,
-    "snow_14d": 8.3,
+    "snow_24h": 0.1,
+    "snow_48h": 0.4,
+    "snow_14d": 5.7,
     "current_temp": 12.8,
     "conditions": "Overcast"
   },
@@ -4633,10 +4633,10 @@
     "webcam_url": null,
     "timezone": "America/Chicago",
     "operating_season": "Nov-Mar",
-    "snow_24h": 0.1,
-    "snow_48h": 0.1,
-    "snow_14d": 2.9,
-    "current_temp": 14.6,
+    "snow_24h": 0.0,
+    "snow_48h": 0.0,
+    "snow_14d": 2.1,
+    "current_temp": 14.7,
     "conditions": "Overcast"
   },
   {
@@ -4662,10 +4662,10 @@
     "webcam_url": null,
     "timezone": "America/Chicago",
     "operating_season": "Nov-Mar",
-    "snow_24h": 0.1,
-    "snow_48h": 0.1,
-    "snow_14d": 3.9,
-    "current_temp": 13.3,
+    "snow_24h": 0.0,
+    "snow_48h": 0.0,
+    "snow_14d": 3.5,
+    "current_temp": 13.1,
     "conditions": "Overcast"
   },
   {
@@ -4691,10 +4691,10 @@
     "webcam_url": "https://www.skigranitepeak.com/webcam",
     "timezone": "America/Chicago",
     "operating_season": "Nov-Mar",
-    "snow_24h": 0.5,
-    "snow_48h": 0.7,
-    "snow_14d": 2.0,
-    "current_temp": 15.9,
+    "snow_24h": 0.3,
+    "snow_48h": 0.3,
+    "snow_14d": 1.3,
+    "current_temp": 16.5,
     "conditions": "Overcast"
   },
   {
@@ -4720,10 +4720,10 @@
     "webcam_url": null,
     "timezone": "America/Chicago",
     "operating_season": "Dec-Mar",
-    "snow_24h": 0.1,
-    "snow_48h": 1.0,
-    "snow_14d": 1.8,
-    "current_temp": 17.1,
+    "snow_24h": 0.7,
+    "snow_48h": 0.7,
+    "snow_14d": 0.8,
+    "current_temp": 17.5,
     "conditions": "Overcast"
   },
   {
@@ -4749,10 +4749,10 @@
     "webcam_url": null,
     "timezone": "America/Chicago",
     "operating_season": "Dec-Mar",
-    "snow_24h": 0.3,
-    "snow_48h": 2.6,
-    "snow_14d": 3.2,
-    "current_temp": 19.3,
+    "snow_24h": 2.2,
+    "snow_48h": 2.2,
+    "snow_14d": 2.3,
+    "current_temp": 19.9,
     "conditions": "Overcast"
   },
   {
@@ -4778,11 +4778,11 @@
     "webcam_url": "https://www.boynemountain.com/webcams",
     "timezone": "America/Detroit",
     "operating_season": "Nov-Apr",
-    "snow_24h": 0.6,
+    "snow_24h": 0.2,
     "snow_48h": 0.6,
     "snow_14d": 4.8,
-    "current_temp": 13.8,
-    "conditions": "Overcast"
+    "current_temp": 13.7,
+    "conditions": "Partly Cloudy"
   },
   {
     "slug": "boyne-highlands",
@@ -4808,9 +4808,9 @@
     "timezone": "America/Detroit",
     "operating_season": "Nov-Apr",
     "snow_24h": 0.7,
-    "snow_48h": 0.8,
-    "snow_14d": 6.9,
-    "current_temp": 15.3,
+    "snow_48h": 1.5,
+    "snow_14d": 6.8,
+    "current_temp": 15.2,
     "conditions": "Overcast"
   },
   {
@@ -4836,10 +4836,10 @@
     "webcam_url": null,
     "timezone": "America/Detroit",
     "operating_season": "Dec-Mar",
-    "snow_24h": 0.1,
-    "snow_48h": 0.1,
-    "snow_14d": 2.3,
-    "current_temp": 13.7,
+    "snow_24h": 0.3,
+    "snow_48h": 0.3,
+    "snow_14d": 1.7,
+    "current_temp": 14.0,
     "conditions": "Overcast"
   },
   {
@@ -4865,8 +4865,8 @@
     "webcam_url": null,
     "timezone": "America/Detroit",
     "operating_season": "Dec-Mar",
-    "snow_24h": 0.8,
-    "snow_48h": 0.9,
+    "snow_24h": 0.9,
+    "snow_48h": 1.8,
     "snow_14d": 7.6,
     "current_temp": 13.9,
     "conditions": "Overcast"
@@ -4894,10 +4894,10 @@
     "webcam_url": null,
     "timezone": "America/Chicago",
     "operating_season": "Dec-Mar",
-    "snow_24h": 0.1,
-    "snow_48h": 0.1,
-    "snow_14d": 5.7,
-    "current_temp": 17.9,
+    "snow_24h": 0.0,
+    "snow_48h": 0.0,
+    "snow_14d": 3.3,
+    "current_temp": 17.8,
     "conditions": "Overcast"
   },
   {
@@ -4923,9 +4923,9 @@
     "webcam_url": null,
     "timezone": "America/Detroit",
     "operating_season": "Dec-Mar",
-    "snow_24h": 3.4,
-    "snow_48h": 3.6,
-    "snow_14d": 15.0,
+    "snow_24h": 3.1,
+    "snow_48h": 4.6,
+    "snow_14d": 13.4,
     "current_temp": 4.4,
     "conditions": "Clear"
   },
@@ -4953,9 +4953,9 @@
     "timezone": "America/Detroit",
     "operating_season": "Dec-Mar",
     "snow_24h": 0.1,
-    "snow_48h": 0.1,
-    "snow_14d": 3.2,
-    "current_temp": 14.1,
+    "snow_48h": 0.2,
+    "snow_14d": 2.5,
+    "current_temp": 14.2,
     "conditions": "Overcast"
   },
   {
@@ -4981,10 +4981,10 @@
     "webcam_url": null,
     "timezone": "America/Detroit",
     "operating_season": "Dec-Mar",
-    "snow_24h": 0.3,
-    "snow_48h": 0.3,
-    "snow_14d": 2.3,
-    "current_temp": 13.4,
+    "snow_24h": 0.4,
+    "snow_48h": 0.5,
+    "snow_14d": 2.1,
+    "current_temp": 13.6,
     "conditions": "Overcast"
   },
   {
@@ -5010,10 +5010,10 @@
     "webcam_url": null,
     "timezone": "America/Chicago",
     "operating_season": "Dec-Mar",
-    "snow_24h": 0.1,
-    "snow_48h": 0.1,
-    "snow_14d": 1.1,
-    "current_temp": 14.8,
+    "snow_24h": 0.4,
+    "snow_48h": 0.4,
+    "snow_14d": 0.6,
+    "current_temp": 14.5,
     "conditions": "Light Snow"
   },
   {
@@ -5041,8 +5041,8 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.8,
-    "current_temp": 16.0,
+    "snow_14d": 0.1,
+    "current_temp": 15.4,
     "conditions": "Light Snow"
   },
   {
@@ -5071,7 +5071,7 @@
     "snow_24h": 0.0,
     "snow_48h": 0.0,
     "snow_14d": 0.0,
-    "current_temp": 33.0,
+    "current_temp": 33.6,
     "conditions": "Overcast"
   },
   {
@@ -5099,8 +5099,8 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.6,
-    "current_temp": 23.9,
+    "snow_14d": 0.0,
+    "current_temp": 23.7,
     "conditions": "Partly Cloudy"
   },
   {
@@ -5127,9 +5127,9 @@
     "timezone": "America/New_York",
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
-    "snow_48h": 0.1,
-    "snow_14d": 1.3,
-    "current_temp": 21.7,
+    "snow_48h": 0.0,
+    "snow_14d": 0.1,
+    "current_temp": 21.1,
     "conditions": "Overcast"
   },
   {
@@ -5157,8 +5157,8 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 3.3,
-    "current_temp": 18.1,
+    "snow_14d": 0.3,
+    "current_temp": 18.5,
     "conditions": "Partly Cloudy"
   },
   {
@@ -5186,8 +5186,8 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 5.7,
-    "current_temp": 18.2,
+    "snow_14d": 0.4,
+    "current_temp": 18.3,
     "conditions": "Light Snow"
   },
   {
@@ -5213,10 +5213,10 @@
     "webcam_url": null,
     "timezone": "America/Chicago",
     "operating_season": "Dec-Mar",
-    "snow_24h": 0.1,
-    "snow_48h": 0.1,
-    "snow_14d": 1.7,
-    "current_temp": 19.6,
+    "snow_24h": 0.0,
+    "snow_48h": 0.0,
+    "snow_14d": 0.0,
+    "current_temp": 19.2,
     "conditions": "Overcast"
   },
   {
@@ -5245,7 +5245,7 @@
     "snow_24h": 0.0,
     "snow_48h": 0.0,
     "snow_14d": 0.0,
-    "current_temp": 30.1,
+    "current_temp": 30.5,
     "conditions": "Clear"
   },
   {
@@ -5274,7 +5274,7 @@
     "snow_24h": 0.0,
     "snow_48h": 0.0,
     "snow_14d": 0.0,
-    "current_temp": 37.0,
+    "current_temp": 36.7,
     "conditions": "Overcast"
   },
   {
@@ -5302,8 +5302,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 3.6,
-    "current_temp": 27.6,
+    "snow_14d": 2.8,
+    "current_temp": 27.5,
     "conditions": "Mainly Clear"
   },
   {
@@ -5331,8 +5331,8 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 2.9,
-    "current_temp": 25.2,
+    "snow_14d": 2.0,
+    "current_temp": 25.4,
     "conditions": "Clear"
   },
   {
@@ -5360,7 +5360,7 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.1,
-    "snow_14d": 2.5,
+    "snow_14d": 2.1,
     "current_temp": 24.5,
     "conditions": "Overcast"
   },
@@ -5387,9 +5387,9 @@
     "webcam_url": null,
     "timezone": "America/Detroit",
     "operating_season": "Dec-Apr",
-    "snow_24h": 0.2,
-    "snow_48h": 0.8,
-    "snow_14d": 8.8,
+    "snow_24h": 0.1,
+    "snow_48h": 1.0,
+    "snow_14d": 5.5,
     "current_temp": 13.2,
     "conditions": "Partly Cloudy"
   },
@@ -5416,10 +5416,10 @@
     "webcam_url": null,
     "timezone": "America/Chicago",
     "operating_season": "Dec-Mar",
-    "snow_24h": 0.1,
-    "snow_48h": 0.1,
-    "snow_14d": 1.9,
-    "current_temp": 18.9,
+    "snow_24h": 0.0,
+    "snow_48h": 0.0,
+    "snow_14d": 0.0,
+    "current_temp": 18.6,
     "conditions": "Overcast"
   },
   {
@@ -5447,8 +5447,8 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 3.1,
-    "current_temp": 46.1,
+    "snow_14d": 1.3,
+    "current_temp": 46.5,
     "conditions": "Clear"
   },
   {
@@ -5476,8 +5476,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 2.8,
-    "current_temp": 47.8,
+    "snow_14d": 1.5,
+    "current_temp": 48.2,
     "conditions": "Clear"
   },
   {
@@ -5506,7 +5506,7 @@
     "snow_24h": 0.0,
     "snow_48h": 0.0,
     "snow_14d": 0.0,
-    "current_temp": 66.3,
+    "current_temp": 65.8,
     "conditions": "Clear"
   },
   {
@@ -5535,7 +5535,7 @@
     "snow_24h": 0.0,
     "snow_48h": 0.0,
     "snow_14d": 0.2,
-    "current_temp": 58.5,
+    "current_temp": 58.7,
     "conditions": "Clear"
   },
   {
@@ -5563,8 +5563,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 5.9,
-    "current_temp": 34.3,
+    "snow_14d": 12.2,
+    "current_temp": 34.1,
     "conditions": "Clear"
   },
   {
@@ -5592,8 +5592,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 2.4,
-    "current_temp": 46.3,
+    "snow_14d": 2.5,
+    "current_temp": 46.2,
     "conditions": "Clear"
   },
   {
@@ -5621,8 +5621,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 3.9,
-    "current_temp": 33.6,
+    "snow_14d": 0.9,
+    "current_temp": 33.3,
     "conditions": "Overcast"
   },
   {
@@ -5650,8 +5650,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.4,
-    "current_temp": 46.5,
+    "snow_14d": 0.1,
+    "current_temp": 45.7,
     "conditions": "Fog"
   },
   {
@@ -5679,8 +5679,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 1.4,
-    "current_temp": 63.8,
+    "snow_14d": 1.5,
+    "current_temp": 64.5,
     "conditions": "Clear"
   },
   {
@@ -5708,7 +5708,7 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 8.5,
+    "snow_14d": 0.1,
     "current_temp": 17.9,
     "conditions": "Overcast"
   },
@@ -5737,8 +5737,8 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.1,
-    "current_temp": 27.8,
+    "snow_14d": 0.0,
+    "current_temp": 27.1,
     "conditions": "Clear"
   },
   {
@@ -5766,8 +5766,8 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.7,
-    "current_temp": 63.5,
+    "snow_14d": 0.1,
+    "current_temp": 64.1,
     "conditions": "Clear"
   },
   {
@@ -5795,8 +5795,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 2.1,
-    "current_temp": 51.1,
+    "snow_14d": 1.1,
+    "current_temp": 51.5,
     "conditions": "Overcast"
   },
   {
@@ -5851,9 +5851,9 @@
     "webcam_url": null,
     "timezone": "America/Detroit",
     "operating_season": "Dec-Mar",
-    "snow_24h": 0.0,
+    "snow_24h": 0.2,
     "snow_48h": 0.2,
-    "snow_14d": 3.1,
+    "snow_14d": 3.9,
     "current_temp": 21.3,
     "conditions": "Partly Cloudy"
   },
@@ -5882,7 +5882,7 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 0.2,
+    "snow_14d": 0.1,
     "current_temp": 20.5,
     "conditions": "Partly Cloudy"
   },
@@ -5909,9 +5909,9 @@
     "webcam_url": "https://www.whistlerblackcomb.com/the-mountain/mountain-conditions/mountain-cams.aspx",
     "timezone": "America/Vancouver",
     "operating_season": "Nov-May",
-    "snow_24h": 0.4,
-    "snow_48h": 2.5,
-    "snow_14d": 13.4,
+    "snow_24h": 0.5,
+    "snow_48h": 3.6,
+    "snow_14d": 13.5,
     "current_temp": 44.6,
     "conditions": "Light Rain"
   },
@@ -6026,8 +6026,8 @@
     "timezone": "America/Vancouver",
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.1,
-    "snow_14d": 6.5,
+    "snow_48h": 0.3,
+    "snow_14d": 6.3,
     "current_temp": 38.5,
     "conditions": "Overcast"
   },
@@ -6083,7 +6083,7 @@
     "webcam_url": "https://skifernie.com/webcams/",
     "timezone": "America/Edmonton",
     "operating_season": "Dec-Apr",
-    "snow_24h": 0.0,
+    "snow_24h": 0.2,
     "snow_48h": 0.4,
     "snow_14d": 8.9,
     "current_temp": 51.3,
@@ -6112,9 +6112,9 @@
     "webcam_url": "https://www.skilouise.com/webcams/",
     "timezone": "America/Edmonton",
     "operating_season": "Nov-May",
-    "snow_24h": 0.7,
-    "snow_48h": 2.5,
-    "snow_14d": 16.5,
+    "snow_24h": 0.9,
+    "snow_48h": 2.8,
+    "snow_14d": 16.2,
     "current_temp": 38.4,
     "conditions": "Light Drizzle"
   },
@@ -6141,9 +6141,9 @@
     "webcam_url": "https://www.skibanff.com/webcams/",
     "timezone": "America/Edmonton",
     "operating_season": "Nov-May",
-    "snow_24h": 7.1,
-    "snow_48h": 13.1,
-    "snow_14d": 28.6,
+    "snow_24h": 5.3,
+    "snow_48h": 11.6,
+    "snow_14d": 25.3,
     "current_temp": 29.4,
     "conditions": "Snow"
   },
@@ -6199,9 +6199,9 @@
     "webcam_url": "https://www.skimarmot.com/webcams/",
     "timezone": "America/Edmonton",
     "operating_season": "Nov-May",
-    "snow_24h": 2.2,
-    "snow_48h": 2.3,
-    "snow_14d": 14.0,
+    "snow_24h": 1.0,
+    "snow_48h": 1.7,
+    "snow_14d": 11.8,
     "current_temp": 35.2,
     "conditions": "Light Rain"
   },
@@ -6228,7 +6228,7 @@
     "webcam_url": "https://www.tremblant.ca/webcams",
     "timezone": "America/Toronto",
     "operating_season": "Nov-Apr",
-    "snow_24h": 0.0,
+    "snow_24h": 0.1,
     "snow_48h": 1.5,
     "snow_14d": 4.5,
     "current_temp": 8.7,
@@ -6257,9 +6257,9 @@
     "webcam_url": "https://www.bluemountain.ca/webcams",
     "timezone": "America/Toronto",
     "operating_season": "Dec-Apr",
-    "snow_24h": 0.1,
-    "snow_48h": 0.3,
-    "snow_14d": 1.5,
+    "snow_24h": 0.2,
+    "snow_48h": 0.5,
+    "snow_14d": 0.8,
     "current_temp": 15.6,
     "conditions": "Partly Cloudy"
   },
@@ -6287,8 +6287,8 @@
     "timezone": "America/Toronto",
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.7,
-    "snow_14d": 9.3,
+    "snow_48h": 0.8,
+    "snow_14d": 10.4,
     "current_temp": 10.9,
     "conditions": "Partly Cloudy"
   },
@@ -6317,7 +6317,7 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.6,
-    "snow_14d": 10.3,
+    "snow_14d": 12.2,
     "current_temp": 4.2,
     "conditions": "Mainly Clear"
   },
@@ -6345,8 +6345,8 @@
     "timezone": "America/Edmonton",
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.1,
-    "snow_14d": 7.9,
+    "snow_48h": 0.2,
+    "snow_14d": 7.7,
     "current_temp": 41.7,
     "conditions": "Light Drizzle"
   },
@@ -6462,7 +6462,7 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 4.5,
+    "snow_14d": 4.7,
     "current_temp": 41.0,
     "conditions": "Light Rain Showers"
   },
@@ -6491,7 +6491,7 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 23.5,
+    "snow_14d": 23.8,
     "current_temp": 41.3,
     "conditions": "Overcast"
   },
@@ -6520,7 +6520,7 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 12.2,
+    "snow_14d": 12.5,
     "current_temp": 41.2,
     "conditions": "Overcast"
   },
@@ -6547,9 +6547,9 @@
     "webcam_url": "https://www.mountwashington.ca/webcams",
     "timezone": "America/Vancouver",
     "operating_season": "Dec-Apr",
-    "snow_24h": 0.1,
-    "snow_48h": 0.1,
-    "snow_14d": 5.3,
+    "snow_24h": 0.0,
+    "snow_48h": 0.0,
+    "snow_14d": 5.6,
     "current_temp": 39.0,
     "conditions": "Light Drizzle"
   },
@@ -6634,8 +6634,8 @@
     "webcam_url": null,
     "timezone": "America/Vancouver",
     "operating_season": "Dec-Apr",
-    "snow_24h": 1.1,
-    "snow_48h": 3.5,
+    "snow_24h": 3.9,
+    "snow_48h": 4.5,
     "snow_14d": 12.5,
     "current_temp": 40.2,
     "conditions": "Overcast"
@@ -6663,9 +6663,9 @@
     "webcam_url": null,
     "timezone": "America/Vancouver",
     "operating_season": "Dec-Apr",
-    "snow_24h": 3.7,
-    "snow_48h": 3.7,
-    "snow_14d": 8.7,
+    "snow_24h": 3.3,
+    "snow_48h": 4.1,
+    "snow_14d": 8.3,
     "current_temp": 25.3,
     "conditions": "Partly Cloudy"
   },
@@ -6692,9 +6692,9 @@
     "webcam_url": null,
     "timezone": "America/Vancouver",
     "operating_season": "Dec-Apr",
-    "snow_24h": 7.4,
-    "snow_48h": 8.1,
-    "snow_14d": 30.9,
+    "snow_24h": 6.8,
+    "snow_48h": 7.5,
+    "snow_14d": 30.4,
     "current_temp": 17.9,
     "conditions": "Light Snow"
   },
@@ -6721,9 +6721,9 @@
     "webcam_url": null,
     "timezone": "America/Vancouver",
     "operating_season": "Dec-Mar",
-    "snow_24h": 0.8,
-    "snow_48h": 0.9,
-    "snow_14d": 12.9,
+    "snow_24h": 0.0,
+    "snow_48h": 0.2,
+    "snow_14d": 12.2,
     "current_temp": 43.9,
     "conditions": "Light Rain Showers"
   },
@@ -6750,9 +6750,9 @@
     "webcam_url": "https://www.skicastle.ca/webcams/",
     "timezone": "America/Edmonton",
     "operating_season": "Dec-Apr",
-    "snow_24h": 0.8,
-    "snow_48h": 0.8,
-    "snow_14d": 4.0,
+    "snow_24h": 0.1,
+    "snow_48h": 0.1,
+    "snow_14d": 3.5,
     "current_temp": 43.8,
     "conditions": "Mainly Clear"
   },
@@ -6781,7 +6781,7 @@
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 7.7,
+    "snow_14d": 7.8,
     "current_temp": 39.4,
     "conditions": "Light Drizzle"
   },
@@ -6810,7 +6810,7 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 1.4,
+    "snow_14d": 1.8,
     "current_temp": 49.4,
     "conditions": "Clear"
   },
@@ -6837,9 +6837,9 @@
     "webcam_url": null,
     "timezone": "America/Edmonton",
     "operating_season": "Dec-Mar",
-    "snow_24h": 0.1,
-    "snow_48h": 0.2,
-    "snow_14d": 2.6,
+    "snow_24h": 0.2,
+    "snow_48h": 0.4,
+    "snow_14d": 2.7,
     "current_temp": 45.5,
     "conditions": "Clear"
   },
@@ -6868,7 +6868,7 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 1.0,
-    "snow_14d": 10.0,
+    "snow_14d": 11.0,
     "current_temp": 10.3,
     "conditions": "Partly Cloudy"
   },
@@ -6896,8 +6896,8 @@
     "timezone": "America/Toronto",
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.5,
-    "snow_14d": 1.8,
+    "snow_48h": 0.7,
+    "snow_14d": 2.4,
     "current_temp": 10.5,
     "conditions": "Overcast"
   },
@@ -6925,8 +6925,8 @@
     "timezone": "America/Toronto",
     "operating_season": "Nov-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.6,
-    "snow_14d": 1.1,
+    "snow_48h": 0.8,
+    "snow_14d": 1.6,
     "current_temp": 14.0,
     "conditions": "Mainly Clear"
   },
@@ -6954,8 +6954,8 @@
     "timezone": "America/Toronto",
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.5,
-    "snow_14d": 1.1,
+    "snow_48h": 0.7,
+    "snow_14d": 2.2,
     "current_temp": 11.5,
     "conditions": "Mainly Clear"
   },
@@ -6983,8 +6983,8 @@
     "timezone": "America/Toronto",
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
-    "snow_48h": 0.3,
-    "snow_14d": 1.1,
+    "snow_48h": 0.5,
+    "snow_14d": 2.0,
     "current_temp": 13.1,
     "conditions": "Partly Cloudy"
   },
@@ -7012,8 +7012,8 @@
     "timezone": "America/Toronto",
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
-    "snow_48h": 1.1,
-    "snow_14d": 10.3,
+    "snow_48h": 1.2,
+    "snow_14d": 11.5,
     "current_temp": 9.5,
     "conditions": "Partly Cloudy"
   },
@@ -7040,9 +7040,9 @@
     "webcam_url": null,
     "timezone": "America/Toronto",
     "operating_season": "Dec-Apr",
-    "snow_24h": 0.0,
-    "snow_48h": 0.9,
-    "snow_14d": 4.7,
+    "snow_24h": 0.1,
+    "snow_48h": 0.8,
+    "snow_14d": 5.2,
     "current_temp": 6.9,
     "conditions": "Clear"
   },
@@ -7069,9 +7069,9 @@
     "webcam_url": null,
     "timezone": "America/Toronto",
     "operating_season": "Dec-Apr",
-    "snow_24h": 0.0,
+    "snow_24h": 0.2,
     "snow_48h": 1.7,
-    "snow_14d": 5.2,
+    "snow_14d": 5.4,
     "current_temp": 5.7,
     "conditions": "Mainly Clear"
   },
@@ -7098,7 +7098,7 @@
     "webcam_url": "https://www.tremblant.ca/webcams",
     "timezone": "America/Toronto",
     "operating_season": "Nov-Apr",
-    "snow_24h": 0.0,
+    "snow_24h": 0.1,
     "snow_48h": 1.5,
     "snow_14d": 4.5,
     "current_temp": 8.7,
@@ -7127,9 +7127,9 @@
     "webcam_url": null,
     "timezone": "America/Toronto",
     "operating_season": "Dec-Mar",
-    "snow_24h": 0.7,
+    "snow_24h": 0.6,
     "snow_48h": 0.9,
-    "snow_14d": 2.3,
+    "snow_14d": 1.4,
     "current_temp": 15.3,
     "conditions": "Light Snow"
   },
@@ -7158,7 +7158,7 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.8,
     "snow_48h": 1.1,
-    "snow_14d": 2.5,
+    "snow_14d": 1.5,
     "current_temp": 14.7,
     "conditions": "Snow"
   },
@@ -7185,9 +7185,9 @@
     "webcam_url": null,
     "timezone": "America/Toronto",
     "operating_season": "Dec-Mar",
-    "snow_24h": 2.4,
-    "snow_48h": 2.5,
-    "snow_14d": 5.3,
+    "snow_24h": 2.3,
+    "snow_48h": 2.9,
+    "snow_14d": 5.2,
     "current_temp": 6.2,
     "conditions": "Clear"
   },
@@ -7214,9 +7214,9 @@
     "webcam_url": null,
     "timezone": "America/Toronto",
     "operating_season": "Dec-Mar",
-    "snow_24h": 0.3,
-    "snow_48h": 1.0,
-    "snow_14d": 1.9,
+    "snow_24h": 0.7,
+    "snow_48h": 1.1,
+    "snow_14d": 1.5,
     "current_temp": 14.9,
     "conditions": "Partly Cloudy"
   },
@@ -7243,9 +7243,9 @@
     "webcam_url": null,
     "timezone": "America/Toronto",
     "operating_season": "Dec-Mar",
-    "snow_24h": 0.0,
+    "snow_24h": 0.3,
     "snow_48h": 0.5,
-    "snow_14d": 0.9,
+    "snow_14d": 0.7,
     "current_temp": 14.5,
     "conditions": "Mainly Clear"
   },
@@ -7274,7 +7274,7 @@
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
     "snow_48h": 0.1,
-    "snow_14d": 8.7,
+    "snow_14d": 6.2,
     "current_temp": 30.5,
     "conditions": "Clear"
   },
@@ -7303,8 +7303,8 @@
     "operating_season": "Dec-Apr",
     "snow_24h": 0.0,
     "snow_48h": 0.0,
-    "snow_14d": 11.1,
-    "current_temp": 31.5,
+    "snow_14d": 12.2,
+    "current_temp": 31.6,
     "conditions": "Overcast"
   },
   {
@@ -7331,9 +7331,9 @@
     "timezone": "America/St_Johns",
     "operating_season": "Dec-Apr",
     "snow_24h": 0.9,
-    "snow_48h": 1.0,
-    "snow_14d": 25.1,
-    "current_temp": 42.7,
+    "snow_48h": 0.9,
+    "snow_14d": 23.8,
+    "current_temp": 42.4,
     "conditions": "Rain"
   },
   {
@@ -7360,9 +7360,9 @@
     "timezone": "America/Moncton",
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
-    "snow_48h": 0.0,
-    "snow_14d": 7.0,
-    "current_temp": 35.2,
+    "snow_48h": 0.1,
+    "snow_14d": 8.1,
+    "current_temp": 35.0,
     "conditions": "Overcast"
   },
   {
@@ -7388,10 +7388,10 @@
     "webcam_url": null,
     "timezone": "America/Toronto",
     "operating_season": "Dec-Mar",
-    "snow_24h": 0.0,
-    "snow_48h": 1.2,
-    "snow_14d": 5.1,
-    "current_temp": 10.5,
+    "snow_24h": 0.6,
+    "snow_48h": 1.3,
+    "snow_14d": 6.2,
+    "current_temp": 10.7,
     "conditions": "Clear"
   },
   {
@@ -7417,10 +7417,10 @@
     "webcam_url": null,
     "timezone": "America/Toronto",
     "operating_season": "Dec-Mar",
-    "snow_24h": 0.0,
-    "snow_48h": 1.1,
-    "snow_14d": 4.4,
-    "current_temp": 11.3,
+    "snow_24h": 0.6,
+    "snow_48h": 1.3,
+    "snow_14d": 5.7,
+    "current_temp": 11.5,
     "conditions": "Clear"
   },
   {
@@ -7446,10 +7446,10 @@
     "webcam_url": null,
     "timezone": "America/Toronto",
     "operating_season": "Dec-Mar",
-    "snow_24h": 0.0,
-    "snow_48h": 1.3,
-    "snow_14d": 10.7,
-    "current_temp": 7.7,
+    "snow_24h": 0.2,
+    "snow_48h": 1.6,
+    "snow_14d": 9.0,
+    "current_temp": 7.9,
     "conditions": "Partly Cloudy"
   }
 ]
