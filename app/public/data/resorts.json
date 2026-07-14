@@ -4372,9 +4372,9 @@
     "webcam_url": "https://www.skitaos.com/webcams",
     "timezone": "America/Denver",
     "operating_season": "Nov-Apr",
-    "snow_24h": 0.0,
-    "snow_48h": 0.0,
-    "snow_14d": 0.0,
+    "snow_24h": 1.2,
+    "snow_48h": 1.2,
+    "snow_14d": 1.2,
     "current_temp": 71.2,
     "conditions": "Partly Cloudy"
   },
@@ -4401,9 +4401,9 @@
     "webcam_url": "https://www.skisantafe.com/webcam/",
     "timezone": "America/Denver",
     "operating_season": "Nov-Apr",
-    "snow_24h": 0.0,
-    "snow_48h": 0.3,
-    "snow_14d": 0.3,
+    "snow_24h": 0.2,
+    "snow_48h": 0.2,
+    "snow_14d": 0.2,
     "current_temp": 62.2,
     "conditions": "Mainly Clear"
   },
@@ -4460,8 +4460,8 @@
     "timezone": "America/Denver",
     "operating_season": "Dec-Mar",
     "snow_24h": 0.0,
-    "snow_48h": 0.4,
-    "snow_14d": 0.4,
+    "snow_48h": 0.0,
+    "snow_14d": 0.0,
     "current_temp": 63.7,
     "conditions": "Mainly Clear"
   },
@@ -7275,7 +7275,7 @@
     "snow_24h": 0.0,
     "snow_48h": 0.0,
     "snow_14d": 0.0,
-    "current_temp": 74.6,
+    "current_temp": 74.3,
     "conditions": "Overcast"
   },
   {
@@ -7304,7 +7304,7 @@
     "snow_24h": 0.0,
     "snow_48h": 0.0,
     "snow_14d": 0.0,
-    "current_temp": 66.6,
+    "current_temp": 66.2,
     "conditions": "Clear"
   },
   {
@@ -7333,7 +7333,7 @@
     "snow_24h": 0.0,
     "snow_48h": 0.0,
     "snow_14d": 0.0,
-    "current_temp": 57.0,
+    "current_temp": 56.1,
     "conditions": "Overcast"
   },
   {
@@ -7362,7 +7362,7 @@
     "snow_24h": 0.0,
     "snow_48h": 0.0,
     "snow_14d": 0.0,
-    "current_temp": 66.5,
+    "current_temp": 66.4,
     "conditions": "Overcast"
   },
   {
@@ -7391,7 +7391,7 @@
     "snow_24h": 0.0,
     "snow_48h": 0.0,
     "snow_14d": 0.0,
-    "current_temp": 80.5,
+    "current_temp": 80.1,
     "conditions": "Clear"
   },
   {
@@ -7420,7 +7420,7 @@
     "snow_24h": 0.0,
     "snow_48h": 0.0,
     "snow_14d": 0.0,
-    "current_temp": 82.1,
+    "current_temp": 81.6,
     "conditions": "Clear"
   },
   {
@@ -7449,7 +7449,7 @@
     "snow_24h": 0.0,
     "snow_48h": 0.0,
     "snow_14d": 0.0,
-    "current_temp": 73.7,
+    "current_temp": 73.4,
     "conditions": "Clear"
   }
 ]
